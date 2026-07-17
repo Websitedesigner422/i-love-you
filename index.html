@@ -310,21 +310,17 @@ margin-top:15px;
 
 <body>
 
-<div id="background"></div>
+<script>
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('music');
+    if (audio.paused) {
+      audio.play().catch(function(error) {
+        console.log("Autoplay blocked:", error);
+      });
+    }
+  }, { once: true }); // true تجعل الكود يعمل عند أول ضغطة فقط ولا يتكرر
+</script>
 
-<div id="loading">
-
-<div class="loader"></div>
-
-<div>Loading...</div>
-
-</div>
-
-<audio id="music" loop>
-
-<source src="rohy.mp3" type="audio/mpeg">
-
-</audio>
 
 <!-- صفحة الباسورد -->
 
