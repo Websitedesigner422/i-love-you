@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>هدية خاصة ❤️</title>
 
@@ -18,11 +20,17 @@ box-sizing:border-box;
 font-family:'Cairo',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 
-height:100vh;
+background:linear-gradient(135deg,#ffb6c9,#ffe8ef,#fff8fb);
 
-overflow:hidden;
+overflow-x:hidden;
+
+min-height:100vh;
 
 display:flex;
 
@@ -30,14 +38,13 @@ justify-content:center;
 
 align-items:center;
 
-background:linear-gradient(135deg,#ffb7d5,#ffe7ef,#fff8fb);
+padding:40px 20px;
 
 }
 
-
 /* الخلفية */
 
-#bg{
+#background{
 
 position:fixed;
 
@@ -49,11 +56,41 @@ width:100%;
 
 height:100%;
 
+overflow:hidden;
+
 z-index:-1;
 
 }
 
+.heart{
 
+position:absolute;
+
+bottom:-50px;
+
+color:#fff;
+
+opacity:.6;
+
+animation:fly linear infinite;
+
+}
+
+@keyframes fly{
+
+0%{
+
+transform:translateY(0) rotate(0);
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+}
+
+}
 
 /* شاشة التحميل */
 
@@ -63,7 +100,7 @@ position:fixed;
 
 inset:0;
 
-background:#ff5d94;
+background:linear-gradient(45deg,#ff2f72,#ff8fab);
 
 display:flex;
 
@@ -75,7 +112,7 @@ flex-direction:column;
 
 color:white;
 
-font-size:30px;
+font-size:28px;
 
 font-weight:bold;
 
@@ -85,25 +122,23 @@ transition:1s;
 
 }
 
-
 .loader{
 
-width:80px;
+width:75px;
 
-height:80px;
-
-border-radius:50%;
+height:75px;
 
 border:8px solid rgba(255,255,255,.3);
 
 border-top:8px solid white;
+
+border-radius:50%;
 
 animation:spin 1s linear infinite;
 
 margin-bottom:20px;
 
 }
-
 
 @keyframes spin{
 
@@ -115,41 +150,37 @@ transform:rotate(360deg);
 
 }
 
-
-
 /* الكروت */
 
 .page{
 
 display:none;
 
-width:92%;
+width:100%;
 
-max-width:400px;
+max-width:430px;
+
+background:rgba(255,255,255,.28);
+
+backdrop-filter:blur(18px);
 
 padding:35px;
 
-border-radius:35px;
+border-radius:30px;
 
-background:rgba(255,255,255,.25);
-
-backdrop-filter:blur(15px);
-
-box-shadow:0 20px 50px rgba(255,0,120,.25);
-
-animation:show .6s;
+box-shadow:0 20px 50px rgba(255,0,90,.25);
 
 text-align:center;
 
-}
+animation:show .6s;
 
+}
 
 .page.active{
 
 display:block;
 
 }
-
 
 @keyframes show{
 
@@ -171,8 +202,6 @@ transform:translateY(0);
 
 }
 
-
-
 .logo{
 
 font-size:90px;
@@ -180,7 +209,6 @@ font-size:90px;
 animation:pulse 2s infinite;
 
 }
-
 
 @keyframes pulse{
 
@@ -192,30 +220,27 @@ transform:scale(1.08);
 
 }
 
-
-
 h1{
 
-margin:20px 0;
-
 color:#d81b60;
+
+margin:20px 0;
 
 font-size:30px;
 
 }
 
-
 p{
-
-color:#555;
 
 line-height:2;
 
+color:#555;
+
 margin-bottom:20px;
 
+font-size:17px;
+
 }
-
-
 
 input{
 
@@ -229,15 +254,13 @@ outline:none;
 
 border-radius:30px;
 
-text-align:center;
-
 font-size:18px;
 
-margin-bottom:15px;
+text-align:center;
+
+margin-bottom:20px;
 
 }
-
-
 
 button{
 
@@ -249,35 +272,35 @@ border:none;
 
 border-radius:30px;
 
+background:linear-gradient(45deg,#ff2f72,#ff8fab);
+
+color:white;
+
 font-size:18px;
 
 font-weight:bold;
 
 cursor:pointer;
 
-color:white;
-
-background:linear-gradient(45deg,#ff2f72,#ff8fab);
-
 transition:.3s;
 
 }
 
-
 button:hover{
 
-transform:scale(1.04);
+transform:scale(1.03);
+
+box-shadow:0 12px 30px rgba(255,0,100,.3);
 
 }
 
-
 #error{
 
-margin-top:15px;
-
-color:#c2185b;
+color:#d81b60;
 
 font-weight:bold;
+
+margin-top:15px;
 
 }
 
@@ -287,7 +310,7 @@ font-weight:bold;
 
 <body>
 
-<canvas id="bg"></canvas>
+<div id="background"></div>
 
 <div id="loading">
 
@@ -297,158 +320,62 @@ font-weight:bold;
 
 </div>
 
-<audio id="music" loop controls>
+<audio id="music" loop>
 
-  <source src="rohy.mp3" type="audio/mpeg">
+<source src="rohy.mp3" type="audio/mpeg">
 
 </audio>
 
-
-<!-- شاشة كلمة السر -->
+<!-- صفحة الباسورد -->
 
 <div class="page active" id="login">
 
 <div class="logo">
-
 🔐
-
 </div>
 
 <h1>
-
 هدية خاصة لريهام ❤️
-
 </h1>
 
 <p>
-
-من عبدالله
-
+من عبدالله بكل الحب 🌹
 </p>
 
 <input
-
 id="password"
-
 type="password"
-
-placeholder="اكتبي كلمة السر"
-
->
+placeholder="اكتبي كلمة السر">
 
 <button onclick="login()">
-
 فتح الهدية 🎁
-
 </button>
 
 <div id="error"></div>
 
-</div>
-
-<script>
-
-// شاشة التحميل
-
-setTimeout(()=>{
-
-loading.style.opacity="0";
-
-setTimeout(()=>{
-
-loading.remove();
-
-},1000);
-
-},2500);
-
-
-// خلفية متحركة
-
-const canvas=document.getElementById("bg");
-
-const ctx=canvas.getContext("2d");
-
-canvas.width=innerWidth;
-
-canvas.height=innerHeight;
-
-let stars=[];
-
-for(let i=0;i<80;i++){
-
-stars.push({
-
-x:Math.random()*canvas.width,
-
-y:Math.random()*canvas.height,
-
-r:Math.random()*3+1,
-
-s:Math.random()*2+1
-
-});
-
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="rgba(255,255,255,.8)";
-
-stars.forEach(star=>{
-
-ctx.beginPath();
-
-ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
-
-ctx.fill();
-
-star.y-=star.s;
-
-if(star.y<0){
-
-star.y=canvas.height;
-
-star.x=Math.random()*canvas.width;
-
-}
-
-});
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
-
-</script><!-- الصفحة الرئيسية -->
+</div><!-- الصفحة الرئيسية -->
 
 <div class="page" id="home">
 
-<div class="logo">
-👑
-</div>
+<div class="logo">👑</div>
 
-<h1>
-أهلاً يا ريهام ❤️
-</h1>
+<h1>أهلاً يا ريهام ❤️</h1>
 
 <p>
 
-عبدالله حضرلك مفاجأة بسيطة...
-بس معمولة بكل الحب. 💖
+عبدالله حضرلك هدية بسيطة...
+بس كل كلمة فيها طالعة من القلب. 🌹
 
 </p>
 
 <button onclick="showPage('gift')">
 
-ابدئي الرحلة ✨
+ابدئي المفاجأة ✨
 
 </button>
 
 </div>
+
 
 
 
@@ -457,15 +384,9 @@ animate();
 
 <div class="page" id="gift">
 
-<div class="logo">
-🎁
-</div>
+<div class="logo">🎁</div>
 
-<h1>
-
-الصندوق السري
-
-</h1>
+<h1>الصندوق السري</h1>
 
 <p>
 
@@ -500,24 +421,234 @@ onclick="openGift()">
 
 
 
+
+<!-- صفحة الرسالة -->
+
+<div class="page" id="message">
+
+<div class="logo">💌</div>
+
+<h1>
+
+رسالة من عبدالله
+
+</h1>
+
+<div id="typing"
+
+style="
+
+line-height:2;
+
+font-size:18px;
+
+color:#555;
+
+min-height:180px;
+
+margin:25px 0;
+
+">
+
+</div>
+
+<button onclick="showPage('love')">
+
+كملي ❤️
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- صفحة الحب -->
+
+<div class="page" id="love">
+
+<div class="logo">
+
+❤️
+
+</div>
+
+<h1>
+
+إلى ريهام
+
+</h1>
+
+<p>
+
+ريهام...
+
+وجودك بيخلي أي يوم عادي يبقى أجمل،
+وابتسامتك كفاية تزرع فرحة في القلب.
+
+كل أمنياتي إنك تفضلي بخير،
+وتحققي كل أحلامك،
+وربنا يحفظك ويسعد قلبك في كل خطوة. 🌹
+
+</p>
+
+<button onclick="showPage('end')">
+
+آخر صفحة ✨
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- النهاية -->
+
+<div class="page" id="end">
+
+<div class="logo">
+
+💖
+
+</div>
+
+<h1>
+
+عبدالله ❤️ ريهام
+
+</h1>
+
+<p>
+
+شكراً إنك فتحتي الهدية للنهاية...
+
+أتمنى تكون رسمت ابتسامة جميلة على وشك. ✨
+
+</p>
+
+<div style="font-size:65px">
+
+🌹❤️✨
+
+</div>
+
+<br>
+
+<button onclick="location.reload()">
+
+إعادة الهدية 🔄
+
+</button>
+
+<br><br>
+
+<hr style="border:none;height:1px;background:#ffd6e5;margin:20px 0;">
+
+<p style="font-size:14px;color:#888">
+
+Designed & Developed By
+
+</p>
+
+<h2 style="
+
+font-size:34px;
+
+letter-spacing:3px;
+
+background:linear-gradient(90deg,#ff2f72,#ff8fab,#ffd166,#7cf7ff,#9b5cff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+">
+
+𝒀𝑶𝑼𝑺𝑺𝑬𝑭
+
+</h2>
+
+</div>
+
 <style>
 
 @keyframes giftMove{
 
 50%{
 
-transform:translateY(-12px) rotate(6deg);
+transform:translateY(-12px) rotate(5deg);
 
 }
 
 }
 
 </style>
-
-
-
-
 <script>
+
+// شاشة التحميل
+
+window.onload=()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loading").style.opacity="0";
+
+setTimeout(()=>{
+
+document.getElementById("loading").style.display="none";
+
+},1000);
+
+},2200);
+
+};
+
+
+
+// إنشاء القلوب بالخلفية
+
+const bg=document.getElementById("background");
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"❤":"✨";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.fontSize=(18+Math.random()*25)+"px";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+bg.appendChild(heart);
+
+}
+
+
+
+// التنقل
+
+function showPage(id){
+
+document.querySelectorAll(".page").forEach(p=>{
+
+p.classList.remove("active");
+
+});
+
+document.getElementById(id).classList.add("active");
+
+}
+
+
+
+// فتح الباسورد
 
 function login(){
 
@@ -541,49 +672,27 @@ document.getElementById("error").innerHTML=
 
 
 
-function showPage(id){
-
-document.querySelectorAll(".page")
-
-.forEach(page=>page.classList.remove("active"));
-
-document.getElementById(id)
-
-.classList.add("active");
-
-}
-
-
+// فتح الهدية
 
 function openGift(){
 
-document.getElementById("giftBox")
+document.getElementById("giftBox").innerHTML="💖";
 
-.style.transform="scale(1.2) rotate(20deg)";
+document.getElementById("giftBox").style.transform="scale(1.2)";
+
+heartsExplosion();
 
 setTimeout(()=>{
 
 document.getElementById("giftContent").innerHTML=`
 
-<div style="font-size:70px">
+<p style="margin:20px 0;font-size:20px;color:#e91e63">
 
-💖✨🌹
-
-</div>
-
-<h2 style="margin:20px 0;color:#e91e63">
-
-مفاجأة جميلة ❤️
-
-</h2>
-
-<p style="line-height:2">
-
-في رسالة خاصة مستنياكي...
+المفاجأة جاهزة ✨
 
 </p>
 
-<button onclick="showPage('message')">
+<button onclick="showPage('message');typeWriter();">
 
 فتح الرسالة 💌
 
@@ -595,231 +704,23 @@ document.getElementById("giftContent").innerHTML=`
 
 }
 
-</script><!-- صفحة الرسالة -->
 
-<div class="page" id="message">
 
-<div class="logo">
-💌
-</div>
+// الرسالة
 
-<h1>
-رسالة من عبدالله ❤️
-</h1>
+const text=`ريهام ❤️
 
-<div id="typing" style="
-min-height:180px;
-line-height:2;
-font-size:18px;
-color:#444;
-margin:20px 0;
-"></div>
+من أول ما عرفتك وأنا نفسي أشوفك مبسوطة دايمًا.
 
-<button onclick="showPage('gallery')">
-التالي 📸
-</button>
+كل كلمة في الموقع ده معمولة مخصوص علشان ترسم ابتسامة على وشك.
 
-</div>
-
-
-
-
-
-<!-- معرض الصور -->
-
-<div class="page" id="gallery">
-
-<div class="logo">
-📸
-</div>
-
-<h1>
-ذكريات جميلة
-</h1>
-
-<p>
-تقدري تحطي صوركم هنا
-</p>
-
-<div class="gallery">
-
-<img src="1.jpg">
-
-<img src="2.jpg">
-
-<img src="3.jpg">
-
-<img src="4.jpg">
-
-</div>
-
-<button onclick="showPage('final')">
-آخر مفاجأة ❤️
-</button>
-
-</div>
-
-
-
-
-
-
-<!-- النهاية -->
-
-<div class="page" id="final">
-
-<div class="logo">
-💖
-</div>
-
-<h1>
-عبدالله ❤️ ريهام
-</h1>
-
-<p>
-
-أتمنى تكون الهدية عجبتك.
-
-<br><br>
-
-ربنا يديم الضحكة على وشك،
-وكل أيامك تكون سعادة. 🌹
-
-</p>
-
-<div style="
-font-size:70px;
-margin:20px 0;
-animation:pulse 2s infinite;
-">
-
-💖✨🌹🎆
-
-</div>
-
-<button onclick="location.reload()">
-
-إعادة الهدية 🔄
-
-</button>
-
-<br><br>
-
-<div class="footer">
-
-⚡ Designed & Developed By ⚡
-
-<br><br>
-
-<span>
-
-𝒀𝑶𝑼𝑺𝑺𝑬𝑭
-
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<style>
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:12px;
-
-margin:20px 0;
-
-}
-
-.gallery img{
-
-width:100%;
-
-height:150px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-transition:.4s;
-
-cursor:pointer;
-
-}
-
-.gallery img:hover{
-
-transform:scale(1.08);
-
-}
-
-.footer{
-
-font-size:14px;
-
-color:#777;
-
-}
-
-.footer span{
-
-font-size:30px;
-
-font-weight:900;
-
-background:linear-gradient(90deg,#ff2f72,#ffd166,#7cf7ff,#9b5cff);
-
-background-size:300%;
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-animation:shine 4s linear infinite;
-
-}
-
-@keyframes shine{
-
-100%{
-
-background-position:300%;
-
-}
-
-}
-
-</style>
-
-<script>
-
-const message=
-
-`ريهام ❤️
-
-حبيت أعمل الموقع ده مخصوص ليكي.
-
-يمكن يكون بسيط،
-لكن معمول بكل اهتمام.
-
-أتمنى تشوفي أيام كلها فرح،
-وتفضلي دايمًا مبتسمة.
+أتمنى تفضلي دايمًا بخير وسعادة وربنا يحققلك كل أحلامك.
 
 من عبدالله 🌹`;
 
-
-
 let index=0;
 
-function typeMessage(){
+function typeWriter(){
 
 document.getElementById("typing").innerHTML="";
 
@@ -831,9 +732,9 @@ write();
 
 function write(){
 
-if(index<message.length){
+if(index<text.length){
 
-document.getElementById("typing").innerHTML+=message.charAt(index);
+document.getElementById("typing").innerHTML+=text.charAt(index);
 
 index++;
 
@@ -843,159 +744,13 @@ setTimeout(write,45);
 
 }
 
-const oldShowPage=showPage;
-
-showPage=function(id){
-
-oldShowPage(id);
-
-if(id==="message"){
-
-typeMessage();
-
-}
-
-}
-
-</script><style>
-
-/* زر التحكم في الموسيقى */
-
-.musicBtn{
-
-position:fixed;
-
-top:20px;
-
-left:20px;
-
-width:55px;
-
-height:55px;
-
-border-radius:50%;
-
-border:none;
-
-background:rgba(255,255,255,.3);
-
-backdrop-filter:blur(10px);
-
-font-size:24px;
-
-cursor:pointer;
-
-z-index:999;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-}
-
-
-
-/* تأثير الضغط */
-
-button{
-
-transition:.3s;
-
-}
-
-button:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 12px 30px rgba(255,0,100,.3);
-
-}
-
-
-
-/* لمعان للكروت */
-
-.page{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.page::before{
-
-content:"";
-
-position:absolute;
-
-top:-120%;
-
-left:-40%;
-
-width:70%;
-
-height:300%;
-
-background:rgba(255,255,255,.25);
-
-transform:rotate(25deg);
-
-animation:shineCard 6s infinite;
-
-}
-
-@keyframes shineCard{
-
-100%{
-
-top:120%;
-
-}
-
-}
-
-</style>
-
-<button class="musicBtn" onclick="toggleMusic()">
-
-🎵
-
-</button>
-
-<script>
-
-// تشغيل وإيقاف الموسيقى
-
-const music=document.getElementById("music");
-
-let playing=true;
-
-function toggleMusic(){
-
-if(playing){
-
-music.pause();
-
-document.querySelector(".musicBtn").innerHTML="🔇";
-
-}else{
-
-music.play();
-
-document.querySelector(".musicBtn").innerHTML="🎵";
-
-}
-
-playing=!playing;
-
-}
-
 
 
 // انفجار قلوب
 
-function hearts(){
+function heartsExplosion(){
 
-for(let i=0;i<30;i++){
+for(let i=0;i<25;i++){
 
 let h=document.createElement("div");
 
@@ -1005,11 +760,11 @@ h.style.position="fixed";
 
 h.style.left=Math.random()*100+"vw";
 
-h.style.top="100vh";
+h.style.top="90vh";
 
-h.style.fontSize=(20+Math.random()*25)+"px";
+h.style.fontSize=(18+Math.random()*25)+"px";
 
-h.style.transition="4s linear";
+h.style.transition="3s linear";
 
 document.body.appendChild(h);
 
@@ -1025,38 +780,13 @@ setTimeout(()=>{
 
 h.remove();
 
-},4000);
-
-}
-
-}
-
-
-
-// عند فتح الهدية
-
-const oldOpenGift=openGift;
-
-openGift=function(){
-
-oldOpenGift();
-
-hearts();
-
-}
-
-
-
-// ألعاب نارية بسيطة
-
-setInterval(()=>{
-
-if(document.getElementById("final").classList.contains("active")){
-
-hearts();
-
-}
-
 },3000);
 
+}
+
+}
+
 </script>
+
+</body>
+  </html>
