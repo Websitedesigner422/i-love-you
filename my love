@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>هدية خاصة ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#ffb7d5,#ffe7ef,#fff8fb);
+
+}
+
+
+/* الخلفية */
+
+#bg{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+z-index:-1;
+
+}
+
+
+
+/* شاشة التحميل */
+
+#loading{
+
+position:fixed;
+
+inset:0;
+
+background:#ff5d94;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+color:white;
+
+font-size:30px;
+
+font-weight:bold;
+
+z-index:9999;
+
+transition:1s;
+
+}
+
+
+.loader{
+
+width:80px;
+
+height:80px;
+
+border-radius:50%;
+
+border:8px solid rgba(255,255,255,.3);
+
+border-top:8px solid white;
+
+animation:spin 1s linear infinite;
+
+margin-bottom:20px;
+
+}
+
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/* الكروت */
+
+.page{
+
+display:none;
+
+width:92%;
+
+max-width:400px;
+
+padding:35px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.25);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 20px 50px rgba(255,0,120,.25);
+
+animation:show .6s;
+
+text-align:center;
+
+}
+
+
+.page.active{
+
+display:block;
+
+}
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.logo{
+
+font-size:90px;
+
+animation:pulse 2s infinite;
+
+}
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+
+
+h1{
+
+margin:20px 0;
+
+color:#d81b60;
+
+font-size:30px;
+
+}
+
+
+p{
+
+color:#555;
+
+line-height:2;
+
+margin-bottom:20px;
+
+}
+
+
+
+input{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+outline:none;
+
+border-radius:30px;
+
+text-align:center;
+
+font-size:18px;
+
+margin-bottom:15px;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(45deg,#ff2f72,#ff8fab);
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.04);
+
+}
+
+
+#error{
+
+margin-top:15px;
+
+color:#c2185b;
+
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<div id="loading">
+
+<div class="loader"></div>
+
+<div>Loading...</div>
+
+</div>
+
+<audio id="music" loop>
+
+<source src="روحي.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- شاشة كلمة السر -->
+
+<div class="page active" id="login">
+
+<div class="logo">
+
+🔐
+
+</div>
+
+<h1>
+
+هدية خاصة لريهام ❤️
+
+</h1>
+
+<p>
+
+من عبدالله
+
+</p>
+
+<input
+
+id="password"
+
+type="password"
+
+placeholder="اكتبي كلمة السر"
+
+>
+
+<button onclick="login()">
+
+فتح الهدية 🎁
+
+</button>
+
+<div id="error"></div>
+
+</div>
+
+<script>
+
+// شاشة التحميل
+
+setTimeout(()=>{
+
+loading.style.opacity="0";
+
+setTimeout(()=>{
+
+loading.remove();
+
+},1000);
+
+},2500);
+
+
+// خلفية متحركة
+
+const canvas=document.getElementById("bg");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+
+canvas.height=innerHeight;
+
+let stars=[];
+
+for(let i=0;i<80;i++){
+
+stars.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*3+1,
+
+s:Math.random()*2+1
+
+});
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="rgba(255,255,255,.8)";
+
+stars.forEach(star=>{
+
+ctx.beginPath();
+
+ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+
+ctx.fill();
+
+star.y-=star.s;
+
+if(star.y<0){
+
+star.y=canvas.height;
+
+star.x=Math.random()*canvas.width;
+
+}
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script><!-- الصفحة الرئيسية -->
+
+<div class="page" id="home">
+
+<div class="logo">
+👑
+</div>
+
+<h1>
+أهلاً يا ريهام ❤️
+</h1>
+
+<p>
+
+عبدالله حضرلك مفاجأة بسيطة...
+بس معمولة بكل الحب. 💖
+
+</p>
+
+<button onclick="showPage('gift')">
+
+ابدئي الرحلة ✨
+
+</button>
+
+</div>
+
+
+
+
+<!-- صفحة الهدية -->
+
+<div class="page" id="gift">
+
+<div class="logo">
+🎁
+</div>
+
+<h1>
+
+الصندوق السري
+
+</h1>
+
+<p>
+
+اضغطي على الهدية وافتحي المفاجأة ❤️
+
+</p>
+
+<div id="giftBox"
+
+style="
+
+font-size:120px;
+
+cursor:pointer;
+
+transition:.5s;
+
+animation:giftMove 2s infinite;
+
+"
+
+onclick="openGift()">
+
+🎁
+
+</div>
+
+<div id="giftContent"></div>
+
+</div>
+
+
+
+
+<style>
+
+@keyframes giftMove{
+
+50%{
+
+transform:translateY(-12px) rotate(6deg);
+
+}
+
+}
+
+</style>
+
+
+
+
+<script>
+
+function login(){
+
+let pass=document.getElementById("password").value;
+
+if(pass==="love"){
+
+document.getElementById("music").play();
+
+showPage("home");
+
+}else{
+
+document.getElementById("error").innerHTML=
+
+"❌ كلمة السر غير صحيحة";
+
+}
+
+}
+
+
+
+function showPage(id){
+
+document.querySelectorAll(".page")
+
+.forEach(page=>page.classList.remove("active"));
+
+document.getElementById(id)
+
+.classList.add("active");
+
+}
+
+
+
+function openGift(){
+
+document.getElementById("giftBox")
+
+.style.transform="scale(1.2) rotate(20deg)";
+
+setTimeout(()=>{
+
+document.getElementById("giftContent").innerHTML=`
+
+<div style="font-size:70px">
+
+💖✨🌹
+
+</div>
+
+<h2 style="margin:20px 0;color:#e91e63">
+
+مفاجأة جميلة ❤️
+
+</h2>
+
+<p style="line-height:2">
+
+في رسالة خاصة مستنياكي...
+
+</p>
+
+<button onclick="showPage('message')">
+
+فتح الرسالة 💌
+
+</button>
+
+`;
+
+},700);
+
+}
+
+</script><!-- صفحة الرسالة -->
+
+<div class="page" id="message">
+
+<div class="logo">
+💌
+</div>
+
+<h1>
+رسالة من عبدالله ❤️
+</h1>
+
+<div id="typing" style="
+min-height:180px;
+line-height:2;
+font-size:18px;
+color:#444;
+margin:20px 0;
+"></div>
+
+<button onclick="showPage('gallery')">
+التالي 📸
+</button>
+
+</div>
+
+
+
+
+
+<!-- معرض الصور -->
+
+<div class="page" id="gallery">
+
+<div class="logo">
+📸
+</div>
+
+<h1>
+ذكريات جميلة
+</h1>
+
+<p>
+تقدري تحطي صوركم هنا
+</p>
+
+<div class="gallery">
+
+<img src="1.jpg">
+
+<img src="2.jpg">
+
+<img src="3.jpg">
+
+<img src="4.jpg">
+
+</div>
+
+<button onclick="showPage('final')">
+آخر مفاجأة ❤️
+</button>
+
+</div>
+
+
+
+
+
+
+<!-- النهاية -->
+
+<div class="page" id="final">
+
+<div class="logo">
+💖
+</div>
+
+<h1>
+عبدالله ❤️ ريهام
+</h1>
+
+<p>
+
+أتمنى تكون الهدية عجبتك.
+
+<br><br>
+
+ربنا يديم الضحكة على وشك،
+وكل أيامك تكون سعادة. 🌹
+
+</p>
+
+<div style="
+font-size:70px;
+margin:20px 0;
+animation:pulse 2s infinite;
+">
+
+💖✨🌹🎆
+
+</div>
+
+<button onclick="location.reload()">
+
+إعادة الهدية 🔄
+
+</button>
+
+<br><br>
+
+<div class="footer">
+
+⚡ Designed & Developed By ⚡
+
+<br><br>
+
+<span>
+
+𝒀𝑶𝑼𝑺𝑺𝑬𝑭
+
+</span>
+
+</div>
+
+</div>
+
+
+
+
+
+<style>
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+margin:20px 0;
+
+}
+
+.gallery img{
+
+width:100%;
+
+height:150px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.08);
+
+}
+
+.footer{
+
+font-size:14px;
+
+color:#777;
+
+}
+
+.footer span{
+
+font-size:30px;
+
+font-weight:900;
+
+background:linear-gradient(90deg,#ff2f72,#ffd166,#7cf7ff,#9b5cff);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:shine 4s linear infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+</style>
+
+<script>
+
+const message=
+
+`ريهام ❤️
+
+حبيت أعمل الموقع ده مخصوص ليكي.
+
+يمكن يكون بسيط،
+لكن معمول بكل اهتمام.
+
+أتمنى تشوفي أيام كلها فرح،
+وتفضلي دايمًا مبتسمة.
+
+من عبدالله 🌹`;
+
+
+
+let index=0;
+
+function typeMessage(){
+
+document.getElementById("typing").innerHTML="";
+
+index=0;
+
+write();
+
+}
+
+function write(){
+
+if(index<message.length){
+
+document.getElementById("typing").innerHTML+=message.charAt(index);
+
+index++;
+
+setTimeout(write,45);
+
+}
+
+}
+
+const oldShowPage=showPage;
+
+showPage=function(id){
+
+oldShowPage(id);
+
+if(id==="message"){
+
+typeMessage();
+
+}
+
+}
+
+</script><style>
+
+/* زر التحكم في الموسيقى */
+
+.musicBtn{
+
+position:fixed;
+
+top:20px;
+
+left:20px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+border:none;
+
+background:rgba(255,255,255,.3);
+
+backdrop-filter:blur(10px);
+
+font-size:24px;
+
+cursor:pointer;
+
+z-index:999;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+
+/* تأثير الضغط */
+
+button{
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 12px 30px rgba(255,0,100,.3);
+
+}
+
+
+
+/* لمعان للكروت */
+
+.page{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.page::before{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+
+left:-40%;
+
+width:70%;
+
+height:300%;
+
+background:rgba(255,255,255,.25);
+
+transform:rotate(25deg);
+
+animation:shineCard 6s infinite;
+
+}
+
+@keyframes shineCard{
+
+100%{
+
+top:120%;
+
+}
+
+}
+
+</style>
+
+<button class="musicBtn" onclick="toggleMusic()">
+
+🎵
+
+</button>
+
+<script>
+
+// تشغيل وإيقاف الموسيقى
+
+const music=document.getElementById("music");
+
+let playing=true;
+
+function toggleMusic(){
+
+if(playing){
+
+music.pause();
+
+document.querySelector(".musicBtn").innerHTML="🔇";
+
+}else{
+
+music.play();
+
+document.querySelector(".musicBtn").innerHTML="🎵";
+
+}
+
+playing=!playing;
+
+}
+
+
+
+// انفجار قلوب
+
+function hearts(){
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.innerHTML="❤️";
+
+h.style.position="fixed";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.top="100vh";
+
+h.style.fontSize=(20+Math.random()*25)+"px";
+
+h.style.transition="4s linear";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.style.transform="translateY(-120vh) rotate(720deg)";
+
+h.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+h.remove();
+
+},4000);
+
+}
+
+}
+
+
+
+// عند فتح الهدية
+
+const oldOpenGift=openGift;
+
+openGift=function(){
+
+oldOpenGift();
+
+hearts();
+
+}
+
+
+
+// ألعاب نارية بسيطة
+
+setInterval(()=>{
+
+if(document.getElementById("final").classList.contains("active")){
+
+hearts();
+
+}
+
+},3000);
+
+</script>
