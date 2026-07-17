@@ -42,8 +42,6 @@ padding:40px 20px;
 
 }
 
-/* الخلفية */
-
 #background{
 
 position:fixed;
@@ -79,20 +77,15 @@ animation:fly linear infinite;
 @keyframes fly{
 
 0%{
-
 transform:translateY(0) rotate(0);
-
 }
 
 100%{
-
 transform:translateY(-120vh) rotate(360deg);
-
 }
 
 }
 
-/* شاشة التحميل */
 
 #loading{
 
@@ -150,7 +143,6 @@ transform:rotate(360deg);
 
 }
 
-/* الكروت */
 
 .page{
 
@@ -176,11 +168,13 @@ animation:show .6s;
 
 }
 
+
 .page.active{
 
 display:block;
 
 }
+
 
 @keyframes show{
 
@@ -202,6 +196,7 @@ transform:translateY(0);
 
 }
 
+
 .logo{
 
 font-size:90px;
@@ -209,6 +204,7 @@ font-size:90px;
 animation:pulse 2s infinite;
 
 }
+
 
 @keyframes pulse{
 
@@ -220,6 +216,7 @@ transform:scale(1.08);
 
 }
 
+
 h1{
 
 color:#d81b60;
@@ -229,6 +226,7 @@ margin:20px 0;
 font-size:30px;
 
 }
+
 
 p{
 
@@ -241,6 +239,7 @@ margin-bottom:20px;
 font-size:17px;
 
 }
+
 
 input{
 
@@ -261,6 +260,7 @@ text-align:center;
 margin-bottom:20px;
 
 }
+
 
 button{
 
@@ -286,6 +286,7 @@ transition:.3s;
 
 }
 
+
 button:hover{
 
 transform:scale(1.03);
@@ -293,6 +294,7 @@ transform:scale(1.03);
 box-shadow:0 12px 30px rgba(255,0,100,.3);
 
 }
+
 
 #error{
 
@@ -308,9 +310,7 @@ margin-top:15px;
 
 </head>
 
-<body>
-
-<div id="background"></div>
+<body><div id="background"></div>
 
 <div id="loading">
 
@@ -320,11 +320,13 @@ margin-top:15px;
 
 </div>
 
+
 <audio id="music" loop>
 
 <source src="rohy.mp3" type="audio/mpeg">
 
 </audio>
+
 
 <!-- صفحة الباسورد -->
 
@@ -335,7 +337,7 @@ margin-top:15px;
 </div>
 
 <h1>
-هدية خاصة لريهام ❤️
+هدية خاصة لسما ❤️
 </h1>
 
 <p>
@@ -353,13 +355,16 @@ placeholder="اكتبي كلمة السر">
 
 <div id="error"></div>
 
-</div><!-- الصفحة الرئيسية -->
+</div>
+
+
+<!-- الصفحة الرئيسية -->
 
 <div class="page" id="home">
 
 <div class="logo">👑</div>
 
-<h1>أهلاً يا ريهام ❤️</h1>
+<h1>أهلاً يا سما ❤️</h1>
 
 <p>
 
@@ -379,7 +384,6 @@ placeholder="اكتبي كلمة السر">
 
 
 
-
 <!-- صفحة الهدية -->
 
 <div class="page" id="gift">
@@ -393,6 +397,7 @@ placeholder="اكتبي كلمة السر">
 اضغطي على الهدية وافتحي المفاجأة ❤️
 
 </p>
+
 
 <div id="giftBox"
 
@@ -414,10 +419,10 @@ onclick="openGift()">
 
 </div>
 
+
 <div id="giftContent"></div>
 
 </div>
-
 
 
 
@@ -433,6 +438,7 @@ onclick="openGift()">
 رسالة من عبدالله
 
 </h1>
+
 
 <div id="typing"
 
@@ -451,6 +457,7 @@ margin:25px 0;
 ">
 
 </div>
+
 
 <button onclick="showPage('love')">
 
@@ -474,15 +481,17 @@ margin:25px 0;
 
 </div>
 
+
 <h1>
 
-إلى ريهام
+إلى سما
 
 </h1>
 
+
 <p>
 
-ريهام...
+سما...
 
 وجودك بيخلي أي يوم عادي يبقى أجمل،
 وابتسامتك كفاية تزرع فرحة في القلب.
@@ -492,6 +501,7 @@ margin:25px 0;
 وربنا يحفظك ويسعد قلبك في كل خطوة. 🌹
 
 </p>
+
 
 <button onclick="showPage('end')">
 
@@ -515,11 +525,13 @@ margin:25px 0;
 
 </div>
 
+
 <h1>
 
-عبدالله ❤️ ريهام
+عبدالله ❤️ سما
 
 </h1>
+
 
 <p>
 
@@ -529,13 +541,16 @@ margin:25px 0;
 
 </p>
 
+
 <div style="font-size:65px">
 
 🌹❤️✨
 
 </div>
 
+
 <br>
+
 
 <button onclick="location.reload()">
 
@@ -543,15 +558,19 @@ margin:25px 0;
 
 </button>
 
+
 <br><br>
 
+
 <hr style="border:none;height:1px;background:#ffd6e5;margin:20px 0;">
+
 
 <p style="font-size:14px;color:#888">
 
 Designed & Developed By
 
 </p>
+
 
 <h2 style="
 
@@ -571,9 +590,7 @@ background:linear-gradient(90deg,#ff2f72,#ff8fab,#ffd166,#7cf7ff,#9b5cff);
 
 </h2>
 
-</div>
-
-<style>
+</div><style>
 
 @keyframes giftMove{
 
@@ -586,6 +603,8 @@ transform:translateY(-12px) rotate(5deg);
 }
 
 </style>
+
+
 <script>
 
 // شاشة التحميل
@@ -632,7 +651,7 @@ bg.appendChild(heart);
 
 
 
-// التنقل
+// التنقل بين الصفحات
 
 function showPage(id){
 
@@ -682,7 +701,9 @@ document.getElementById("giftBox").style.transform="scale(1.2)";
 
 heartsExplosion();
 
+
 setTimeout(()=>{
+
 
 document.getElementById("giftContent").innerHTML=`
 
@@ -692,6 +713,7 @@ document.getElementById("giftContent").innerHTML=`
 
 </p>
 
+
 <button onclick="showPage('message');typeWriter();">
 
 فتح الرسالة 💌
@@ -700,15 +722,17 @@ document.getElementById("giftContent").innerHTML=`
 
 `;
 
+
 },700);
+
 
 }
 
 
 
-// الرسالة
+// الرسالة المتحركة
 
-const text=`ريهام ❤️
+const text=`سما ❤️
 
 من أول ما عرفتك وأنا نفسي أشوفك مبسوطة دايمًا.
 
@@ -718,7 +742,9 @@ const text=`ريهام ❤️
 
 من عبدالله 🌹`;
 
+
 let index=0;
+
 
 function typeWriter(){
 
@@ -729,6 +755,7 @@ index=0;
 write();
 
 }
+
 
 function write(){
 
@@ -746,47 +773,70 @@ setTimeout(write,45);
 
 
 
-// انفجار قلوب
+// انفجار القلوب
 
 function heartsExplosion(){
 
+
 for(let i=0;i<25;i++){
+
 
 let h=document.createElement("div");
 
+
 h.innerHTML="❤️";
+
 
 h.style.position="fixed";
 
+
 h.style.left=Math.random()*100+"vw";
+
 
 h.style.top="90vh";
 
+
 h.style.fontSize=(18+Math.random()*25)+"px";
+
 
 h.style.transition="3s linear";
 
+
 document.body.appendChild(h);
 
+
+
 setTimeout(()=>{
+
 
 h.style.transform="translateY(-120vh) rotate(720deg)";
 
+
 h.style.opacity="0";
+
 
 },50);
 
+
+
 setTimeout(()=>{
+
 
 h.remove();
 
+
 },3000);
 
-}
 
 }
+
+
+}
+
 
 </script>
 
+
 </body>
+
   </html>
