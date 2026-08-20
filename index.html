@@ -17,7 +17,6 @@ body{
              linear-gradient(135deg,#030106,#10030b 50%,#040107);
 }
 
-/* Background effects */
 .background{position:fixed;inset:0;overflow:hidden;pointer-events:none}
 .glow{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:glowMove 12s ease-in-out infinite alternate}
 .glow-1{width:420px;height:420px;top:-230px;right:-180px;background:#ff176f;opacity:.25}
@@ -31,7 +30,6 @@ body{
 .floating-heart{position:absolute;bottom:-60px;color:#ff4d8d;opacity:.25;filter:drop-shadow(0 0 8px #ff176f);animation:heartMove linear infinite}
 @keyframes heartMove{0%{transform:translateY(0) rotate(0deg) scale(.5);opacity:0}15%{opacity:.35}100%{transform:translateY(-120vh) rotate(360deg) scale(1.2);opacity:0}}
 
-/* Shared card style */
 .hero{position:relative;z-index:5;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .card,.story-card,.memory-card,.letter-card{
   position:relative;width:min(92vw,500px);padding:42px 27px;text-align:center;border-radius:40px;
@@ -74,23 +72,31 @@ body{
 .subtitle,.story-text,.memory-text{color:#d6bec9;font-family:"Amiri",serif;font-size:18px;line-height:2}
 .subtitle span{color:#ff9fbd}
 
-.start-button,.story-next,.memory-button,.music-button,.letter-button{
-  position:relative;width:100%;margin-top:27px;padding:16px 20px;border:0;border-radius:50px;color:#fff;
+.start-button,.story-next,.memory-button,.music-button,.letter-button,.restart-button{
+  position:relative;width:100%;margin-top:16px;padding:16px 20px;border:0;border-radius:50px;color:#fff;
   font-family:"Cairo",sans-serif;font-size:16px;font-weight:800;cursor:pointer;overflow:hidden;
   background:linear-gradient(90deg,#ff176f,#ff4d8d,#9635ff);box-shadow:0 15px 45px rgba(255,23,111,.32);
   transition:transform .3s,box-shadow .3s;
 }
-.start-button:hover,.story-next:hover,.memory-button:hover,.music-button:hover,.letter-button:hover{
+.start-button:hover,.story-next:hover,.memory-button:hover,.music-button:hover,.letter-button:hover,.restart-button:hover{
   transform:translateY(-4px) scale(1.02);box-shadow:0 22px 65px rgba(255,23,111,.5);
 }
-.start-button:active,.story-next:active,.memory-button:active,.music-button:active,.letter-button:active{transform:scale(.97)}
-.start-button::before{content:"";position:absolute;top:0;left:-130%;width:70%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:buttonShine 3s infinite}
-@keyframes buttonShine{0%{left:-130%}35%,100%{left:140%}}
+.start-button:active,.story-next:active,.memory-button:active,.music-button:active,.letter-button:active,.restart-button:active{transform:scale(.97)}
+
+.music-button-landing{
+  background:linear-gradient(90deg,#9635ff,#ff4d8d,#ff176f);
+  margin-top:12px;
+}
+
+.restart-button{
+  background:linear-gradient(90deg,#2a2a2a,#444,#2a2a2a);
+  border:1px solid rgba(255,255,255,.15);
+  margin-top:12px;
+}
 
 .footer,.story-footer,.memory-footer,.letter-footer{margin-top:22px;color:#8e7580;font-size:10px;line-height:1.8}
 .footer strong,.story-footer strong,.memory-footer strong,.letter-footer strong{color:#ff78a7;font-size:12px}
 
-/* Pages */
 .story-page,.memory-page,.letter-page,.cinematic-transition{
   position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto;
 }
@@ -106,7 +112,6 @@ body{
 @keyframes transitionIn{from{opacity:0}to{opacity:1}}
 @keyframes transitionOut{from{opacity:1}to{opacity:0}}
 
-/* Timer */
 .start-moment{padding:16px;margin:18px 0;border-radius:23px;background:linear-gradient(145deg,rgba(255,40,120,.10),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.10)}
 .start-moment span{display:block;color:#9f8792;font-size:10px}
 .start-moment strong{display:block;margin-top:4px;color:#ffabc5;font-family:"Amiri",serif;font-size:21px}
@@ -121,18 +126,15 @@ body{
 .live-dot{width:7px;height:7px;border-radius:50%;background:#ff397d;box-shadow:0 0 10px #ff397d;animation:livePulse 1.2s infinite}
 @keyframes livePulse{50%{transform:scale(1.7);opacity:.4}}
 
-/* Memory quote */
 .memory-quote{position:relative;margin:23px 0;padding:19px 16px;border-radius:25px;background:linear-gradient(145deg,rgba(255,40,120,.10),rgba(120,40,255,.06));border:1px solid rgba(255,255,255,.11)}
 .memory-quote span{display:block;color:#ff79a7;font-family:"Amiri",serif;font-size:25px;line-height:.6}
 .memory-quote p{margin:10px 0;color:#e2d1d8;font-family:"Amiri",serif;font-size:17px;line-height:2}
 
-/* Letter special */
 .special-message{margin:23px 0;padding:20px 15px;border-radius:25px;color:#fff;font-family:"Amiri",serif;font-size:22px;line-height:2;
   background:linear-gradient(145deg,rgba(255,30,115,.15),rgba(120,30,255,.08));border:1px solid rgba(255,100,160,.18);
   box-shadow:0 0 35px rgba(255,30,115,.10);animation:messageGlow 3s ease-in-out infinite}
 @keyframes messageGlow{50%{box-shadow:0 0 50px rgba(255,30,115,.25)}}
 
-/* Transition content */
 .transition-content{width:min(90vw,430px);text-align:center}
 .transition-heart{font-size:75px;filter:drop-shadow(0 0 20px rgba(255,30,115,.8));animation:transitionHeart 1.2s ease-in-out infinite}
 @keyframes transitionHeart{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
@@ -143,7 +145,6 @@ body{
 .transition-loader span{display:block;width:40%;height:100%;border-radius:50px;background:linear-gradient(90deg,#ff176f,#ff9fbd,#9635ff);animation:transitionLoader 1.3s infinite}
 @keyframes transitionLoader{from{transform:translateX(-250%)}to{transform:translateX(400%)}}
 
-/* Mobile */
 @media(max-width:480px){
   .card,.story-card,.memory-card,.letter-card{padding:35px 20px;border-radius:32px}
   .main-heart,.story-icon,.memory-icon,.letter-envelope{width:120px;height:120px;font-size:63px;margin:22px auto}
@@ -174,7 +175,14 @@ body{
       دي بداية حكاية<br>
       <span>اتعملت مخصوص علشانك ❤️</span>
     </p>
+
+    <!-- زر تشغيل الأغنية في البداية -->
+    <button class="music-button music-button-landing" onclick="playRohy()">
+      🎵 شغّلي الأغنية
+    </button>
+
     <button class="start-button" onclick="startStory()">ابدئي الحكاية ✨</button>
+
     <div class="footer">صُنعت بكل حب<br><strong>ياسين ❤️ سما</strong></div>
   </section>
 </main>
@@ -262,16 +270,23 @@ body{
       <p>ومهما حصل ومهما الوقت عدى،<br>هتفضلي دايمًا جزء جميل من حكايتي.</p>
       <p>دي مش مجرد رسالة...<br>دي حاجة من قلبي ليكي.</p>
     </div>
+
     <button class="music-button" onclick="playRohy()">🎵 شغّلي الرسالة</button>
-    <audio id="rohyMusic" loop preload="auto">
-      <source src="rohy.mp3" type="audio/mpeg">
-    </audio>
+
+    <!-- زر إعادة البداية -->
+    <button class="restart-button" onclick="restartStory()">
+      🔄 إعادة البداية
+    </button>
+
     <div class="letter-footer">من ياسين<br><strong>إلى سما ❤️</strong></div>
   </div>
 </section>
 
+<audio id="rohyMusic" loop preload="auto">
+  <source src="rohy.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-/* Stars + Hearts */
 const background = document.getElementById("background");
 for(let i=0;i<80;i++){
   const star=document.createElement("div");
@@ -295,7 +310,6 @@ for(let i=0;i<22;i++){
   background.appendChild(heart);
 }
 
-/* Timer */
 const START_DATE = new Date("2026-08-14T21:00:00+03:00");
 function updateStoryTimer(){
   const now=new Date();
@@ -314,10 +328,10 @@ function updateStoryTimer(){
 updateStoryTimer();
 setInterval(updateStoryTimer,1000);
 
-/* Navigation */
 function startStory(){
   document.getElementById("storyPage").classList.add("show");
 }
+
 function goToNextPart(){
   document.getElementById("storyPage").classList.remove("show");
   const t=document.getElementById("cinematicTransition");
@@ -329,14 +343,33 @@ function goToNextPart(){
     document.getElementById("memoryPage").classList.add("show");
   },2500);
 }
+
 function openLetterPage(){
   document.getElementById("memoryPage").classList.remove("show");
   document.getElementById("letterPage").classList.add("show");
 }
+
 function playRohy(){
   const music=document.getElementById("rohyMusic");
-  if(music) music.play().catch(()=>alert("حطي ملف rohy.mp3 جنب الصفحة عشان تشتغل الأغنية ❤️"));
+  if(music){
+    if(music.paused){
+      music.play().catch(()=>alert("حطي ملف rohy.mp3 جنب الصفحة عشان تشتغل الأغنية ❤️"));
+    } else {
+      music.pause();
+    }
+  }
+}
+
+function restartStory(){
+  // إخفاء كل الصفحات
+  document.getElementById("storyPage").classList.remove("show");
+  document.getElementById("memoryPage").classList.remove("show");
+  document.getElementById("letterPage").classList.remove("show");
+  document.getElementById("cinematicTransition").classList.remove("show","hide");
+
+  // رجوع للصفحة الأولى
+  window.scrollTo(0,0);
 }
 </script>
 </body>
-      </html>
+    </html>
