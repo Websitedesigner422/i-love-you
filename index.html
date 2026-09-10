@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07050d">
 
 <title>🎂 عيد ميلاد سلمى 🎉</title>
 
@@ -23,7 +24,7 @@
     --purple:#9b5cff;
     --gold:#ffd86b;
     --cyan:#6ee7ff;
-    --bg:#07050d;
+    --bg:#05030a;
     --glass:rgba(255,255,255,.075);
 }
 
@@ -36,24 +37,21 @@ body{
     overflow-x:hidden;
     color:#fff;
     font-family:"Cairo",sans-serif;
-
     background:
-        radial-gradient(circle at 15% 15%,rgba(255,61,141,.20),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(155,92,255,.20),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(255,216,107,.08),transparent 32%),
-        linear-gradient(145deg,#040309,#100713,#05040a);
+        radial-gradient(circle at 10% 10%,rgba(255,61,141,.20),transparent 28%),
+        radial-gradient(circle at 90% 15%,rgba(155,92,255,.20),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,216,107,.08),transparent 30%),
+        linear-gradient(145deg,#030207,#100713,#05040a);
 }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+/* BACKGROUND */
 
 #stars{
     position:fixed;
     inset:0;
     width:100%;
     height:100%;
-    z-index:-10;
+    z-index:-20;
 }
 
 .glow{
@@ -63,7 +61,7 @@ body{
     border-radius:50%;
     filter:blur(110px);
     pointer-events:none;
-    z-index:-5;
+    z-index:-10;
     opacity:.16;
     animation:glowMove 15s ease-in-out infinite alternate;
 }
@@ -97,21 +95,16 @@ body{
     }
 }
 
-/* =====================================================
-   LOADER
-===================================================== */
+/* LOADER */
 
 .loader{
     position:fixed;
     inset:0;
     z-index:999999;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    background:#040309;
-
+    background:#030207;
     transition:1s;
 }
 
@@ -125,17 +118,15 @@ body{
 }
 
 .loaderCake{
-    font-size:82px;
-    animation:cakePulse 1.3s infinite;
-    filter:drop-shadow(0 0 30px rgba(255,61,141,.7));
+    font-size:85px;
+    animation:cakePulse 1.2s infinite;
+    filter:drop-shadow(0 0 35px rgba(255,61,141,.7));
 }
 
 .loaderName{
-    margin-top:14px;
-
+    margin-top:15px;
     font-family:"El Messiri";
-    font-size:32px;
-
+    font-size:34px;
     color:#ffd2e5;
 }
 
@@ -146,13 +137,11 @@ body{
 }
 
 .loaderBar{
-    width:190px;
-    height:4px;
+    width:210px;
+    height:5px;
     margin:25px auto;
-
     overflow:hidden;
     border-radius:50px;
-
     background:#ffffff0d;
 }
 
@@ -160,6 +149,53 @@ body{
     display:block;
     width:45%;
     height:100%;
+    background:linear-gradient(90deg,#ff3d8d,#ffd86b,#9b5cff);
+    animation:loader 1.3s infinite;
+}
+
+@keyframes loader{
+    from{transform:translateX(-250%)}
+    to{transform:translateX(350%)}
+}
+
+@keyframes cakePulse{
+    50%{
+        transform:scale(1.15) rotate(3deg);
+    }
+}
+
+/* APP */
+
+.app{
+    width:min(100%,780px);
+    margin:auto;
+    padding:15px 14px 80px;
+}
+
+/* PROGRESS */
+
+.progress{
+    position:fixed;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5000;
+
+    width:min(90%,390px);
+    height:5px;
+
+    border-radius:50px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    width:14%;
+    border-radius:50px;
 
     background:
         linear-gradient(
@@ -169,41 +205,13 @@ body{
             #9b5cff
         );
 
-    animation:loader 1.3s infinite;
+    transition:.5s;
 }
 
-@keyframes loader{
-    from{
-        transform:translateX(-250%);
-    }
-    to{
-        transform:translateX(350%);
-    }
-}
-
-@keyframes cakePulse{
-    50%{
-        transform:scale(1.13) rotate(2deg);
-    }
-}
-
-/* =====================================================
-   APP
-===================================================== */
-
-.app{
-    width:min(100%,760px);
-    margin:auto;
-    padding:15px 14px 80px;
-}
-
-/* =====================================================
-   PAGE
-===================================================== */
+/* PAGE */
 
 .page{
     min-height:100vh;
-
     display:none;
     align-items:center;
     justify-content:center;
@@ -211,7 +219,6 @@ body{
 
 .page.active{
     display:flex;
-
     animation:
         pageIn
         .75s
@@ -221,35 +228,24 @@ body{
 @keyframes pageIn{
     from{
         opacity:0;
-        transform:
-            translateY(35px)
-            scale(.97);
+        transform:translateY(35px) scale(.97);
     }
-
     to{
         opacity:1;
         transform:none;
     }
 }
 
-/* =====================================================
-   CARD
-===================================================== */
+/* CARD */
 
 .card{
     position:relative;
-
     width:100%;
-
-    padding:42px 25px;
-
+    padding:45px 25px;
     overflow:hidden;
 
     border-radius:42px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.14);
 
     background:
         linear-gradient(
@@ -268,63 +264,62 @@ body{
 
 .card::before{
     content:"";
-
     position:absolute;
-
     width:300px;
     height:300px;
-
     top:-190px;
     right:-130px;
-
     border-radius:50%;
-
-    background:
-        rgba(255,61,141,.12);
-
+    background:rgba(255,61,141,.12);
     filter:blur(60px);
-
     pointer-events:none;
 }
 
-/* =====================================================
-   BADGE
-===================================================== */
+.card::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    bottom:-180px;
+    left:-120px;
+    border-radius:50%;
+    background:rgba(155,92,255,.10);
+    filter:blur(70px);
+    pointer-events:none;
+}
+
+/* BADGE */
 
 .badge{
-    display:inline-block;
+    position:relative;
+    z-index:2;
 
+    display:inline-block;
     padding:8px 20px;
 
     border-radius:50px;
 
     color:#ffd7e8;
-
     font-size:11px;
 
-    background:
-        rgba(255,61,141,.07);
-
-    border:
-        1px solid
-        rgba(255,143,196,.25);
+    background:rgba(255,61,141,.07);
+    border:1px solid rgba(255,143,196,.25);
 
     box-shadow:
         0 0 30px
         rgba(255,61,141,.08);
 }
 
-/* =====================================================
-   NAME
-===================================================== */
+/* NAME */
 
 .name{
+    position:relative;
+    z-index:2;
+
     margin-top:25px;
 
     font-family:"El Messiri",serif;
-
     font-size:62px;
-
     line-height:1.35;
 
     background:
@@ -343,11 +338,7 @@ body{
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
-    animation:
-        nameShine
-        7s
-        linear
-        infinite;
+    animation:nameShine 7s linear infinite;
 
     filter:
         drop-shadow(
@@ -368,14 +359,11 @@ body{
     font-size:12px;
 }
 
-/* =====================================================
-   DECOR
-===================================================== */
+/* DECOR */
 
 .decor{
     width:170px;
     height:3px;
-
     margin:18px auto;
 
     border-radius:50px;
@@ -395,91 +383,73 @@ body{
         rgba(255,61,141,.45);
 }
 
-/* =====================================================
-   CAKE
-===================================================== */
+/* ORBIT */
 
-.cake{
+.orbit{
     position:relative;
-
-    width:190px;
-    height:190px;
-
-    margin:30px auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
+    width:210px;
+    height:210px;
+    margin:28px auto;
     border-radius:50%;
+    display:grid;
+    place-items:center;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,61,141,.22),
+            rgba(255,61,141,.20),
             rgba(155,92,255,.06),
             transparent 70%
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.12);
 
     box-shadow:
-        0 0 80px
-        rgba(255,61,141,.20);
-
-    animation:
-        cakeFloat
-        3.5s
-        ease-in-out
-        infinite;
+        0 0 90px rgba(255,61,141,.18);
 }
 
-.cakeEmoji{
-    font-size:100px;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,61,141,.55)
-        );
-}
-
-.cake::after{
-    content:"✨";
-
+.orbit::before,
+.orbit::after{
+    content:"";
     position:absolute;
-
-    top:12px;
-    right:22px;
-
-    font-size:27px;
-
-    animation:
-        sparkle 1.7s infinite;
+    inset:12px;
+    border-radius:50%;
+    border:1px dashed rgba(255,143,196,.20);
+    animation:spin 14s linear infinite;
 }
 
-@keyframes cakeFloat{
+.orbit::after{
+    inset:30px;
+    border-color:rgba(155,92,255,.25);
+    animation-direction:reverse;
+    animation-duration:9s;
+}
+
+.orbitEmoji{
+    position:relative;
+    z-index:2;
+    font-size:95px;
+    filter:drop-shadow(0 0 28px rgba(255,61,141,.6));
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes float{
     50%{
-        transform:translateY(-9px);
+        transform:translateY(-9px) scale(1.04);
     }
 }
 
-@keyframes sparkle{
-    50%{
-        transform:scale(1.35) rotate(15deg);
-        opacity:.55;
-    }
-}
-
-/* =====================================================
-   TEXT
-===================================================== */
+/* TEXT */
 
 h2{
-    font-family:"El Messiri",serif;
+    position:relative;
+    z-index:2;
 
+    font-family:"El Messiri",serif;
     font-size:36px;
 
     background:
@@ -495,22 +465,18 @@ h2{
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
-    animation:
-        nameShine
-        5s
-        linear
-        infinite;
+    animation:nameShine 5s linear infinite;
 }
 
 .text{
+    position:relative;
+    z-index:2;
+
     margin-top:15px;
 
     color:#d8cfdb;
-
     font-family:"Amiri",serif;
-
     font-size:20px;
-
     line-height:2.2;
 }
 
@@ -519,17 +485,14 @@ h2{
     font-weight:bold;
 }
 
-/* =====================================================
-   BUTTONS
-===================================================== */
+/* BUTTON */
 
 .btn{
     position:relative;
+    z-index:3;
 
     width:100%;
-
     margin-top:16px;
-
     padding:17px 20px;
 
     border:0;
@@ -542,7 +505,6 @@ h2{
     font-weight:800;
 
     cursor:pointer;
-
     overflow:hidden;
 
     background:
@@ -562,20 +524,14 @@ h2{
 
 .btn::after{
     content:"";
-
     position:absolute;
-
     top:0;
     left:-120%;
-
     width:70%;
     height:100%;
 
     transform:skewX(-20deg);
-
-    background:
-        rgba(255,255,255,.2);
-
+    background:rgba(255,255,255,.2);
     transition:.6s;
 }
 
@@ -584,10 +540,7 @@ h2{
 }
 
 .btn:hover{
-    transform:
-        translateY(-4px)
-        scale(1.01);
-
+    transform:translateY(-4px) scale(1.01);
     box-shadow:
         0 25px 70px
         rgba(255,40,127,.42);
@@ -598,23 +551,18 @@ h2{
 }
 
 .btn.dark{
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.12);
     box-shadow:none;
 }
 
-/* =====================================================
-   BIRTHDAY INFO
-===================================================== */
+/* INFO */
 
 .birthdayInfo{
-    margin:25px 0;
+    position:relative;
+    z-index:2;
 
+    margin:25px 0;
     padding:22px 18px;
 
     border-radius:28px;
@@ -626,9 +574,7 @@ h2{
             rgba(155,92,255,.08)
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.11);
 }
 
 .birthdayInfo small{
@@ -638,99 +584,70 @@ h2{
 
 .birthdayInfo strong{
     display:block;
-
     margin-top:6px;
 
     color:#ffd2e5;
 
     font-family:"El Messiri";
-
     font-size:23px;
 }
 
-/* =====================================================
-   COUNTDOWN
-===================================================== */
+/* STATS */
 
-.countdown{
+.stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:8px;
-
-    margin-top:17px;
-}
-
-.time{
-    padding:15px 3px;
-
-    text-align:center;
-
-    border-radius:21px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-}
-
-.time strong{
-    display:block;
-
-    font-size:24px;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 20px
-        rgba(255,105,165,.5);
-}
-
-.time span{
-    display:block;
-
-    margin-top:4px;
-
-    color:#958c9e;
-
-    font-size:9px;
-}
-
-/* =====================================================
-   PARTY GRID
-===================================================== */
-
-.partyGrid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
     margin:25px 0;
 }
 
-.party{
-    min-height:140px;
-
-    padding:18px 10px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
+.stat{
+    padding:18px 7px;
     text-align:center;
 
-    border-radius:27px;
+    border-radius:24px;
+
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.statIcon{
+    font-size:28px;
+}
+
+.stat b{
+    display:block;
+    margin-top:6px;
+    font-size:12px;
+}
+
+.stat span{
+    display:block;
+    margin-top:3px;
+    color:#8f8795;
+    font-size:9px;
+}
+
+/* WISH GRID */
+
+.wishGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+
+.wish{
+    min-height:145px;
+    padding:20px 10px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    border-radius:28px;
 
     background:
         linear-gradient(
@@ -739,43 +656,40 @@ h2{
             rgba(255,61,141,.06)
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
 
     transition:.35s;
 }
 
-.party:hover{
-    transform:translateY(-7px);
-
-    border-color:
-        rgba(255,143,196,.4);
+.wish:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,143,196,.4);
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
 }
 
-.partyIcon{
-    font-size:39px;
+.wishIcon{
+    font-size:40px;
 }
 
-.party b{
+.wish b{
     margin-top:8px;
     font-size:14px;
 }
 
-.party span{
+.wish span{
     margin-top:4px;
     color:#958d9d;
     font-size:10px;
 }
 
-/* =====================================================
-   MESSAGE
-===================================================== */
+/* MESSAGE */
 
 .message{
-    margin-top:24px;
+    position:relative;
+    z-index:2;
 
-    padding:26px 20px;
+    margin-top:24px;
+    padding:28px 20px;
 
     text-align:right;
 
@@ -788,42 +702,31 @@ h2{
             rgba(155,92,255,.08)
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
 }
 
 .message p{
     margin-bottom:18px;
-
     color:#e4dae5;
 
     font-family:"Amiri";
-
     font-size:19px;
-
     line-height:2.3;
 }
 
 .signature{
     text-align:center;
-
     margin-top:25px;
 
     color:#ff9bc5;
-
     font-family:"El Messiri";
-
     font-size:22px;
 }
 
-/* =====================================================
-   SURPRISE
-===================================================== */
+/* GIFT */
 
-.surprise{
-    margin:25px 0;
-
+.giftBox{
+    margin:28px 0;
     padding:30px 18px;
 
     text-align:center;
@@ -837,16 +740,12 @@ h2{
             transparent 70%
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
 }
 
 .gift{
-    font-size:85px;
-
+    font-size:100px;
     cursor:pointer;
-
     display:inline-block;
 
     filter:
@@ -855,14 +754,10 @@ h2{
             rgba(255,61,141,.5)
         );
 
-    animation:
-        giftShake
-        1.6s
-        infinite;
+    animation:giftShake 1.6s infinite;
 }
 
 @keyframes giftShake{
-
     0%,70%,100%{
         transform:rotate(0);
     }
@@ -884,27 +779,32 @@ h2{
     }
 }
 
+.gift.opened{
+    animation:giftOpen .7s ease forwards;
+}
+
+@keyframes giftOpen{
+    50%{
+        transform:scale(1.35) rotate(8deg);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
 .surpriseText{
     display:none;
-
-    margin-top:18px;
+    margin-top:20px;
 
     font-family:"Amiri";
-
     font-size:21px;
-
     line-height:2;
-
     color:#ffe2ed;
 }
 
 .surpriseText.show{
     display:block;
-
-    animation:
-        reveal
-        .7s
-        ease;
+    animation:reveal .7s ease;
 }
 
 @keyframes reveal{
@@ -919,29 +819,25 @@ h2{
     }
 }
 
-/* =====================================================
-   GALLERY
-===================================================== */
+/* PHOTO UPLOAD */
 
 .upload{
-    margin-top:23px;
+    position:relative;
+    z-index:3;
 
-    min-height:90px;
+    margin-top:23px;
+    min-height:105px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     gap:14px;
 
     cursor:pointer;
 
     border-radius:27px;
 
-    border:
-        1px dashed
-        rgba(255,143,196,.5);
+    border:1px dashed rgba(255,143,196,.5);
 
     background:
         linear-gradient(
@@ -955,10 +851,15 @@ h2{
 
 .upload:hover{
     transform:translateY(-4px);
-
     box-shadow:
         0 20px 50px
         rgba(255,61,141,.14);
+}
+
+.upload.drag{
+    transform:scale(1.02);
+    border-color:#ff86bb;
+    background:rgba(255,61,141,.15);
 }
 
 .uploadIcon{
@@ -969,7 +870,6 @@ h2{
     place-items:center;
 
     border-radius:50%;
-
     font-size:28px;
 
     background:
@@ -986,54 +886,39 @@ h2{
 
 .upload small{
     display:block;
-
     margin-top:3px;
-
     color:#958b9c;
-
     font-size:10px;
 }
 
+/* GALLERY */
+
 .gallery{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
-
     margin-top:20px;
 }
 
 .photo{
     position:relative;
-
     height:190px;
 
     overflow:hidden;
 
     border-radius:26px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.12);
 
     background:#ffffff08;
 
-    animation:
-        photoIn
-        .5s
-        ease;
+    animation:photoIn .5s ease;
 }
 
 .photo img{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:.4s;
 }
 
@@ -1043,17 +928,14 @@ h2{
 
 .photoTools{
     position:absolute;
-
     left:8px;
     right:8px;
     bottom:8px;
 
     display:flex;
-
     justify-content:space-between;
 
     opacity:0;
-
     transition:.3s;
 }
 
@@ -1069,28 +951,20 @@ h2{
     border-radius:50%;
 
     color:white;
-
     cursor:pointer;
 
-    background:
-        rgba(0,0,0,.7);
+    background:rgba(0,0,0,.7);
 }
 
 .empty{
     margin-top:20px;
-
     padding:30px 15px;
 
     text-align:center;
-
     border-radius:27px;
 
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
 }
 
 .empty div{
@@ -1101,9 +975,7 @@ h2{
     margin-top:8px;
 
     color:#cfc5d2;
-
     font-family:"Amiri";
-
     font-size:18px;
 }
 
@@ -1119,43 +991,86 @@ h2{
     }
 }
 
-/* =====================================================
-   VIEWER
-===================================================== */
+/* FINAL */
+
+.finalTitle{
+    font-family:"El Messiri";
+    font-size:46px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff,
+            #ff79b2,
+            #ffd86b,
+            #a879ff,
+            #fff
+        );
+
+    background-size:400%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:nameShine 6s linear infinite;
+}
+
+.finalBox{
+    margin:25px 0;
+    padding:25px 18px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,61,141,.13),
+            rgba(155,92,255,.12)
+        );
+
+    border:1px solid rgba(255,255,255,.11);
+}
+
+.finalBox p{
+    font-family:"Amiri";
+    color:#e5dce7;
+    font-size:20px;
+    line-height:2.2;
+}
+
+.shareStatus{
+    margin-top:12px;
+    min-height:20px;
+    color:#ff9bc5;
+    font-size:11px;
+}
+
+/* VIEWER */
 
 .viewer{
     position:fixed;
-
     inset:0;
-
     z-index:999999;
 
     display:none;
-
     align-items:center;
     justify-content:center;
 
     padding:20px;
 
-    background:
-        rgba(0,0,0,.94);
+    background:rgba(0,0,0,.94);
 
     backdrop-filter:blur(20px);
 }
 
 .viewer.show{
     display:flex;
-
-    animation:
-        viewerIn
-        .3s
-        ease;
+    animation:viewerIn .3s ease;
 }
 
 .viewer img{
     max-width:95vw;
     max-height:85vh;
-
     object-fit:contain;
 
     border-radius:24px;
@@ -1167,7 +1082,6 @@ h2{
 
 .closeViewer{
     position:absolute;
-
     top:18px;
     right:18px;
 
@@ -1178,12 +1092,9 @@ h2{
     border-radius:50%;
 
     color:#fff;
-
-    background:
-        rgba(255,255,255,.12);
+    background:rgba(255,255,255,.12);
 
     font-size:26px;
-
     cursor:pointer;
 }
 
@@ -1199,20 +1110,16 @@ h2{
     }
 }
 
-/* =====================================================
-   CONFETTI
-===================================================== */
+/* CONFETTI */
 
 .confetti{
     position:fixed;
-
-    top:-20px;
+    top:-25px;
 
     width:9px;
     height:15px;
 
     z-index:99998;
-
     pointer-events:none;
 
     animation:
@@ -1222,7 +1129,6 @@ h2{
 }
 
 @keyframes confettiFall{
-
     to{
         transform:
             translateY(110vh)
@@ -1232,46 +1138,41 @@ h2{
     }
 }
 
-/* =====================================================
-   FLOATING BALLOONS
-===================================================== */
+/* HEARTS */
 
-.balloon{
+.heart{
     position:fixed;
-
-    bottom:-100px;
-
+    bottom:-40px;
     z-index:4;
 
     pointer-events:none;
 
-    font-size:28px;
-
-    opacity:.35;
+    font-size:25px;
+    opacity:.6;
 
     animation:
-        balloonUp
+        heartUp
         linear
         forwards;
 }
 
-@keyframes balloonUp{
-
+@keyframes heartUp{
     to{
         transform:
             translateY(-120vh)
-            translateX(50px)
-            rotate(15deg);
+            translateX(80px)
+            rotate(20deg);
 
         opacity:0;
     }
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 .footer{
+    position:relative;
+    z-index:2;
+
     margin-top:28px;
 
     text-align:center;
@@ -1279,35 +1180,25 @@ h2{
     color:#746c7c;
 
     font-size:10px;
-
     line-height:2;
 }
 
 .footer b{
     color:#ff91bd;
-
     font-family:"El Messiri";
-
     font-size:13px;
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:480px){
 
     .app{
-        padding:
-            10px
-            11px
-            60px;
+        padding:10px 11px 60px;
     }
 
     .card{
-        padding:
-            32px 18px;
-
+        padding:35px 18px;
         border-radius:34px;
     }
 
@@ -1319,33 +1210,37 @@ h2{
         font-size:29px;
     }
 
-    .cake{
-        width:135px;
-        height:135px;
+    .finalTitle{
+        font-size:38px;
     }
 
-    .cakeEmoji{
-        font-size:72px;
+    .orbit{
+        width:150px;
+        height:150px;
+    }
+
+    .orbitEmoji{
+        font-size:70px;
     }
 
     .text{
         font-size:17px;
     }
 
-    .partyGrid{
+    .wishGrid{
         gap:9px;
     }
 
-    .party{
+    .wish{
         min-height:125px;
     }
 
-    .countdown{
-        gap:5px;
+    .stats{
+        gap:7px;
     }
 
-    .time strong{
-        font-size:19px;
+    .stat{
+        padding:15px 4px;
     }
 
     .gallery .photo{
@@ -1367,18 +1262,17 @@ h2{
 <div class="glow g2"></div>
 <div class="glow g3"></div>
 
+<div class="progress">
+    <span id="progressBar"></span>
+</div>
 
-<!-- =====================================================
-     LOADER
-===================================================== -->
+<!-- LOADER -->
 
 <div class="loader" id="loader">
 
     <div class="loaderContent">
 
-        <div class="loaderCake">
-            🎂
-        </div>
+        <div class="loaderCake">🎂</div>
 
         <div class="loaderName">
             𓆩 سَـلـمـى 𓆪
@@ -1389,42 +1283,27 @@ h2{
         </div>
 
         <div class="loaderText">
-            بنجهز مفاجأة عيد الميلاد... 🎁
+            بنجهز أحلى مفاجأة... 🎁
         </div>
 
     </div>
 
 </div>
 
-
-<!-- MUSIC -->
-
-<audio id="birthdayMusic" loop preload="auto">
-    <source src="rohy.mp3" type="audio/mpeg">
-</audio>
-
-
 <main class="app">
 
-
-<!-- =====================================================
-     PAGE 1 — OPENING
-===================================================== -->
+<!-- PAGE 1 -->
 
 <section class="page active" id="p1">
 
 <div class="card" style="text-align:center">
 
     <span class="badge">
-        🎉 مفاجأة عيد الميلاد 🎉
+        ✨ رسالة خاصة جدًا ✨
     </span>
 
-    <div class="cake">
-
-        <div class="cakeEmoji">
-            🎂
-        </div>
-
+    <div class="orbit">
+        <div class="orbitEmoji">🎂</div>
     </div>
 
     <div class="name">
@@ -1432,45 +1311,35 @@ h2{
     </div>
 
     <div class="nameSmall">
-        ✦ اليوم مش يوم عادي ✦
+        ✦ النهارده يوم مختلف ✦
     </div>
 
     <div class="decor"></div>
 
     <p class="text">
 
-        النهارده فيه واحدة تستاهل
+        في يوم زي ده...
+        <br>
+        لازم العالم كله يقف شوية
+        <br>
+        عشان يحتفل بواحدة مميزة ❤️
+
+        <br><br>
+
         <span class="highlight">
-            كل الاحتفال ده 🎉
+            وكل سنة وإنتِ طيبة يا سلمى 🎉
         </span>
-
-        <br>
-
-        وعشان كده...
-        عملنا لها عالم كامل مخصوص
-        <br>
-        علشان عيد ميلادها ❤️
 
     </p>
 
     <button class="btn" onclick="startParty()">
-        🎊 افتحي المفاجأة
-    </button>
-
-    <button class="btn dark" onclick="playMusic()">
-        🎵 تشغيل الموسيقى
+        🎊 ابدئي المفاجأة
     </button>
 
     <div class="footer">
-
-        Happy Birthday
-
+        تم تجهيزها مخصوص لـ
         <br>
-
-        <b>
-            𓆩 سَـلـمـى 𓆪 🎂
-        </b>
-
+        <b>𓆩 سَـلـمـى 𓆪 ❤️</b>
     </div>
 
 </div>
@@ -1478,51 +1347,62 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 2 — BIRTHDAY
-===================================================== -->
+<!-- PAGE 2 -->
 
 <section class="page" id="p2">
 
 <div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ اليوم الكبير ✦
+        🎂 اليوم الكبير 🎂
     </span>
 
-    <div class="cake">
-
-        <div class="cakeEmoji">
-            🎉
-        </div>
-
+    <div class="orbit">
+        <div class="orbitEmoji">🎉</div>
     </div>
 
     <h2>
-        كل سنة وإنتِ طيبة يا سلمى 🎂
+        كل سنة وإنتِ طيبة يا سلمى
     </h2>
 
     <div class="decor"></div>
 
     <p class="text">
 
-        سنة جديدة من عمرك بدأت،
+        سنة جديدة بدأت من عمرك،
         <br>
-        ونتمنى تكون أحلى من كل اللي فات.
-        <br><br>
-
-        ضحكة أكتر 😂
+        ونتمنى تكون مليانة
         <br>
-        نجاح أكتر 🏆
-        <br>
-        وذكريات أحلى ❤️
+        فرحة ونجاح وضحك ❤️
 
     </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="statIcon">❤️</div>
+            <b>فرحة</b>
+            <span>كل يوم</span>
+        </div>
+
+        <div class="stat">
+            <div class="statIcon">🏆</div>
+            <b>نجاح</b>
+            <span>في كل خطوة</span>
+        </div>
+
+        <div class="stat">
+            <div class="statIcon">✨</div>
+            <b>ذكريات</b>
+            <span>تفضل حلوة</span>
+        </div>
+
+    </div>
 
     <div class="birthdayInfo">
 
         <small>
-            ✦ احتفال خاص ✦
+            ✦ المناسبة ✦
         </small>
 
         <strong>
@@ -1532,7 +1412,7 @@ h2{
     </div>
 
     <button class="btn" onclick="nextPage(3)">
-        نكمل الاحتفال 🎉
+        نكمل؟ 👀
     </button>
 
 </div>
@@ -1540,9 +1420,7 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 3 — WISHES
-===================================================== -->
+<!-- PAGE 3 -->
 
 <section class="page" id="p3">
 
@@ -1552,42 +1430,40 @@ h2{
         ✦ أمنيات السنة الجديدة ✦
     </span>
 
-    <div class="cake">
-        <div class="cakeEmoji">
-            🌟
-        </div>
+    <div class="orbit">
+        <div class="orbitEmoji">🌟</div>
     </div>
 
     <h2>
-        يا رب السنة دي تكون مختلفة ❤️
+        يا رب السنة دي تكون أجمل
     </h2>
 
     <div class="decor"></div>
 
-    <div class="partyGrid">
+    <div class="wishGrid">
 
-        <div class="party">
-            <div class="partyIcon">❤️</div>
+        <div class="wish">
+            <div class="wishIcon">❤️</div>
             <b>راحة البال</b>
-            <span>أيام هادية وقلب مرتاح</span>
+            <span>قلب هادي وأيام جميلة</span>
         </div>
 
-        <div class="party">
-            <div class="partyIcon">🏆</div>
+        <div class="wish">
+            <div class="wishIcon">🏆</div>
             <b>النجاح</b>
             <span>تحققي كل اللي نفسك فيه</span>
         </div>
 
-        <div class="party">
-            <div class="partyIcon">😂</div>
+        <div class="wish">
+            <div class="wishIcon">😂</div>
             <b>الضحك</b>
-            <span>ضحك من القلب كل يوم</span>
+            <span>ضحكة من القلب كل يوم</span>
         </div>
 
-        <div class="party">
-            <div class="partyIcon">✨</div>
-            <b>أيام حلوة</b>
-            <span>ذكريات تستاهل تتخزن</span>
+        <div class="wish">
+            <div class="wishIcon">✨</div>
+            <b>ذكريات</b>
+            <span>لحظات تستاهل تتخزن</span>
         </div>
 
     </div>
@@ -1601,9 +1477,7 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 4 — LETTER
-===================================================== -->
+<!-- PAGE 4 -->
 
 <section class="page" id="p4">
 
@@ -1612,13 +1486,11 @@ h2{
     <div style="text-align:center">
 
         <span class="badge">
-            ✦ رسالة عيد الميلاد ✦
+            💌 رسالة من القلب
         </span>
 
-        <div class="cake">
-            <div class="cakeEmoji">
-                💌
-            </div>
+        <div class="orbit">
+            <div class="orbitEmoji">💌</div>
         </div>
 
         <h2>
@@ -1632,59 +1504,51 @@ h2{
     <div class="message">
 
         <p>
-
             كل سنة وإنتِ طيبة يا سلمى ❤️
-
-            <br><br>
-
-            النهارده مش مجرد تاريخ بيتكتب في
-            التقويم، ده يوم بنفتكر فيه قد إيه
-            وجودك وسط العيلة بيعمل فرق.
-
         </p>
 
         <p>
+            النهارده مش مجرد تاريخ على التقويم،
+            ده يوم بنفتكر فيه قد إيه وجودك
+            بيضيف فرحة وحاجة حلوة للمكان اللي
+            بتكوني فيه.
+        </p>
 
+        <p>
             أتمنى السنة الجديدة تكون بداية
-            لحاجات كتير حلوة في حياتك،
+            لحاجات كتير جميلة في حياتك،
             وتوصلي لكل حاجة نفسك فيها،
             وتشوفي نتيجة تعبك وفرحتك.
-
         </p>
 
         <p>
-
-            خليكي دايمًا بنفس روحك،
+            خليكي دايمًا بنفس روحك الجميلة،
             اضحكي كتير،
-            وفرحي نفسك،
-            ومتخليش أي حاجة تاخد منك
-            البسمة اللي بتميزك.
-
+            وافرحي بالحاجات الصغيرة قبل الكبيرة،
+            ومتخليش أي حاجة تاخد منك ابتسامتك.
         </p>
 
         <p>
-
-            وربنا يديم بينا صلة الرحم،
+            وربنا يديم بينا المحبة وصلة الرحم،
             ويجمعنا دايمًا على الخير،
             ويكون كل عيد ميلاد جاي
             أحلى من اللي قبله. 🎂✨
-
         </p>
 
         <div class="signature">
 
-            كل سنة وإنتِ أحلى 🎉
+            كل سنة وإنتِ بخير وفرحة ❤️
 
             <br>
 
-            𓆩 سَـلـمـى 𓆪 ❤️
+            𓆩 سَـلـمـى 𓆪
 
         </div>
 
     </div>
 
     <button class="btn" onclick="nextPage(5)">
-        عندي لكِ مفاجأة 🎁
+        عندي لكِ هدية 🎁
     </button>
 
 </div>
@@ -1692,55 +1556,49 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 5 — SURPRISE
-===================================================== -->
+<!-- PAGE 5 -->
 
 <section class="page" id="p5">
 
 <div class="card" style="text-align:center">
 
     <span class="badge">
-        🎁 ممنوع فتح الهدية بسرعة 🎁
+        🎁 المفاجأة الحقيقية 🎁
     </span>
 
-    <div class="cake">
+    <div class="giftBox">
 
         <div
             class="gift"
+            id="gift"
             onclick="openGift()"
         >
             🎁
         </div>
 
-    </div>
+        <h2>
+            اضغطي على الهدية
+        </h2>
 
-    <h2>
-        اضغطي على الهدية 👀
-    </h2>
+        <div class="decor"></div>
 
-    <div class="decor"></div>
+        <div
+            class="surpriseText"
+            id="surpriseText"
+        >
 
-    <div class="surprise">
-
-        <div class="surpriseText" id="surpriseText">
-
-            🎉🎉🎉
-
-            <br>
-
-            مفاجأة!
+            🎉✨🎉
 
             <br><br>
 
-            يا سلمى...
+            مفاجأة يا سلمى! ❤️
 
-            <br>
+            <br><br>
 
-            أتمنى السنة الجديدة
-            تكون مليانة حاجات تفرحك،
-            وضحك من القلب،
-            ونجاحات تفتخري بيها. ❤️
+            أتمنى السنة دي
+            تكون مليانة أيام تفرحك،
+            وأخبار حلوة،
+            ونجاحات تخليكي فخورة بنفسك.
 
             <br><br>
 
@@ -1751,7 +1609,7 @@ h2{
     </div>
 
     <button class="btn" onclick="nextPage(6)">
-        نروح لألبوم الذكريات 📸
+        نروح للذكريات 📸
     </button>
 
 </div>
@@ -1759,24 +1617,18 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 6 — GALLERY
-===================================================== -->
+<!-- PAGE 6 -->
 
 <section class="page" id="p6">
 
 <div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ ألبوم عيد الميلاد ✦
+        📸 ألبوم الذكريات
     </span>
 
-    <div class="cake">
-
-        <div class="cakeEmoji">
-            📸
-        </div>
-
+    <div class="orbit">
+        <div class="orbitEmoji">📸</div>
     </div>
 
     <h2>
@@ -1786,14 +1638,16 @@ h2{
     <div class="decor"></div>
 
     <p class="text">
-
         كل صورة حكاية...
         <br>
         وكل حكاية تستاهل مكان هنا ❤️
-
     </p>
 
-    <label class="upload" for="photoInput">
+    <label
+        class="upload"
+        id="dropZone"
+        for="photoInput"
+    >
 
         <span class="uploadIcon">
             ＋
@@ -1831,9 +1685,7 @@ h2{
         id="empty"
     >
 
-        <div>
-            🖼️
-        </div>
+        <div>🖼️</div>
 
         <p>
             أول ذكرى لسه مستنياكي
@@ -1860,82 +1712,85 @@ h2{
 </section>
 
 
-<!-- =====================================================
-     PAGE 7 — END
-===================================================== -->
+<!-- PAGE 7 -->
 
 <section class="page" id="p7">
 
 <div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ قبل ما الاحتفال يخلص ✦
+        👑 النهاية الجميلة
     </span>
 
-    <div class="cake">
-
-        <div class="cakeEmoji">
-            👑
-        </div>
-
+    <div class="orbit">
+        <div class="orbitEmoji">👑</div>
     </div>
 
-    <div class="name">
+    <div class="finalTitle">
         𓆩 سَـلـمـى 𓆪
     </div>
 
     <div class="decor"></div>
 
-    <div class="birthdayInfo">
+    <div class="finalBox">
 
-        <small>
-            ✦ الرسالة الأخيرة ✦
-        </small>
+        <p>
 
-        <strong>
-            سنة جديدة... وبداية جديدة ✨
-        </strong>
+            سنة جديدة من عمرك بدأت...
+            <br><br>
+
+            أتمنى تكون أحلى من كل اللي فات،
+            ومليانة فرحة ونجاح وراحة بال. ❤️
+
+            <br><br>
+
+            مهما كبرت الأيام،
+            خلي جواكي دايمًا الجزء اللي
+            بيحب يضحك ويفرح ويحتفل
+            بالحاجات الحلوة.
+
+            <br><br>
+
+            🎂✨
+
+            <br>
+
+            <span class="highlight">
+                كل سنة وإنتِ طيبة يا سلمى
+            </span>
+
+            <br>
+
+            وعقبال مليون سنة في خير وفرحة 🎉
+
+        </p>
 
     </div>
 
-    <p class="text">
-
-        مهما كبرت الأيام،
-        <br>
-        خلي جواكي دايمًا جزء صغير
-        <br>
-        بيحب يضحك ويفرح ويحتفل
-        <br>
-        بالحاجات الحلوة. ❤️
-
-        <br><br>
-
-        🎂
-
-        <br>
-
-        <span class="highlight">
-            كل سنة وإنتِ طيبة يا سلمى
-        </span>
-
-        <br>
-
-        وعقبال مليون سنة في فرحة ونجاح 🎉
-
-    </p>
-
     <button
         class="btn"
-        onclick="partyAgain()"
+        onclick="finishParty()"
     >
-        🎊 عيد الاحتفال من جديد
+        🎊 حفلة الختام
     </button>
 
     <button
         class="btn dark"
-        onclick="playMusic()"
+        onclick="sharePage()"
     >
-        🎵 الموسيقى
+        📤 مشاركة المفاجأة
+    </button>
+
+    <div
+        class="shareStatus"
+        id="shareStatus"
+    ></div>
+
+    <button
+        class="btn dark"
+        onclick="partyAgain()"
+    >
+        🔄 نبدأ من جديد
     </button>
 
     <div class="footer">
@@ -1957,9 +1812,7 @@ h2{
 </main>
 
 
-<!-- =====================================================
-     VIEWER
-===================================================== -->
+<!-- VIEWER -->
 
 <div
     class="viewer"
@@ -1985,87 +1838,59 @@ h2{
 
 <script>
 
-/* =====================================================
-   LOADER
-===================================================== */
+/* LOADER */
 
-window.addEventListener(
-    "load",
-    ()=>{
+window.addEventListener("load",()=>{
 
-        setTimeout(
-            ()=>{
+    setTimeout(()=>{
 
-                document
-                    .getElementById("loader")
-                    .classList.add("hide");
+        document
+            .getElementById("loader")
+            .classList.add("hide");
 
-            },
-            1400
-        );
+    },1400);
 
-    }
-);
+});
 
 
-/* =====================================================
-   STARS
-===================================================== */
+/* STARS */
 
-const canvas=
-    document.getElementById("stars");
-
-const ctx=
-    canvas.getContext("2d");
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
 
 let stars=[];
 
 function resizeStars(){
 
-    canvas.width=
-        innerWidth*
-        devicePixelRatio;
+    const ratio=Math.min(
+        window.devicePixelRatio || 1,
+        2
+    );
 
-    canvas.height=
-        innerHeight*
-        devicePixelRatio;
+    canvas.width=innerWidth*ratio;
+    canvas.height=innerHeight*ratio;
 
     ctx.setTransform(
-        devicePixelRatio,
+        ratio,
         0,
         0,
-        devicePixelRatio,
+        ratio,
         0,
         0
     );
 
-    stars=
-        Array.from(
-            {length:140},
-            ()=>({
+    stars=Array.from(
+        {length:120},
+        ()=>({
 
-                x:
-                    Math.random()*
-                    innerWidth,
+            x:Math.random()*innerWidth,
+            y:Math.random()*innerHeight,
+            r:.3+Math.random()*1.5,
+            a:.2+Math.random()*.8,
+            s:.1+Math.random()*.45
 
-                y:
-                    Math.random()*
-                    innerHeight,
-
-                r:
-                    .3+
-                    Math.random()*1.6,
-
-                a:
-                    .2+
-                    Math.random()*.8,
-
-                s:
-                    .1+
-                    Math.random()*.45
-
-            })
-        );
+        })
+    );
 
 }
 
@@ -2085,66 +1910,64 @@ function drawStars(){
         innerHeight
     );
 
-    stars.forEach(
-        star=>{
+    stars.forEach(star=>{
 
-            star.y-=star.s;
+        star.y-=star.s;
 
-            if(star.y<0){
+        if(star.y<0){
 
-                star.y=
-                    innerHeight;
-
-                star.x=
-                    Math.random()*
-                    innerWidth;
-
-            }
-
-            ctx.beginPath();
-
-            ctx.arc(
-                star.x,
-                star.y,
-                star.r,
-                0,
-                Math.PI*2
-            );
-
-            ctx.fillStyle=
-                `rgba(
-                    255,
-                    255,
-                    255,
-                    ${star.a}
-                )`;
-
-            ctx.fill();
+            star.y=innerHeight;
+            star.x=Math.random()*innerWidth;
 
         }
-    );
 
-    requestAnimationFrame(
-        drawStars
-    );
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.r,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=
+            `rgba(255,255,255,${star.a})`;
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(drawStars);
 
 }
 
 drawStars();
 
 
-/* =====================================================
-   CONFETTI
-===================================================== */
+/* PROGRESS */
 
-function confettiBurst(amount=100){
+function updateProgress(page){
+
+    const percentage=
+        Math.max(
+            14,
+            Math.min(100,page*14.2857)
+        );
+
+    document
+        .getElementById("progressBar")
+        .style.width=percentage+"%";
+
+}
+
+
+/* CONFETTI */
+
+function confettiBurst(amount=120){
 
     const symbols=[
-        "●",
-        "■",
-        "◆",
-        "✦",
-        "★"
+        "●","■","◆","✦","★","✧"
     ];
 
     for(let i=0;i<amount;i++){
@@ -2166,26 +1989,18 @@ function confettiBurst(amount=100){
             Math.random()*100+"vw";
 
         piece.style.fontSize=
-            8+
-            Math.random()*13+
-            "px";
+            8+Math.random()*13+"px";
 
         piece.style.animationDuration=
-            2+
-            Math.random()*3+
-            "s";
+            2+Math.random()*3+"s";
 
         piece.style.transform=
             `rotate(${Math.random()*360}deg)`;
 
-        document.body.appendChild(
-            piece
-        );
+        document.body.appendChild(piece);
 
         setTimeout(
-            ()=>{
-                piece.remove();
-            },
+            ()=>piece.remove(),
             6000
         );
 
@@ -2194,196 +2009,139 @@ function confettiBurst(amount=100){
 }
 
 
-/* =====================================================
-   BALLOONS
-===================================================== */
+/* HEARTS */
 
-setInterval(
-    ()=>{
+function heartBurst(){
 
-        const balloon=
+    for(let i=0;i<14;i++){
+
+        const heart=
             document.createElement("div");
 
-        balloon.className="balloon";
+        heart.className="heart";
 
-        balloon.textContent=
+        heart.textContent=
             Math.random()>.5
-            ? "🎈"
-            : "🎈";
+            ? "❤️"
+            : "💖";
 
-        balloon.style.left=
-            Math.random()*100+
-            "vw";
+        heart.style.left=
+            Math.random()*100+"vw";
 
-        balloon.style.fontSize=
-            20+
-            Math.random()*25+
-            "px";
+        heart.style.fontSize=
+            18+Math.random()*25+"px";
 
-        balloon.style.animationDuration=
-            8+
-            Math.random()*7+
-            "s";
+        heart.style.animationDuration=
+            5+Math.random()*5+"s";
 
-        document.body.appendChild(
-            balloon
-        );
+        document.body.appendChild(heart);
 
         setTimeout(
-            ()=>{
-                balloon.remove();
-            },
-            16000
+            ()=>heart.remove(),
+            11000
         );
-
-    },
-    1800
-);
-
-
-/* =====================================================
-   PARTY
-===================================================== */
-
-function startParty(){
-
-    confettiBurst(150);
-
-    setTimeout(
-        ()=>{
-            nextPage(2);
-        },
-        350
-    );
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function nextPage(number){
-
-    document
-        .querySelectorAll(".page")
-        .forEach(
-            page=>{
-                page.classList.remove(
-                    "active"
-                );
-            }
-        );
-
-    setTimeout(
-        ()=>{
-
-            const target=
-                document.getElementById(
-                    "p"+number
-                );
-
-            if(target){
-
-                target.classList.add(
-                    "active"
-                );
-
-            }
-
-            window.scrollTo({
-                top:0,
-                behavior:"smooth"
-            });
-
-        },
-        70
-    );
-
-}
-
-
-/* =====================================================
-   PARTY AGAIN
-===================================================== */
-
-function partyAgain(){
-
-    confettiBurst(180);
-
-    nextPage(1);
-
-}
-
-
-/* =====================================================
-   MUSIC
-===================================================== */
-
-function playMusic(){
-
-    const music=
-        document.getElementById(
-            "birthdayMusic"
-        );
-
-    if(music.paused){
-
-        music
-            .play()
-            .catch(
-                ()=>{
-                    alert(
-                        "حطي ملف rohy.mp3 جنب index.html 🎵"
-                    );
-                }
-            );
-
-    }else{
-
-        music.pause();
 
     }
 
 }
 
+setInterval(heartBurst,5000);
 
-/* =====================================================
-   GIFT
-===================================================== */
 
-function openGift(){
+/* START */
 
-    const message=
-        document.getElementById(
-            "surpriseText"
-        );
+function startParty(){
 
-    message.classList.add("show");
+    confettiBurst(170);
+    heartBurst();
 
-    confettiBurst(130);
+    setTimeout(
+        ()=>nextPage(2),
+        400
+    );
 
 }
 
 
-/* =====================================================
-   PHOTOS
-===================================================== */
+/* NAVIGATION */
+
+let currentPage=1;
+
+function nextPage(number){
+
+    currentPage=number;
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+    setTimeout(()=>{
+
+        const target=
+            document.getElementById("p"+number);
+
+        if(target){
+            target.classList.add("active");
+        }
+
+        updateProgress(number);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },70);
+
+}
+
+
+/* GIFT */
+
+let giftOpened=false;
+
+function openGift(){
+
+    const gift=
+        document.getElementById("gift");
+
+    const message=
+        document.getElementById("surpriseText");
+
+    if(giftOpened){
+
+        message.classList.toggle("show");
+        return;
+
+    }
+
+    giftOpened=true;
+
+    gift.classList.add("opened");
+
+    message.classList.add("show");
+
+    confettiBurst(150);
+    heartBurst();
+
+}
+
+
+/* PHOTOS */
 
 const photoInput=
-    document.getElementById(
-        "photoInput"
-    );
+    document.getElementById("photoInput");
 
 const gallery=
-    document.getElementById(
-        "gallery"
-    );
+    document.getElementById("gallery");
 
 const empty=
-    document.getElementById(
-        "empty"
-    );
+    document.getElementById("empty");
+
+const dropZone=
+    document.getElementById("dropZone");
 
 let photos=
     JSON.parse(
@@ -2399,53 +2157,9 @@ photoInput.addEventListener(
     "change",
     async function(){
 
-        const files=
-            Array.from(
-                this.files
-            );
-
-        for(
-            const file
-            of files
-        ){
-
-            if(
-                !file.type.startsWith(
-                    "image/"
-                )
-            ){
-                continue;
-            }
-
-            try{
-
-                const image=
-                    await compressImage(
-                        file
-                    );
-
-                photos.push({
-
-                    id:
-                        Date.now()+
-                        "_"+
-                        Math.random(),
-
-                    image:image
-
-                });
-
-            }catch(error){
-
-                console.log(error);
-
-            }
-
-        }
-
-        savePhotos();
-
-        renderPhotos();
+        await addFiles(
+            Array.from(this.files)
+        );
 
         this.value="";
 
@@ -2453,9 +2167,89 @@ photoInput.addEventListener(
 );
 
 
-/* =====================================================
-   COMPRESS
-===================================================== */
+/* DRAG */
+
+["dragenter","dragover"].forEach(eventName=>{
+
+    dropZone.addEventListener(
+        eventName,
+        event=>{
+            event.preventDefault();
+            dropZone.classList.add("drag");
+        }
+    );
+
+});
+
+["dragleave","drop"].forEach(eventName=>{
+
+    dropZone.addEventListener(
+        eventName,
+        event=>{
+            event.preventDefault();
+            dropZone.classList.remove("drag");
+        }
+    );
+
+});
+
+dropZone.addEventListener(
+    "drop",
+    async event=>{
+
+        await addFiles(
+            Array.from(
+                event.dataTransfer.files
+            )
+        );
+
+    }
+);
+
+
+/* ADD FILES */
+
+async function addFiles(files){
+
+    for(const file of files){
+
+        if(
+            !file.type.startsWith("image/")
+        ){
+            continue;
+        }
+
+        try{
+
+            const image=
+                await compressImage(file);
+
+            photos.push({
+
+                id:
+                    Date.now()+
+                    "_"+
+                    Math.random(),
+
+                image:image
+
+            });
+
+        }catch(error){
+
+            console.log(error);
+
+        }
+
+    }
+
+    savePhotos();
+    renderPhotos();
+
+}
+
+
+/* COMPRESS */
 
 function compressImage(file){
 
@@ -2465,109 +2259,78 @@ function compressImage(file){
             const reader=
                 new FileReader();
 
-            reader.onload=
-                event=>{
+            reader.onload=event=>{
 
-                    const img=
-                        new Image();
+                const img=new Image();
 
-                    img.onload=
-                        ()=>{
+                img.onload=()=>{
 
-                            let width=
-                                img.width;
+                    let width=img.width;
+                    let height=img.height;
 
-                            let height=
-                                img.height;
+                    const max=1400;
 
-                            const max=
-                                1400;
+                    if(width>max){
 
-                            if(
-                                width>
-                                max
-                            ){
-
-                                height=
-                                    Math.round(
-                                        height*
-                                        (
-                                            max/
-                                            width
-                                        )
-                                    );
-
-                                width=
-                                    max;
-
-                            }
-
-                            if(
-                                height>
-                                max
-                            ){
-
-                                width=
-                                    Math.round(
-                                        width*
-                                        (
-                                            max/
-                                            height
-                                        )
-                                    );
-
-                                height=
-                                    max;
-
-                            }
-
-                            const c=
-                                document.createElement(
-                                    "canvas"
-                                );
-
-                            c.width=
-                                width;
-
-                            c.height=
-                                height;
-
-                            const context=
-                                c.getContext(
-                                    "2d"
-                                );
-
-                            context.drawImage(
-                                img,
-                                0,
-                                0,
-                                width,
-                                height
+                        height=
+                            Math.round(
+                                height*
+                                (max/width)
                             );
 
-                            resolve(
-                                c.toDataURL(
-                                    "image/jpeg",
-                                    .82
-                                )
+                        width=max;
+
+                    }
+
+                    if(height>max){
+
+                        width=
+                            Math.round(
+                                width*
+                                (max/height)
                             );
 
-                        };
+                        height=max;
 
-                    img.onerror=
-                        reject;
+                    }
 
-                    img.src=
-                        event.target.result;
+                    const c=
+                        document.createElement(
+                            "canvas"
+                        );
+
+                    c.width=width;
+                    c.height=height;
+
+                    const context=
+                        c.getContext("2d");
+
+                    context.drawImage(
+                        img,
+                        0,
+                        0,
+                        width,
+                        height
+                    );
+
+                    resolve(
+                        c.toDataURL(
+                            "image/jpeg",
+                            .80
+                        )
+                    );
 
                 };
 
-            reader.onerror=
-                reject;
+                img.onerror=reject;
 
-            reader.readAsDataURL(
-                file
-            );
+                img.src=event.target.result;
+
+            };
+
+            reader.onerror=reject;
+
+            reader.readAsDataURL(file);
 
         }
     );
@@ -2575,9 +2338,7 @@ function compressImage(file){
 }
 
 
-/* =====================================================
-   SAVE
-===================================================== */
+/* SAVE */
 
 function savePhotos(){
 
@@ -2585,9 +2346,7 @@ function savePhotos(){
 
         localStorage.setItem(
             "salma_birthday_photos",
-            JSON.stringify(
-                photos
-            )
+            JSON.stringify(photos)
         );
 
     }catch(error){
@@ -2601,131 +2360,84 @@ function savePhotos(){
 }
 
 
-/* =====================================================
-   RENDER
-===================================================== */
+/* RENDER */
 
 function renderPhotos(){
 
     gallery.innerHTML="";
 
-    if(
-        photos.length===0
-    ){
+    if(photos.length===0){
 
-        empty.style.display=
-            "block";
+        empty.style.display="block";
 
         return;
 
     }
 
-    empty.style.display=
-        "none";
+    empty.style.display="none";
 
-    photos.forEach(
-        (photo,index)=>{
+    photos.forEach((photo,index)=>{
 
-            const card=
-                document.createElement(
-                    "div"
-                );
+        const card=
+            document.createElement("div");
 
-            card.className="photo";
+        card.className="photo";
 
-            const image=
-                document.createElement(
-                    "img"
-                );
+        const image=
+            document.createElement("img");
 
-            image.src=
-                photo.image;
+        image.src=photo.image;
+        image.alt="ذكرى "+(index+1);
 
-            image.alt=
-                "ذكرى "+(index+1);
+        const tools=
+            document.createElement("div");
 
-            const tools=
-                document.createElement(
-                    "div"
-                );
+        tools.className="photoTools";
 
-            tools.className=
-                "photoTools";
+        const deleteButton=
+            document.createElement("button");
 
-            const deleteButton=
-                document.createElement(
-                    "button"
-                );
+        deleteButton.textContent="🗑️";
 
-            deleteButton.textContent=
-                "🗑️";
+        deleteButton.onclick=event=>{
 
-            deleteButton.onclick=
-                event=>{
+            event.stopPropagation();
 
-                    event.stopPropagation();
+            deletePhoto(photo.id);
 
-                    deletePhoto(
-                        photo.id
-                    );
+        };
 
-                };
+        const fullButton=
+            document.createElement("button");
 
-            const fullButton=
-                document.createElement(
-                    "button"
-                );
+        fullButton.textContent="🔍";
 
-            fullButton.textContent=
-                "🔍";
+        fullButton.onclick=event=>{
 
-            fullButton.onclick=
-                event=>{
+            event.stopPropagation();
 
-                    event.stopPropagation();
+            openViewer(photo.image);
 
-                    openViewer(
-                        photo.image
-                    );
+        };
 
-                };
+        tools.appendChild(deleteButton);
+        tools.appendChild(fullButton);
 
-            tools.appendChild(
-                deleteButton
-            );
+        card.appendChild(image);
+        card.appendChild(tools);
 
-            tools.appendChild(
-                fullButton
-            );
+        card.onclick=()=>{
+            openViewer(photo.image);
+        };
 
-            card.appendChild(
-                image
-            );
+        gallery.appendChild(card);
 
-            card.appendChild(
-                tools
-            );
-
-            card.onclick=
-                ()=>{
-                    openViewer(
-                        photo.image
-                    );
-                };
-
-            gallery.appendChild(
-                card
-            );
-
-        }
-    );
+    });
 
 }
 
 
-/* =====================================================
-   DELETE
-===================================================== */
+/* DELETE */
 
 function deletePhoto(id){
 
@@ -2739,12 +2451,10 @@ function deletePhoto(id){
 
     photos=
         photos.filter(
-            photo=>
-                photo.id!==id
+            photo=>photo.id!==id
         );
 
     savePhotos();
-
     renderPhotos();
 
 }
@@ -2752,13 +2462,9 @@ function deletePhoto(id){
 
 function deleteAllPhotos(){
 
-    if(
-        photos.length===0
-    ){
+    if(photos.length===0){
 
-        alert(
-            "مفيش صور للحذف ❤️"
-        );
+        alert("مفيش صور للحذف ❤️");
 
         return;
 
@@ -2775,31 +2481,22 @@ function deleteAllPhotos(){
     photos=[];
 
     savePhotos();
-
     renderPhotos();
 
 }
 
 
-/* =====================================================
-   VIEWER
-===================================================== */
+/* VIEWER */
 
 function openViewer(src){
 
     document
-        .getElementById(
-            "viewerImg"
-        )
+        .getElementById("viewerImg")
         .src=src;
 
     document
-        .getElementById(
-            "viewer"
-        )
-        .classList.add(
-            "show"
-        );
+        .getElementById("viewer")
+        .classList.add("show");
 
 }
 
@@ -2808,19 +2505,14 @@ function closeViewer(event){
 
     if(
         event &&
-        event.target.id!==
-        "viewer"
+        event.target.id!=="viewer"
     ){
         return;
     }
 
     document
-        .getElementById(
-            "viewer"
-        )
-        .classList.remove(
-            "show"
-        );
+        .getElementById("viewer")
+        .classList.remove("show");
 
 }
 
@@ -2829,22 +2521,126 @@ document.addEventListener(
     "keydown",
     event=>{
 
-        if(
-            event.key==="Escape"
-        ){
+        if(event.key==="Escape"){
 
             document
-                .getElementById(
-                    "viewer"
-                )
-                .classList.remove(
-                    "show"
-                );
+                .getElementById("viewer")
+                .classList.remove("show");
 
         }
 
     }
 );
+
+
+/* FINAL PARTY */
+
+function finishParty(){
+
+    confettiBurst(260);
+
+    heartBurst();
+
+    setTimeout(
+        ()=>{
+            confettiBurst(180);
+        },
+        700
+    );
+
+    setTimeout(
+        ()=>{
+            heartBurst();
+        },
+        1300
+    );
+
+}
+
+
+/* SHARE */
+
+async function sharePage(){
+
+    const status=
+        document.getElementById(
+            "shareStatus"
+        );
+
+    const shareData={
+        title:"🎂 عيد ميلاد سلمى",
+        text:
+            "🎉 مفاجأة عيد ميلاد سلمى ❤️",
+        url:location.href
+    };
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share(
+                shareData
+            );
+
+            status.textContent=
+                "❤️ تم فتح المشاركة";
+
+        }catch(error){
+
+            if(error.name!=="AbortError"){
+
+                status.textContent=
+                    "حصلت مشكلة بسيطة في المشاركة.";
+
+            }
+
+        }
+
+    }else{
+
+        try{
+
+            await navigator.clipboard.writeText(
+                location.href
+            );
+
+            status.textContent=
+                "✅ تم نسخ رابط الموقع";
+
+        }catch(error){
+
+            status.textContent=
+                "انسخي رابط الصفحة من المتصفح ❤️";
+
+        }
+
+    }
+
+}
+
+
+/* AGAIN */
+
+function partyAgain(){
+
+    giftOpened=false;
+
+    const gift=
+        document.getElementById("gift");
+
+    const message=
+        document.getElementById("surpriseText");
+
+    gift.classList.remove("opened");
+    message.classList.remove("show");
+
+    confettiBurst(160);
+
+    nextPage(1);
+
+}
 
 </script>
 
