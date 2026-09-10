@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>عبدالله إلى ريهام ❤️</title>
+<title>🎂 عيد ميلاد سلمى 🎉</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=El+Messiri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -21,11 +18,13 @@
 }
 
 :root{
-    --pink:#ff176f;
-    --pink2:#ff7eb3;
-    --purple:#8b42ff;
-    --dark:#020105;
-    --glass:rgba(255,255,255,.08);
+    --pink:#ff3d8d;
+    --pink2:#ff8fc4;
+    --purple:#9b5cff;
+    --gold:#ffd86b;
+    --cyan:#6ee7ff;
+    --bg:#07050d;
+    --glass:rgba(255,255,255,.075);
 }
 
 html{
@@ -39,79 +38,56 @@ body{
     font-family:"Cairo",sans-serif;
 
     background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(255,20,110,.25),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 100% 80%,
-            rgba(125,40,255,.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #020105,
-            #0d0209,
-            #030106
-        );
+        radial-gradient(circle at 15% 15%,rgba(255,61,141,.20),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(155,92,255,.20),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,216,107,.08),transparent 32%),
+        linear-gradient(145deg,#040309,#100713,#05040a);
 }
 
-/* =========================
+/* =====================================================
    BACKGROUND
-========================= */
+===================================================== */
 
-#canvas{
+#stars{
     position:fixed;
     inset:0;
     width:100%;
     height:100%;
-    z-index:-3;
-}
-
-.noise{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
-    opacity:.035;
-
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='%23n' opacity='.7'/%3E%3C/svg%3E");
+    z-index:-10;
 }
 
 .glow{
     position:fixed;
-    width:400px;
-    height:400px;
+    width:380px;
+    height:380px;
     border-radius:50%;
     filter:blur(110px);
     pointer-events:none;
-    opacity:.17;
-    z-index:-1;
-
-    animation:glowMove 14s ease-in-out infinite alternate;
+    z-index:-5;
+    opacity:.16;
+    animation:glowMove 15s ease-in-out infinite alternate;
 }
 
-.glow1{
+.g1{
     top:-220px;
-    right:-180px;
-    background:#ff176f;
+    right:-160px;
+    background:#ff2380;
 }
 
-.glow2{
+.g2{
     bottom:-220px;
-    left:-180px;
-    background:#763cff;
+    left:-160px;
+    background:#743cff;
     animation-delay:3s;
 }
 
-.glow3{
-    width:280px;
-    height:280px;
-    top:45%;
+.g3{
+    top:40%;
     left:40%;
-    background:#ff4f95;
-    opacity:.08;
+    width:260px;
+    height:260px;
+    background:#ffd34d;
+    opacity:.06;
     animation-duration:20s;
 }
 
@@ -121,121 +97,114 @@ body{
     }
 }
 
-/* =========================
+/* =====================================================
    LOADER
-========================= */
+===================================================== */
 
-#loader{
+.loader{
     position:fixed;
     inset:0;
-    z-index:99999;
+    z-index:999999;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:#020105;
+    background:#040309;
 
-    transition:opacity .8s ease;
+    transition:1s;
 }
 
-.loaderBox{
+.loader.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.loaderContent{
     text-align:center;
 }
 
-.loaderHeart{
-    font-size:80px;
-
-    filter:
-        drop-shadow(
-            0 0 30px
-            rgba(255,20,110,.9)
-        );
-
-    animation:heartbeat 1s infinite;
+.loaderCake{
+    font-size:82px;
+    animation:cakePulse 1.3s infinite;
+    filter:drop-shadow(0 0 30px rgba(255,61,141,.7));
 }
 
-.loaderBox h2{
-    margin-top:18px;
+.loaderName{
+    margin-top:14px;
 
-    font-family:"El Messiri",serif;
+    font-family:"El Messiri";
+    font-size:32px;
 
-    font-size:30px;
+    color:#ffd2e5;
 }
 
-.loaderBox p{
+.loaderText{
     margin-top:8px;
-
-    color:#a9939d;
-    font-size:12px;
+    color:#8e8796;
+    font-size:11px;
 }
 
-.loaderLine{
-    width:180px;
+.loaderBar{
+    width:190px;
     height:4px;
-
     margin:25px auto;
 
+    overflow:hidden;
     border-radius:50px;
 
-    overflow:hidden;
-
-    background:rgba(255,255,255,.1);
+    background:#ffffff0d;
 }
 
-.loaderLine span{
+.loaderBar span{
     display:block;
-
     width:45%;
     height:100%;
-
-    border-radius:50px;
 
     background:
         linear-gradient(
             90deg,
-            #ff176f,
-            #ffb0c8,
-            #8b42ff
+            #ff3d8d,
+            #ffd86b,
+            #9b5cff
         );
 
-    animation:loaderMove 1.3s infinite;
+    animation:loader 1.3s infinite;
 }
 
-@keyframes loaderMove{
+@keyframes loader{
     from{
         transform:translateX(-250%);
     }
-
     to{
-        transform:translateX(400%);
+        transform:translateX(350%);
     }
 }
 
-/* =========================
-   APP
-========================= */
-
-.app{
-    width:min(100%,680px);
-
-    margin:auto;
-
-    padding:
-        20px
-        15px
-        80px;
+@keyframes cakePulse{
+    50%{
+        transform:scale(1.13) rotate(2deg);
+    }
 }
 
-/* =========================
-   PAGES
-========================= */
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    width:min(100%,760px);
+    margin:auto;
+    padding:15px 14px 80px;
+}
+
+/* =====================================================
+   PAGE
+===================================================== */
 
 .page{
     min-height:100vh;
 
     display:none;
-
     align-items:center;
     justify-content:center;
 }
@@ -245,16 +214,15 @@ body{
 
     animation:
         pageIn
-        .8s
+        .75s
         cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes pageIn{
-
     from{
         opacity:0;
         transform:
-            translateY(30px)
+            translateY(35px)
             scale(.97);
     }
 
@@ -264,41 +232,38 @@ body{
     }
 }
 
-/* =========================
+/* =====================================================
    CARD
-========================= */
+===================================================== */
 
 .card{
     position:relative;
 
     width:100%;
 
-    padding:
-        38px
-        25px;
+    padding:42px 25px;
 
-    border-radius:40px;
+    overflow:hidden;
+
+    border-radius:42px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.12),
+            rgba(255,255,255,.105),
             rgba(255,255,255,.035)
         );
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
 
     backdrop-filter:blur(28px);
     -webkit-backdrop-filter:blur(28px);
 
     box-shadow:
-        0 40px 110px rgba(0,0,0,.75),
-        inset 0 1px rgba(255,255,255,.2),
-        0 0 70px rgba(255,30,120,.08);
-
-    overflow:hidden;
+        0 40px 120px rgba(0,0,0,.7),
+        inset 0 1px rgba(255,255,255,.18);
 }
 
 .card::before{
@@ -306,196 +271,112 @@ body{
 
     position:absolute;
 
-    width:230px;
-    height:230px;
+    width:300px;
+    height:300px;
 
-    top:-140px;
-    right:-100px;
+    top:-190px;
+    right:-130px;
 
     border-radius:50%;
 
     background:
-        rgba(255,30,120,.08);
+        rgba(255,61,141,.12);
 
-    filter:blur(50px);
+    filter:blur(60px);
 
     pointer-events:none;
 }
 
-/* =========================
+/* =====================================================
    BADGE
-========================= */
+===================================================== */
 
 .badge{
     display:inline-block;
 
-    padding:
-        8px
-        20px;
+    padding:8px 20px;
 
     border-radius:50px;
 
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    color:#ffd0df;
+    color:#ffd7e8;
 
     font-size:11px;
 
-    letter-spacing:1px;
-}
-
-/* =========================
-   HEART
-========================= */
-
-.heroHeart{
-    position:relative;
-
-    width:150px;
-    height:150px;
-
-    margin:
-        30px
-        auto;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:50%;
-
-    font-size:78px;
-
     background:
-        radial-gradient(
-            circle,
-            rgba(255,30,120,.32),
-            rgba(255,255,255,.03)
-        );
+        rgba(255,61,141,.07);
 
     border:
         1px solid
-        rgba(255,255,255,.2);
+        rgba(255,143,196,.25);
 
     box-shadow:
-        0 0 60px
-        rgba(255,20,110,.4),
-
-        inset 0 0 45px
-        rgba(255,255,255,.06);
-
-    animation:
-        heartbeat
-        2.1s
-        ease-in-out
-        infinite;
+        0 0 30px
+        rgba(255,61,141,.08);
 }
 
-.heroHeart::after{
-    content:"";
+/* =====================================================
+   NAME
+===================================================== */
 
-    position:absolute;
+.name{
+    margin-top:25px;
 
-    inset:-13px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,100,160,.3);
-
-    animation:
-        ring
-        2.6s
-        infinite;
-}
-
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.09);
-    }
-}
-
-@keyframes ring{
-
-    from{
-        transform:scale(.9);
-        opacity:.8;
-    }
-
-    to{
-        transform:scale(1.35);
-        opacity:0;
-    }
-}
-
-/* =========================
-   TITLES
-========================= */
-
-h1,
-h2{
     font-family:"El Messiri",serif;
+
+    font-size:62px;
+
+    line-height:1.35;
 
     background:
         linear-gradient(
             100deg,
             #fff,
-            #ff8fb8,
+            #ff86bb,
+            #ffd86b,
+            #b993ff,
             #fff,
-            #c47aff,
-            #fff
+            #ff86bb
         );
 
-    background-size:300%;
+    background-size:500%;
 
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
     animation:
-        shine
-        6s
+        nameShine
+        7s
         linear
         infinite;
 
-    text-shadow:
-        0 0 25px
-        rgba(255,70,140,.2);
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,61,141,.22)
+        );
 }
 
-h1{
-    font-size:48px;
-    line-height:1.45;
-}
-
-h2{
-    font-size:35px;
-}
-
-@keyframes shine{
-
+@keyframes nameShine{
     to{
-        background-position:300%;
+        background-position:500%;
     }
 }
 
-.line{
-    width:110px;
+.nameSmall{
+    margin-top:7px;
+    color:#a9a1b1;
+    font-size:12px;
+}
+
+/* =====================================================
+   DECOR
+===================================================== */
+
+.decor{
+    width:170px;
     height:3px;
 
-    margin:
-        18px
-        auto;
+    margin:18px auto;
 
     border-radius:50px;
 
@@ -503,39 +384,144 @@ h2{
         linear-gradient(
             90deg,
             transparent,
-            #ff4d8d,
-            #fff,
-            #ff4d8d,
+            #ff3d8d,
+            #ffd86b,
+            #9b5cff,
             transparent
         );
 
     box-shadow:
-        0 0 18px
-        rgba(255,50,125,.5);
+        0 0 20px
+        rgba(255,61,141,.45);
 }
 
-/* =========================
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake{
+    position:relative;
+
+    width:190px;
+    height:190px;
+
+    margin:30px auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,61,141,.22),
+            rgba(155,92,255,.06),
+            transparent 70%
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0 0 80px
+        rgba(255,61,141,.20);
+
+    animation:
+        cakeFloat
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+.cakeEmoji{
+    font-size:100px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,61,141,.55)
+        );
+}
+
+.cake::after{
+    content:"✨";
+
+    position:absolute;
+
+    top:12px;
+    right:22px;
+
+    font-size:27px;
+
+    animation:
+        sparkle 1.7s infinite;
+}
+
+@keyframes cakeFloat{
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+@keyframes sparkle{
+    50%{
+        transform:scale(1.35) rotate(15deg);
+        opacity:.55;
+    }
+}
+
+/* =====================================================
    TEXT
-========================= */
+===================================================== */
+
+h2{
+    font-family:"El Messiri",serif;
+
+    font-size:36px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffb0cf,
+            #fff
+        );
+
+    background-size:250%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:
+        nameShine
+        5s
+        linear
+        infinite;
+}
 
 .text{
-    color:#dfcbd4;
+    margin-top:15px;
+
+    color:#d8cfdb;
 
     font-family:"Amiri",serif;
 
-    font-size:19px;
+    font-size:20px;
 
-    line-height:2.15;
+    line-height:2.2;
 }
 
 .highlight{
-    color:#ff9fbd;
-    font-weight:700;
+    color:#ff9bc5;
+    font-weight:bold;
 }
 
-/* =========================
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .btn{
     position:relative;
@@ -544,20 +530,15 @@ h2{
 
     margin-top:16px;
 
-    padding:
-        17px
-        20px;
+    padding:17px 20px;
 
     border:0;
-
     border-radius:50px;
 
     color:#fff;
 
-    font-family:"Cairo",sans-serif;
-
-    font-size:16px;
-
+    font-family:"Cairo";
+    font-size:15px;
     font-weight:800;
 
     cursor:pointer;
@@ -566,18 +547,17 @@ h2{
 
     background:
         linear-gradient(
-            95deg,
-            #ff176f,
-            #ff4e91,
-            #8b42ff
+            100deg,
+            #ff287f,
+            #ff4fa0,
+            #8d52ff
         );
 
     box-shadow:
-        0 16px 50px
-        rgba(255,23,111,.35);
+        0 17px 55px
+        rgba(255,40,127,.28);
 
-    transition:
-        .3s;
+    transition:.3s;
 }
 
 .btn::after{
@@ -594,7 +574,7 @@ h2{
     transform:skewX(-20deg);
 
     background:
-        rgba(255,255,255,.18);
+        rgba(255,255,255,.2);
 
     transition:.6s;
 }
@@ -606,11 +586,11 @@ h2{
 .btn:hover{
     transform:
         translateY(-4px)
-        scale(1.015);
+        scale(1.01);
 
     box-shadow:
-        0 24px 65px
-        rgba(255,23,111,.5);
+        0 25px 70px
+        rgba(255,40,127,.42);
 }
 
 .btn:active{
@@ -619,120 +599,112 @@ h2{
 
 .btn.dark{
     background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    box-shadow:none;
-}
-
-/* =========================
-   TIMER
-========================= */
-
-.startBox{
-    margin:24px 0;
-
-    padding:19px;
-
-    border-radius:27px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,30,120,.13),
-            rgba(255,255,255,.04)
-        );
+        rgba(255,255,255,.055);
 
     border:
         1px solid
         rgba(255,255,255,.12);
+
+    box-shadow:none;
 }
 
-.startBox small{
-    color:#a8909c;
+/* =====================================================
+   BIRTHDAY INFO
+===================================================== */
 
+.birthdayInfo{
+    margin:25px 0;
+
+    padding:22px 18px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,61,141,.13),
+            rgba(155,92,255,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.11);
+}
+
+.birthdayInfo small{
+    color:#948b9d;
     font-size:11px;
 }
 
-.startBox strong{
+.birthdayInfo strong{
     display:block;
 
-    margin-top:5px;
+    margin-top:6px;
 
-    color:#ffb1c9;
+    color:#ffd2e5;
 
-    font-family:"El Messiri",serif;
+    font-family:"El Messiri";
 
-    font-size:22px;
+    font-size:23px;
 }
 
-.timer{
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown{
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:9px;
+    gap:8px;
 
-    margin-top:16px;
+    margin-top:17px;
 }
 
-.unit{
-    padding:
-        15px
-        3px;
+.time{
+    padding:15px 3px;
 
-    border-radius:20px;
+    text-align:center;
+
+    border-radius:21px;
 
     background:
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 
     border:
         1px solid
-        rgba(255,255,255,.1);
-
-    transition:.3s;
+        rgba(255,255,255,.09);
 }
 
-.unit:hover{
-    transform:translateY(-5px);
-
-    background:
-        rgba(255,40,120,.1);
-
-    box-shadow:
-        0 10px 30px
-        rgba(255,40,120,.15);
-}
-
-.unit strong{
+.time strong{
     display:block;
 
-    font-size:25px;
+    font-size:24px;
+
+    color:#fff;
 
     text-shadow:
-        0 0 18px
-        rgba(255,70,145,.55);
+        0 0 20px
+        rgba(255,105,165,.5);
 }
 
-.unit span{
+.time span{
     display:block;
 
-    margin-top:5px;
+    margin-top:4px;
 
-    color:#a08b95;
+    color:#958c9e;
 
-    font-size:10px;
+    font-size:9px;
 }
 
-/* =========================
-   MEMORIES
-========================= */
+/* =====================================================
+   PARTY GRID
+===================================================== */
 
-.memoryGrid{
+.partyGrid{
     display:grid;
 
     grid-template-columns:
@@ -743,8 +715,8 @@ h2{
     margin:25px 0;
 }
 
-.memory{
-    min-height:130px;
+.party{
+    min-height:140px;
 
     padding:18px 10px;
 
@@ -756,329 +728,271 @@ h2{
 
     justify-content:center;
 
-    border-radius:25px;
+    text-align:center;
+
+    border-radius:27px;
 
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.07),
-            rgba(255,30,120,.06)
+            rgba(255,61,141,.06)
         );
 
     border:
         1px solid
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.10);
 
-    transition:.3s;
+    transition:.35s;
 }
 
-.memory:hover{
-    transform:translateY(-6px);
+.party:hover{
+    transform:translateY(-7px);
 
     border-color:
-        rgba(255,100,160,.4);
+        rgba(255,143,196,.4);
 }
 
-.memory b{
-    font-size:36px;
+.partyIcon{
+    font-size:39px;
 }
 
-.memory span{
+.party b{
     margin-top:8px;
-
-    color:#d2bcc6;
-
-    font-family:"Amiri",serif;
+    font-size:14px;
 }
 
-/* =========================
-   SECRET MESSAGE
-========================= */
-
-.secret{
-    margin:25px 0;
-
-    padding:25px 18px;
-
-    min-height:145px;
-
-    display:flex;
-
-    align-items:center;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,30,120,.14),
-            rgba(130,40,255,.09)
-        );
-
-    border:
-        1px solid
-        rgba(255,110,165,.2);
-
-    box-shadow:
-        0 0 40px
-        rgba(255,30,115,.1);
+.party span{
+    margin-top:4px;
+    color:#958d9d;
+    font-size:10px;
 }
 
-.typing{
-    width:100%;
+/* =====================================================
+   MESSAGE
+===================================================== */
 
-    color:#eee0e5;
+.message{
+    margin-top:24px;
 
-    font-family:"Amiri",serif;
-
-    font-size:20px;
-
-    line-height:2.2;
-}
-
-/* =========================
-   LETTER
-========================= */
-
-.letter{
-    padding:25px 18px;
-
-    border-radius:29px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.06),
-            rgba(255,30,120,.1)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
+    padding:26px 20px;
 
     text-align:right;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(155,92,255,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
 }
 
-.letter p{
-    margin-bottom:17px;
+.message p{
+    margin-bottom:18px;
 
-    color:#e4d2d9;
+    color:#e4dae5;
 
-    font-family:"Amiri",serif;
+    font-family:"Amiri";
 
     font-size:19px;
 
-    line-height:2.2;
+    line-height:2.3;
 }
 
-.bigLove{
-    margin:22px 0;
+.signature{
+    text-align:center;
 
-    padding:25px 15px;
+    margin-top:25px;
 
-    border-radius:27px;
+    color:#ff9bc5;
+
+    font-family:"El Messiri";
+
+    font-size:22px;
+}
+
+/* =====================================================
+   SURPRISE
+===================================================== */
+
+.surprise{
+    margin:25px 0;
+
+    padding:30px 18px;
 
     text-align:center;
 
-    color:#fff;
-
-    font-family:"Amiri",serif;
-
-    font-size:24px;
-
-    line-height:2;
+    border-radius:32px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,23,111,.18),
-            rgba(132,60,255,.12)
+        radial-gradient(
+            circle at center,
+            rgba(255,61,141,.16),
+            transparent 70%
         );
 
     border:
         1px solid
-        rgba(255,120,170,.25);
+        rgba(255,255,255,.10);
+}
 
-    box-shadow:
-        0 0 50px
-        rgba(255,23,111,.13);
+.gift{
+    font-size:85px;
+
+    cursor:pointer;
+
+    display:inline-block;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(255,61,141,.5)
+        );
 
     animation:
-        messageGlow
-        3s
-        ease-in-out
+        giftShake
+        1.6s
         infinite;
 }
 
-@keyframes messageGlow{
+@keyframes giftShake{
 
-    50%{
-        box-shadow:
-            0 0 65px
-            rgba(255,23,111,.27);
+    0%,70%,100%{
+        transform:rotate(0);
+    }
+
+    75%{
+        transform:rotate(-8deg) scale(1.08);
+    }
+
+    80%{
+        transform:rotate(8deg) scale(1.08);
+    }
+
+    85%{
+        transform:rotate(-5deg);
+    }
+
+    90%{
+        transform:rotate(5deg);
     }
 }
 
-/* =========================
-   PHOTO COUNTER
-========================= */
+.surpriseText{
+    display:none;
 
-.photo-counter{
-    margin:
-        22px
-        0
-        15px;
+    margin-top:18px;
 
-    padding:
-        14px
-        18px;
+    font-family:"Amiri";
+
+    font-size:21px;
+
+    line-height:2;
+
+    color:#ffe2ed;
+}
+
+.surpriseText.show{
+    display:block;
+
+    animation:
+        reveal
+        .7s
+        ease;
+}
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.upload{
+    margin-top:23px;
+
+    min-height:90px;
 
     display:flex;
 
     align-items:center;
-
-    justify-content:space-between;
-
-    border-radius:23px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,40,120,.12),
-            rgba(130,50,255,.08)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    color:#d8c5ce;
-}
-
-.photo-counter strong{
-    width:43px;
-    height:43px;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff176f,
-            #8b42ff
-        );
-
-    color:white;
-
-    font-size:17px;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,30,120,.3);
-}
-
-/* =========================
-   UPLOAD
-========================= */
-
-.upload-btn{
-    width:100%;
-
-    min-height:80px;
-
-    padding:
-        14px
-        18px;
-
-    display:flex;
-
-    align-items:center;
-
     justify-content:center;
 
     gap:14px;
 
     cursor:pointer;
 
-    border-radius:26px;
+    border-radius:27px;
+
+    border:
+        1px dashed
+        rgba(255,143,196,.5);
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,23,111,.18),
-            rgba(139,66,255,.16)
+            rgba(255,61,141,.10),
+            rgba(155,92,255,.08)
         );
-
-    border:
-        1px dashed
-        rgba(255,130,175,.5);
 
     transition:.3s;
 }
 
-.upload-btn:hover{
+.upload:hover{
     transform:translateY(-4px);
 
-    border-color:#ff75a5;
-
     box-shadow:
-        0 15px 40px
-        rgba(255,30,120,.18);
+        0 20px 50px
+        rgba(255,61,141,.14);
 }
 
-.upload-btn:active{
-    transform:scale(.97);
-}
-
-.upload-icon{
-    width:46px;
-    height:46px;
+.uploadIcon{
+    width:50px;
+    height:50px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:50%;
 
+    font-size:28px;
+
     background:
         linear-gradient(
             135deg,
-            #ff176f,
-            #8b42ff
+            #ff287f,
+            #8d52ff
         );
-
-    font-size:30px;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,30,120,.3);
 }
 
-.upload-btn b{
+.upload b{
     display:block;
-
-    color:#fff;
-
-    font-size:15px;
 }
 
-.upload-btn small{
+.upload small{
     display:block;
 
     margin-top:3px;
 
-    color:#ad98a2;
+    color:#958b9c;
 
     font-size:10px;
 }
-
-/* =========================
-   GALLERY
-========================= */
 
 .gallery{
     display:grid;
@@ -1088,10 +1002,10 @@ h2{
 
     gap:12px;
 
-    margin:20px 0;
+    margin-top:20px;
 }
 
-.photo-card{
+.photo{
     position:relative;
 
     height:190px;
@@ -1100,162 +1014,103 @@ h2{
 
     border-radius:26px;
 
-    background:#ffffff08;
-
     border:
         1px solid
-        rgba(255,255,255,.15);
+        rgba(255,255,255,.12);
 
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.35);
+    background:#ffffff08;
 
     animation:
         photoIn
         .5s
-        cubic-bezier(.2,.8,.2,1);
+        ease;
 }
 
-.photo-card img{
+.photo img{
     width:100%;
     height:100%;
 
-    display:block;
-
     object-fit:cover;
+
+    display:block;
 
     transition:.4s;
 }
 
-.photo-card:hover img{
-    transform:scale(1.07);
+.photo:hover img{
+    transform:scale(1.08);
 }
 
-.photo-overlay{
+.photoTools{
     position:absolute;
 
-    inset:0;
+    left:8px;
+    right:8px;
+    bottom:8px;
 
     display:flex;
 
-    align-items:flex-end;
-
     justify-content:space-between;
-
-    padding:10px;
-
-    background:
-        linear-gradient(
-            transparent 40%,
-            rgba(0,0,0,.78)
-        );
 
     opacity:0;
 
     transition:.3s;
 }
 
-.photo-card:hover .photo-overlay{
+.photo:hover .photoTools{
     opacity:1;
 }
 
-.photo-delete,
-.photo-full{
+.photoTools button{
     width:38px;
     height:38px;
 
     border:0;
-
     border-radius:50%;
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:16px;
-}
-
-.photo-delete{
-    background:
-        rgba(255,30,80,.9);
-}
-
-.photo-full{
-    background:
-        rgba(255,255,255,.18);
-
-    backdrop-filter:blur(8px);
-}
-
-.photo-number{
-    padding:
-        6px
-        10px;
-
-    border-radius:20px;
-
-    background:
-        rgba(0,0,0,.55);
 
     color:white;
 
-    font-size:10px;
-}
-
-.empty-gallery{
-    padding:
-        32px
-        18px;
-
-    margin:
-        20px
-        0;
-
-    border-radius:28px;
+    cursor:pointer;
 
     background:
-        rgba(255,255,255,.035);
+        rgba(0,0,0,.7);
+}
+
+.empty{
+    margin-top:20px;
+
+    padding:30px 15px;
+
+    text-align:center;
+
+    border-radius:27px;
+
+    background:
+        rgba(255,255,255,.025);
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.07);
 }
 
-.empty-gallery div{
+.empty div{
     font-size:50px;
-
-    margin-bottom:10px;
-
-    opacity:.7;
 }
 
-.empty-gallery p{
-    color:#d9c6ce;
+.empty p{
+    margin-top:8px;
 
-    font-family:"Amiri",serif;
+    color:#cfc5d2;
 
-    font-size:19px;
-}
+    font-family:"Amiri";
 
-.empty-gallery small{
-    display:block;
-
-    margin-top:7px;
-
-    color:#8f7d87;
-
-    font-size:10px;
-
-    line-height:1.8;
+    font-size:18px;
 }
 
 @keyframes photoIn{
-
     from{
         opacity:0;
-        transform:
-            translateY(20px)
-            scale(.9);
+        transform:scale(.85);
     }
 
     to{
@@ -1264,11 +1119,11 @@ h2{
     }
 }
 
-/* =========================
-   FULL IMAGE VIEWER
-========================= */
+/* =====================================================
+   VIEWER
+===================================================== */
 
-.image-viewer{
+.viewer{
     position:fixed;
 
     inset:0;
@@ -1285,10 +1140,10 @@ h2{
     background:
         rgba(0,0,0,.94);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 }
 
-.image-viewer.show{
+.viewer.show{
     display:flex;
 
     animation:
@@ -1297,44 +1152,42 @@ h2{
         ease;
 }
 
-.image-viewer img{
+.viewer img{
     max-width:95vw;
     max-height:85vh;
 
     object-fit:contain;
 
-    border-radius:22px;
+    border-radius:24px;
 
     box-shadow:
         0 30px 100px
         rgba(0,0,0,.8);
 }
 
-.close-viewer{
+.closeViewer{
     position:absolute;
 
-    top:20px;
-    right:20px;
+    top:18px;
+    right:18px;
 
-    width:46px;
-    height:46px;
+    width:48px;
+    height:48px;
 
     border:0;
-
     border-radius:50%;
+
+    color:#fff;
 
     background:
         rgba(255,255,255,.12);
 
-    color:white;
-
-    font-size:25px;
+    font-size:26px;
 
     cursor:pointer;
 }
 
 @keyframes viewerIn{
-
     from{
         opacity:0;
         transform:scale(.94);
@@ -1346,333 +1199,276 @@ h2{
     }
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* =====================================================
+   CONFETTI
+===================================================== */
 
-.float{
+.confetti{
     position:fixed;
 
-    bottom:-60px;
+    top:-20px;
+
+    width:9px;
+    height:15px;
+
+    z-index:99998;
 
     pointer-events:none;
 
-    color:#ff4d91;
-
-    opacity:.35;
-
     animation:
-        floatUp
+        confettiFall
         linear
         forwards;
-
-    z-index:20;
 }
 
-@keyframes floatUp{
+@keyframes confettiFall{
 
     to{
         transform:
-            translateY(-115vh)
-            rotate(360deg);
+            translateY(110vh)
+            rotate(720deg);
 
         opacity:0;
     }
 }
 
-/* =========================
-   TOAST
-========================= */
+/* =====================================================
+   FLOATING BALLOONS
+===================================================== */
 
-#toast{
+.balloon{
     position:fixed;
 
-    left:50%;
-    bottom:25px;
+    bottom:-100px;
 
-    z-index:100000;
-
-    padding:
-        12px
-        20px;
-
-    border-radius:50px;
-
-    background:
-        rgba(15,15,20,.85);
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
-    color:#fff;
-
-    font-size:13px;
-
-    opacity:0;
+    z-index:4;
 
     pointer-events:none;
 
-    transform:
-        translate(-50%,20px);
+    font-size:28px;
 
-    transition:.35s;
+    opacity:.35;
+
+    animation:
+        balloonUp
+        linear
+        forwards;
 }
 
-#toast.show{
-    opacity:1;
+@keyframes balloonUp{
 
-    transform:
-        translate(-50%,0);
+    to{
+        transform:
+            translateY(-120vh)
+            translateX(50px)
+            rotate(15deg);
+
+        opacity:0;
+    }
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer{
-    margin-top:27px;
+    margin-top:28px;
 
-    color:#8e7984;
+    text-align:center;
 
-    font-size:11px;
+    color:#746c7c;
 
-    line-height:1.9;
+    font-size:10px;
+
+    line-height:2;
 }
 
 .footer b{
-    color:#ff80ad;
+    color:#ff91bd;
 
-    font-family:"El Messiri",serif;
+    font-family:"El Messiri";
 
     font-size:13px;
 }
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:480px){
 
     .app{
         padding:
-            12px
-            12px
+            10px
+            11px
             60px;
     }
 
     .card{
         padding:
-            30px
-            19px;
+            32px 18px;
 
-        border-radius:33px;
+        border-radius:34px;
     }
 
-    h1{
-        font-size:38px;
+    .name{
+        font-size:48px;
     }
 
     h2{
         font-size:29px;
     }
 
-    .heroHeart{
-        width:125px;
-        height:125px;
+    .cake{
+        width:135px;
+        height:135px;
+    }
 
-        font-size:65px;
-
-        margin:25px auto;
+    .cakeEmoji{
+        font-size:72px;
     }
 
     .text{
-        font-size:16.5px;
+        font-size:17px;
     }
 
-    .timer{
-        gap:6px;
+    .partyGrid{
+        gap:9px;
     }
 
-    .unit strong{
-        font-size:20px;
+    .party{
+        min-height:125px;
     }
 
-    .unit span{
-        font-size:9px;
+    .countdown{
+        gap:5px;
     }
 
-    .photo-card{
+    .time strong{
+        font-size:19px;
+    }
+
+    .gallery .photo{
         height:155px;
     }
 
-    .photo-overlay{
+    .photoTools{
         opacity:1;
     }
-
-    .bigLove{
-        font-size:20px;
-    }
-
-    .upload-btn{
-        min-height:73px;
-    }
-
 }
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
-    }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
+<canvas id="stars"></canvas>
 
-<div id="loader">
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
 
-    <div class="loaderBox">
 
-        <div class="loaderHeart">
-            ❤️
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loaderContent">
+
+        <div class="loaderCake">
+            🎂
         </div>
 
-        <h2>
-            عبدالله إلى ريهام
-        </h2>
+        <div class="loaderName">
+            𓆩 سَـلـمـى 𓆪
+        </div>
 
-        <div class="loaderLine">
+        <div class="loaderBar">
             <span></span>
         </div>
 
-        <p>
-            بنجهز حاجة مخصوص ليكي...
-        </p>
+        <div class="loaderText">
+            بنجهز مفاجأة عيد الميلاد... 🎁
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- BACKGROUND -->
-
-<canvas id="canvas"></canvas>
-
-<div class="noise"></div>
-
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-<div class="glow glow3"></div>
-
-
-<!-- TOAST -->
-
-<div id="toast"></div>
-
-
 <!-- MUSIC -->
 
-<audio
-    id="rohyMusic"
-    loop
-    preload="auto"
->
-
-    <source
-        src="rohy.mp3"
-        type="audio/mpeg"
-    >
-
+<audio id="birthdayMusic" loop preload="auto">
+    <source src="rohy.mp3" type="audio/mpeg">
 </audio>
 
 
 <main class="app">
 
 
-<!-- =========================
-     PAGE 1
-========================= -->
+<!-- =====================================================
+     PAGE 1 — OPENING
+===================================================== -->
 
-<section
-    class="page active"
-    id="p1"
->
+<section class="page active" id="p1">
 
-<div
-    class="card"
-    style="text-align:center"
->
+<div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ رسالة خاصة جدًا ✦
+        🎉 مفاجأة عيد الميلاد 🎉
     </span>
 
+    <div class="cake">
 
-    <div class="heroHeart">
-        ❤️
+        <div class="cakeEmoji">
+            🎂
+        </div>
+
     </div>
 
+    <div class="name">
+        𓆩 سَـلـمـى 𓆪
+    </div>
 
-    <h1>
-        عبدالله إلى ريهام
-    </h1>
+    <div class="nameSmall">
+        ✦ اليوم مش يوم عادي ✦
+    </div>
 
-
-    <div class="line"></div>
-
+    <div class="decor"></div>
 
     <p class="text">
 
-        دي مش مجرد صفحة على الإنترنت...<br>
-
-        دي حكاية صغيرة اتعملت مخصوص<br>
-
-        علشان
+        النهارده فيه واحدة تستاهل
         <span class="highlight">
-            ريهام ❤️
+            كل الاحتفال ده 🎉
         </span>
+
+        <br>
+
+        وعشان كده...
+        عملنا لها عالم كامل مخصوص
+        <br>
+        علشان عيد ميلادها ❤️
 
     </p>
 
-
-    <button
-        class="btn"
-        onclick="music()"
-    >
-        🎵 شغّلي الأغنية
+    <button class="btn" onclick="startParty()">
+        🎊 افتحي المفاجأة
     </button>
 
-
-    <button
-        class="btn"
-        onclick="next(2)"
-    >
-        ابدئي الحكاية ✨
+    <button class="btn dark" onclick="playMusic()">
+        🎵 تشغيل الموسيقى
     </button>
-
 
     <div class="footer">
 
-        صُنعت بكل حب<br>
+        Happy Birthday
+
+        <br>
 
         <b>
-            عبدالله ❤️ ريهام
+            𓆩 سَـلـمـى 𓆪 🎂
         </b>
 
     </div>
@@ -1682,96 +1478,61 @@ h2{
 </section>
 
 
-<!-- =========================
-     PAGE 2
-========================= -->
+<!-- =====================================================
+     PAGE 2 — BIRTHDAY
+===================================================== -->
 
-<section
-    class="page"
-    id="p2"
->
+<section class="page" id="p2">
 
-<div
-    class="card"
-    style="text-align:center"
->
+<div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ الفصل الأول ✦
+        ✦ اليوم الكبير ✦
     </span>
 
+    <div class="cake">
 
-    <div class="heroHeart">
-        ⏳
+        <div class="cakeEmoji">
+            🎉
+        </div>
+
     </div>
 
-
     <h2>
-        ومن هنا بدأت الحكاية...
+        كل سنة وإنتِ طيبة يا سلمى 🎂
     </h2>
 
-
-    <div class="line"></div>
-
+    <div class="decor"></div>
 
     <p class="text">
 
-        من يوم الأربعاء الساعة 4 العصر،<br>
+        سنة جديدة من عمرك بدأت،
+        <br>
+        ونتمنى تكون أحلى من كل اللي فات.
+        <br><br>
 
-        بدأ وقت جديد يتحسب<br>
-
-        لحظة بلحظة ❤️
+        ضحكة أكتر 😂
+        <br>
+        نجاح أكتر 🏆
+        <br>
+        وذكريات أحلى ❤️
 
     </p>
 
-
-    <div class="startBox">
+    <div class="birthdayInfo">
 
         <small>
-            ✦ لحظة البداية ✦
+            ✦ احتفال خاص ✦
         </small>
 
         <strong>
-            الأربعاء • 2 يوليو 2025
+            🎂 عيد ميلاد سلمى 🎂
         </strong>
 
-        <small>
-            الساعة 04:00 مساءً
-        </small>
-
     </div>
 
-
-    <div class="timer">
-
-        <div class="unit">
-            <strong id="days">0</strong>
-            <span>يوم</span>
-        </div>
-
-        <div class="unit">
-            <strong id="hours">0</strong>
-            <span>ساعة</span>
-        </div>
-
-        <div class="unit">
-            <strong id="minutes">0</strong>
-            <span>دقيقة</span>
-        </div>
-
-        <div class="unit">
-            <strong id="seconds">0</strong>
-            <span>ثانية</span>
-        </div>
-
-    </div>
-
-
-    <button
-        class="btn"
-        onclick="next(3)"
-    >
-        كمّلي الحكاية ✨
+    <button class="btn" onclick="nextPage(3)">
+        نكمل الاحتفال 🎉
     </button>
 
 </div>
@@ -1779,77 +1540,60 @@ h2{
 </section>
 
 
-<!-- =========================
-     PAGE 3
-========================= -->
+<!-- =====================================================
+     PAGE 3 — WISHES
+===================================================== -->
 
-<section
-    class="page"
-    id="p3"
->
+<section class="page" id="p3">
 
-<div
-    class="card"
-    style="text-align:center"
->
+<div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ الفصل الثاني ✦
+        ✦ أمنيات السنة الجديدة ✦
     </span>
 
-
-    <div class="heroHeart">
-        💖
+    <div class="cake">
+        <div class="cakeEmoji">
+            🌟
+        </div>
     </div>
-
 
     <h2>
-        ذكريات صغيرة...
+        يا رب السنة دي تكون مختلفة ❤️
     </h2>
 
+    <div class="decor"></div>
 
-    <div class="line"></div>
+    <div class="partyGrid">
 
-
-    <p class="text">
-
-        ساعات أجمل الحكايات<br>
-
-        بتتكوّن من تفاصيل بسيطة جدًا.
-
-    </p>
-
-
-    <div class="memoryGrid">
-
-        <div class="memory">
-            <b>💬</b>
-            <span>أول كلام</span>
+        <div class="party">
+            <div class="partyIcon">❤️</div>
+            <b>راحة البال</b>
+            <span>أيام هادية وقلب مرتاح</span>
         </div>
 
-        <div class="memory">
-            <b>✨</b>
-            <span>أول ضحكة</span>
+        <div class="party">
+            <div class="partyIcon">🏆</div>
+            <b>النجاح</b>
+            <span>تحققي كل اللي نفسك فيه</span>
         </div>
 
-        <div class="memory">
-            <b>🌙</b>
-            <span>أجمل سهرة</span>
+        <div class="party">
+            <div class="partyIcon">😂</div>
+            <b>الضحك</b>
+            <span>ضحك من القلب كل يوم</span>
         </div>
 
-        <div class="memory">
-            <b>❤️</b>
-            <span>أحلى ذكرى</span>
+        <div class="party">
+            <div class="partyIcon">✨</div>
+            <b>أيام حلوة</b>
+            <span>ذكريات تستاهل تتخزن</span>
         </div>
 
     </div>
 
-
-    <button
-        class="btn"
-        onclick="next(4)"
-    >
-        في حاجة تانية... 👀
+    <button class="btn" onclick="nextPage(4)">
+        فيه رسالة ليكي 💌
     </button>
 
 </div>
@@ -1857,157 +1601,90 @@ h2{
 </section>
 
 
-<!-- =========================
-     PAGE 4
-========================= -->
+<!-- =====================================================
+     PAGE 4 — LETTER
+===================================================== -->
 
-<section
-    class="page"
-    id="p4"
->
-
-<div
-    class="card"
-    style="text-align:center"
->
-
-    <span class="badge">
-        ✦ سر صغير ✦
-    </span>
-
-
-    <div class="heroHeart">
-        🔐
-    </div>
-
-
-    <h2>
-        رسالة مخبّية...
-    </h2>
-
-
-    <div class="line"></div>
-
-
-    <div class="secret">
-
-        <p
-            class="typing"
-            id="typing"
-        ></p>
-
-    </div>
-
-
-    <button
-        class="btn"
-        onclick="next(5)"
-    >
-        افتحي الفصل الأخير 💌
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PAGE 5
-========================= -->
-
-<section
-    class="page"
-    id="p5"
->
+<section class="page" id="p4">
 
 <div class="card">
 
     <div style="text-align:center">
 
         <span class="badge">
-            ✦ الفصل الأخير ✦
+            ✦ رسالة عيد الميلاد ✦
         </span>
 
-
-        <div class="heroHeart">
-            💌
+        <div class="cake">
+            <div class="cakeEmoji">
+                💌
+            </div>
         </div>
-
 
         <h2>
-            إلى ريهام...
+            إلى سلمى...
         </h2>
 
-
-        <div class="line"></div>
+        <div class="decor"></div>
 
     </div>
 
-
-    <div class="letter">
-
-        <p>
-            يمكن الكلام أحيانًا يعجز عن وصف اللي جوا القلب...
-        </p>
-
+    <div class="message">
 
         <p>
-            بس فيه حاجة واحدة عايزك تعرفيها:
+
+            كل سنة وإنتِ طيبة يا سلمى ❤️
+
+            <br><br>
+
+            النهارده مش مجرد تاريخ بيتكتب في
+            التقويم، ده يوم بنفتكر فيه قد إيه
+            وجودك وسط العيلة بيعمل فرق.
+
         </p>
 
+        <p>
 
-        <div class="bigLove">
+            أتمنى السنة الجديدة تكون بداية
+            لحاجات كتير حلوة في حياتك،
+            وتوصلي لكل حاجة نفسك فيها،
+            وتشوفي نتيجة تعبك وفرحتك.
 
-            من ساعة ما دخلتي حياتي<br>
+        </p>
 
-            وإنتِ بقيتي جزء جميل من أيامي ❤️
+        <p>
+
+            خليكي دايمًا بنفس روحك،
+            اضحكي كتير،
+            وفرحي نفسك،
+            ومتخليش أي حاجة تاخد منك
+            البسمة اللي بتميزك.
+
+        </p>
+
+        <p>
+
+            وربنا يديم بينا صلة الرحم،
+            ويجمعنا دايمًا على الخير،
+            ويكون كل عيد ميلاد جاي
+            أحلى من اللي قبله. 🎂✨
+
+        </p>
+
+        <div class="signature">
+
+            كل سنة وإنتِ أحلى 🎉
+
+            <br>
+
+            𓆩 سَـلـمـى 𓆪 ❤️
 
         </div>
 
-
-        <p>
-
-            وجودك له معنى، وكلامك له أثر،
-            وكل لحظة جميلة بتفضل ذكرى
-            تستاهل تتخزن.
-
-        </p>
-
-
-        <p>
-
-            ومهما الوقت عدى،<br>
-
-            هتفضلي دايمًا جزء مميز
-            من حكايتي.
-
-        </p>
-
-
-        <p style="text-align:center">
-
-            دي مش مجرد رسالة...<br>
-
-            دي حاجة من القلب ❤️
-
-        </p>
-
     </div>
 
-
-    <button
-        class="btn"
-        onclick="music()"
-    >
-        🎵 شغّلي الأغنية
-    </button>
-
-
-    <button
-        class="btn dark"
-        onclick="next(6)"
-    >
-        شوفي مساحة الذكريات ✨
+    <button class="btn" onclick="nextPage(5)">
+        عندي لكِ مفاجأة 🎁
     </button>
 
 </div>
@@ -2015,71 +1692,110 @@ h2{
 </section>
 
 
-<!-- =========================
-     PAGE 6
-========================= -->
+<!-- =====================================================
+     PAGE 5 — SURPRISE
+===================================================== -->
 
-<section
-    class="page"
-    id="p6"
->
+<section class="page" id="p5">
 
-<div
-    class="card"
-    style="text-align:center"
->
+<div class="card" style="text-align:center">
 
     <span class="badge">
-        ✦ مساحة الذكريات ✦
+        🎁 ممنوع فتح الهدية بسرعة 🎁
     </span>
 
+    <div class="cake">
 
-    <div class="heroHeart">
-        📸
+        <div
+            class="gift"
+            onclick="openGift()"
+        >
+            🎁
+        </div>
+
     </div>
 
-
     <h2>
-        ذكرياتنا
+        اضغطي على الهدية 👀
     </h2>
 
+    <div class="decor"></div>
 
-    <div class="line"></div>
+    <div class="surprise">
 
+        <div class="surpriseText" id="surpriseText">
+
+            🎉🎉🎉
+
+            <br>
+
+            مفاجأة!
+
+            <br><br>
+
+            يا سلمى...
+
+            <br>
+
+            أتمنى السنة الجديدة
+            تكون مليانة حاجات تفرحك،
+            وضحك من القلب،
+            ونجاحات تفتخري بيها. ❤️
+
+            <br><br>
+
+            🎂 كل سنة وإنتِ طيبة 🎂
+
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="nextPage(6)">
+        نروح لألبوم الذكريات 📸
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 6 — GALLERY
+===================================================== -->
+
+<section class="page" id="p6">
+
+<div class="card" style="text-align:center">
+
+    <span class="badge">
+        ✦ ألبوم عيد الميلاد ✦
+    </span>
+
+    <div class="cake">
+
+        <div class="cakeEmoji">
+            📸
+        </div>
+
+    </div>
+
+    <h2>
+        ذكريات سلمى
+    </h2>
+
+    <div class="decor"></div>
 
     <p class="text">
 
-        أضيفي الصور اللي عايزة
-        تحتفظي بيها هنا ❤️<br>
-
-        وكل صورة هتتحفظ على الجهاز.
+        كل صورة حكاية...
+        <br>
+        وكل حكاية تستاهل مكان هنا ❤️
 
     </p>
 
+    <label class="upload" for="photoInput">
 
-    <!-- PHOTO COUNTER -->
-
-    <div class="photo-counter">
-
-        <span>
-            📷 عدد الذكريات
-        </span>
-
-        <strong id="photoCount">
-            0
-        </strong>
-
-    </div>
-
-
-    <!-- UPLOAD -->
-
-    <label
-        class="upload-btn"
-        for="photoInput"
-    >
-
-        <span class="upload-icon">
+        <span class="uploadIcon">
             ＋
         </span>
 
@@ -2097,7 +1813,6 @@ h2{
 
     </label>
 
-
     <input
         id="photoInput"
         type="file"
@@ -2106,20 +1821,14 @@ h2{
         hidden
     >
 
-
-    <!-- GALLERY -->
-
     <div
         class="gallery"
         id="gallery"
     ></div>
 
-
-    <!-- EMPTY -->
-
     <div
-        class="empty-gallery"
-        id="emptyGallery"
+        class="empty"
+        id="empty"
     >
 
         <div>
@@ -2127,42 +1836,116 @@ h2{
         </div>
 
         <p>
-            لسه مفيش صور هنا
+            أول ذكرى لسه مستنياكي
         </p>
-
-        <small>
-
-            اضغطي على
-            "إضافة صور"
-            وابدئي ألبوم الذكريات ❤️
-
-        </small>
 
     </div>
 
-
     <button
         class="btn dark"
-        onclick="clearAllPhotos()"
+        onclick="deleteAllPhotos()"
     >
         🗑️ حذف كل الصور
     </button>
 
+    <button
+        class="btn"
+        onclick="nextPage(7)"
+    >
+        آخر مفاجأة ✨
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 7 — END
+===================================================== -->
+
+<section class="page" id="p7">
+
+<div class="card" style="text-align:center">
+
+    <span class="badge">
+        ✦ قبل ما الاحتفال يخلص ✦
+    </span>
+
+    <div class="cake">
+
+        <div class="cakeEmoji">
+            👑
+        </div>
+
+    </div>
+
+    <div class="name">
+        𓆩 سَـلـمـى 𓆪
+    </div>
+
+    <div class="decor"></div>
+
+    <div class="birthdayInfo">
+
+        <small>
+            ✦ الرسالة الأخيرة ✦
+        </small>
+
+        <strong>
+            سنة جديدة... وبداية جديدة ✨
+        </strong>
+
+    </div>
+
+    <p class="text">
+
+        مهما كبرت الأيام،
+        <br>
+        خلي جواكي دايمًا جزء صغير
+        <br>
+        بيحب يضحك ويفرح ويحتفل
+        <br>
+        بالحاجات الحلوة. ❤️
+
+        <br><br>
+
+        🎂
+
+        <br>
+
+        <span class="highlight">
+            كل سنة وإنتِ طيبة يا سلمى
+        </span>
+
+        <br>
+
+        وعقبال مليون سنة في فرحة ونجاح 🎉
+
+    </p>
 
     <button
         class="btn"
-        onclick="restart()"
+        onclick="partyAgain()"
     >
-        🔄 ابدأي من جديد
+        🎊 عيد الاحتفال من جديد
     </button>
 
+    <button
+        class="btn dark"
+        onclick="playMusic()"
+    >
+        🎵 الموسيقى
+    </button>
 
     <div class="footer">
 
-        كل صورة ليها حكاية...<br>
+        Made specially for
+
+        <br>
 
         <b>
-            وكل ذكرى ليها مكان هنا ❤️
+            𓆩 سَـلـمـى 𓆪 🎂✨
         </b>
 
     </div>
@@ -2174,28 +1957,27 @@ h2{
 </main>
 
 
-<!-- =========================
-     FULL IMAGE VIEWER
-========================= -->
+<!-- =====================================================
+     VIEWER
+===================================================== -->
 
 <div
-    class="image-viewer"
-    id="imageViewer"
+    class="viewer"
+    id="viewer"
     onclick="closeViewer(event)"
 >
 
     <button
-        class="close-viewer"
+        class="closeViewer"
         onclick="closeViewer()"
     >
         ×
     </button>
 
-
     <img
-        id="viewerImage"
+        id="viewerImg"
         src=""
-        alt="صورة الذكرى"
+        alt="ذكرى"
     >
 
 </div>
@@ -2203,9 +1985,9 @@ h2{
 
 <script>
 
-/* =========================
+/* =====================================================
    LOADER
-========================= */
+===================================================== */
 
 window.addEventListener(
     "load",
@@ -2214,42 +1996,31 @@ window.addEventListener(
         setTimeout(
             ()=>{
 
-                const loader=
-                    document.getElementById(
-                        "loader"
-                    );
-
-                loader.style.opacity="0";
-
-                setTimeout(
-                    ()=>{
-                        loader.remove();
-                    },
-                    800
-                );
+                document
+                    .getElementById("loader")
+                    .classList.add("hide");
 
             },
-            1300
+            1400
         );
 
     }
 );
 
 
-/* =========================
-   CANVAS STARS
-========================= */
+/* =====================================================
+   STARS
+===================================================== */
 
 const canvas=
-    document.getElementById("canvas");
+    document.getElementById("stars");
 
 const ctx=
     canvas.getContext("2d");
 
 let stars=[];
 
-
-function resizeCanvas(){
+function resizeStars(){
 
     canvas.width=
         innerWidth*
@@ -2268,10 +2039,9 @@ function resizeCanvas(){
         0
     );
 
-
     stars=
         Array.from(
-            {length:120},
+            {length:140},
             ()=>({
 
                 x:
@@ -2283,7 +2053,7 @@ function resizeCanvas(){
                     innerHeight,
 
                 r:
-                    .4+
+                    .3+
                     Math.random()*1.6,
 
                 a:
@@ -2291,23 +2061,20 @@ function resizeCanvas(){
                     Math.random()*.8,
 
                 s:
-                    .15+
-                    Math.random()*.5
+                    .1+
+                    Math.random()*.45
 
             })
         );
 
 }
 
-
-resizeCanvas();
-
+resizeStars();
 
 window.addEventListener(
     "resize",
-    resizeCanvas
+    resizeStars
 );
-
 
 function drawStars(){
 
@@ -2318,12 +2085,10 @@ function drawStars(){
         innerHeight
     );
 
-
     stars.forEach(
         star=>{
 
             star.y-=star.s;
-
 
             if(star.y<0){
 
@@ -2336,7 +2101,6 @@ function drawStars(){
 
             }
 
-
             ctx.beginPath();
 
             ctx.arc(
@@ -2346,7 +2110,6 @@ function drawStars(){
                 0,
                 Math.PI*2
             );
-
 
             ctx.fillStyle=
                 `rgba(
@@ -2361,76 +2124,146 @@ function drawStars(){
         }
     );
 
-
     requestAnimationFrame(
         drawStars
     );
 
 }
 
-
 drawStars();
 
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function confettiBurst(amount=100){
+
+    const symbols=[
+        "●",
+        "■",
+        "◆",
+        "✦",
+        "★"
+    ];
+
+    for(let i=0;i<amount;i++){
+
+        const piece=
+            document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.textContent=
+            symbols[
+                Math.floor(
+                    Math.random()*
+                    symbols.length
+                )
+            ];
+
+        piece.style.left=
+            Math.random()*100+"vw";
+
+        piece.style.fontSize=
+            8+
+            Math.random()*13+
+            "px";
+
+        piece.style.animationDuration=
+            2+
+            Math.random()*3+
+            "s";
+
+        piece.style.transform=
+            `rotate(${Math.random()*360}deg)`;
+
+        document.body.appendChild(
+            piece
+        );
+
+        setTimeout(
+            ()=>{
+                piece.remove();
+            },
+            6000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   BALLOONS
+===================================================== */
 
 setInterval(
     ()=>{
 
-        const heart=
-            document.createElement(
-                "div"
-            );
+        const balloon=
+            document.createElement("div");
 
-        heart.className="float";
+        balloon.className="balloon";
 
-        heart.textContent=
-            Math.random()>.45
-            ? "❤"
-            : "♡";
+        balloon.textContent=
+            Math.random()>.5
+            ? "🎈"
+            : "🎈";
 
-
-        heart.style.left=
+        balloon.style.left=
             Math.random()*100+
             "vw";
 
-
-        heart.style.fontSize=
-            14+
-            Math.random()*28+
+        balloon.style.fontSize=
+            20+
+            Math.random()*25+
             "px";
 
-
-        heart.style.animationDuration=
-            7+
-            Math.random()*8+
+        balloon.style.animationDuration=
+            8+
+            Math.random()*7+
             "s";
 
-
         document.body.appendChild(
-            heart
+            balloon
         );
-
 
         setTimeout(
             ()=>{
-                heart.remove();
+                balloon.remove();
             },
             16000
         );
 
     },
-    650
+    1800
 );
 
 
-/* =========================
-   PAGE NAVIGATION
-========================= */
+/* =====================================================
+   PARTY
+===================================================== */
 
-function next(number){
+function startParty(){
+
+    confettiBurst(150);
+
+    setTimeout(
+        ()=>{
+            nextPage(2);
+        },
+        350
+    );
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function nextPage(number){
 
     document
         .querySelectorAll(".page")
@@ -2442,7 +2275,6 @@ function next(number){
             }
         );
 
-
     setTimeout(
         ()=>{
 
@@ -2450,7 +2282,6 @@ function next(number){
                 document.getElementById(
                     "p"+number
                 );
-
 
             if(target){
 
@@ -2460,69 +2291,50 @@ function next(number){
 
             }
 
-
-            if(number===4){
-
-                startTyping();
-
-            }
-
-
             window.scrollTo({
                 top:0,
                 behavior:"smooth"
             });
 
         },
-        80
+        70
     );
 
 }
 
 
-/* =========================
-   RESTART
-========================= */
+/* =====================================================
+   PARTY AGAIN
+===================================================== */
 
-function restart(){
+function partyAgain(){
 
-    next(1);
+    confettiBurst(180);
+
+    nextPage(1);
 
 }
 
 
-/* =========================
+/* =====================================================
    MUSIC
-========================= */
+===================================================== */
 
-function music(){
+function playMusic(){
 
     const music=
         document.getElementById(
-            "rohyMusic"
+            "birthdayMusic"
         );
-
-
-    if(!music){
-        return;
-    }
-
 
     if(music.paused){
 
         music
             .play()
-            .then(
-                ()=>{
-                    toast(
-                        "🎵 الأغنية اشتغلت ❤️"
-                    );
-                }
-            )
             .catch(
                 ()=>{
-                    toast(
-                        "حط ملف rohy.mp3 جنب index.html ❤️"
+                    alert(
+                        "حطي ملف rohy.mp3 جنب index.html 🎵"
                     );
                 }
             );
@@ -2531,345 +2343,109 @@ function music(){
 
         music.pause();
 
-        toast(
-            "⏸️ تم إيقاف الأغنية"
-        );
-
     }
 
 }
 
 
-/* =========================
-   TOAST
-========================= */
+/* =====================================================
+   GIFT
+===================================================== */
 
-let toastTimer;
+function openGift(){
 
-
-function toast(message){
-
-    const element=
+    const message=
         document.getElementById(
-            "toast"
+            "surpriseText"
         );
 
+    message.classList.add("show");
 
-    element.textContent=
-        message;
-
-
-    element.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer=
-        setTimeout(
-            ()=>{
-                element.classList.remove(
-                    "show"
-                );
-            },
-            2500
-        );
+    confettiBurst(130);
 
 }
 
 
-/* =========================
-   TIMER
-========================= */
-
-const START_DATE=
-    new Date(
-        "2025-07-02T16:00:00+03:00"
-    );
-
-
-function updateTimer(){
-
-    let diff=
-        Math.max(
-            0,
-            Date.now()-
-            START_DATE.getTime()
-        );
-
-
-    const second=
-        1000;
-
-    const minute=
-        second*60;
-
-    const hour=
-        minute*60;
-
-    const day=
-        hour*24;
-
-
-    const days=
-        Math.floor(
-            diff/day
-        );
-
-    diff%=day;
-
-
-    const hours=
-        Math.floor(
-            diff/hour
-        );
-
-    diff%=hour;
-
-
-    const minutes=
-        Math.floor(
-            diff/minute
-        );
-
-    diff%=minute;
-
-
-    const seconds=
-        Math.floor(
-            diff/second
-        );
-
-
-    document.getElementById(
-        "days"
-    ).textContent=
-        days;
-
-
-    document.getElementById(
-        "hours"
-    ).textContent=
-        String(hours)
-        .padStart(2,"0");
-
-
-    document.getElementById(
-        "minutes"
-    ).textContent=
-        String(minutes)
-        .padStart(2,"0");
-
-
-    document.getElementById(
-        "seconds"
-    ).textContent=
-        String(seconds)
-        .padStart(2,"0");
-
-}
-
-
-updateTimer();
-
-
-setInterval(
-    updateTimer,
-    1000
-);
-
-
-/* =========================
-   TYPING MESSAGE
-========================= */
-
-const secretText=
-    "من غير ما أقول كلام كتير... وجودك نفسه كان كفاية يخلي لحظات عادية تتحول لذكريات جميلة. ❤️";
-
-
-let typingStarted=false;
-
-
-function startTyping(){
-
-    if(typingStarted){
-        return;
-    }
-
-
-    typingStarted=true;
-
-
-    const element=
-        document.getElementById(
-            "typing"
-        );
-
-
-    let index=0;
-
-
-    function type(){
-
-        if(index<
-            secretText.length
-        ){
-
-            element.textContent+=
-                secretText.charAt(
-                    index
-                );
-
-
-            index++;
-
-
-            setTimeout(
-                type,
-                42
-            );
-
-        }
-
-    }
-
-
-    type();
-
-}
-
-
-/* =========================
-   PHOTO SYSTEM
-========================= */
+/* =====================================================
+   PHOTOS
+===================================================== */
 
 const photoInput=
     document.getElementById(
         "photoInput"
     );
 
-
 const gallery=
     document.getElementById(
         "gallery"
     );
 
-
-const photoCount=
+const empty=
     document.getElementById(
-        "photoCount"
+        "empty"
     );
 
-
-const emptyGallery=
-    document.getElementById(
-        "emptyGallery"
-    );
-
-
-let savedPhotos=
+let photos=
     JSON.parse(
         localStorage.getItem(
-            "abdullah_reham_photos"
+            "salma_birthday_photos"
         ) || "[]"
     );
-
-
-/* =========================
-   LOAD PHOTOS
-========================= */
 
 renderPhotos();
 
 
-/* =========================
-   SELECT PHOTOS
-========================= */
-
 photoInput.addEventListener(
     "change",
-    function(){
+    async function(){
 
         const files=
             Array.from(
                 this.files
             );
 
+        for(
+            const file
+            of files
+        ){
 
-        if(!files.length){
-            return;
-        }
+            if(
+                !file.type.startsWith(
+                    "image/"
+                )
+            ){
+                continue;
+            }
 
+            try{
 
-        files.forEach(
-            file=>{
-
-                if(
-                    !file.type.startsWith(
-                        "image/"
-                    )
-                ){
-
-                    toast(
-                        "⚠️ الملف ده مش صورة"
+                const image=
+                    await compressImage(
+                        file
                     );
 
-                    return;
-                }
+                photos.push({
 
+                    id:
+                        Date.now()+
+                        "_"+
+                        Math.random(),
 
-                compressImage(
-                    file,
-                    1280,
-                    .82
-                )
-                .then(
-                    image=>{
+                    image:image
 
-                        savedPhotos.push({
+                });
 
-                            id:
-                                Date.now()+
-                                "_"+
-                                Math.random(),
+            }catch(error){
 
-                            image:image,
-
-                            date:
-                                new Date()
-                                .toLocaleDateString(
-                                    "ar-EG"
-                                )
-
-                        });
-
-
-                        savePhotos();
-
-                        renderPhotos();
-
-
-                        toast(
-                            "❤️ تمت إضافة الصورة"
-                        );
-
-                    }
-                )
-                .catch(
-                    ()=>{
-                        toast(
-                            "❌ حصلت مشكلة في الصورة"
-                        );
-                    }
-                );
+                console.log(error);
 
             }
-        );
 
+        }
+
+        savePhotos();
+
+        renderPhotos();
 
         this.value="";
 
@@ -2877,15 +2453,11 @@ photoInput.addEventListener(
 );
 
 
-/* =========================
-   COMPRESS IMAGE
-========================= */
+/* =====================================================
+   COMPRESS
+===================================================== */
 
-function compressImage(
-    file,
-    maxSize,
-    quality
-){
+function compressImage(file){
 
     return new Promise(
         (resolve,reject)=>{
@@ -2893,123 +2465,105 @@ function compressImage(
             const reader=
                 new FileReader();
 
-
             reader.onload=
-                function(event){
+                event=>{
 
-                    const image=
+                    const img=
                         new Image();
 
-
-                    image.onload=
-                        function(){
+                    img.onload=
+                        ()=>{
 
                             let width=
-                                image.width;
+                                img.width;
 
                             let height=
-                                image.height;
+                                img.height;
 
+                            const max=
+                                1400;
 
                             if(
                                 width>
-                                height
+                                max
                             ){
 
-                                if(
-                                    width>
-                                    maxSize
-                                ){
+                                height=
+                                    Math.round(
+                                        height*
+                                        (
+                                            max/
+                                            width
+                                        )
+                                    );
 
-                                    height=
-                                        Math.round(
-                                            height*
-                                            (
-                                                maxSize/
-                                                width
-                                            )
-                                        );
-
-                                    width=
-                                        maxSize;
-
-                                }
-
-                            }else{
-
-                                if(
-                                    height>
-                                    maxSize
-                                ){
-
-                                    width=
-                                        Math.round(
-                                            width*
-                                            (
-                                                maxSize/
-                                                height
-                                            )
-                                        );
-
-                                    height=
-                                        maxSize;
-
-                                }
+                                width=
+                                    max;
 
                             }
 
+                            if(
+                                height>
+                                max
+                            ){
 
-                            const canvas=
+                                width=
+                                    Math.round(
+                                        width*
+                                        (
+                                            max/
+                                            height
+                                        )
+                                    );
+
+                                height=
+                                    max;
+
+                            }
+
+                            const c=
                                 document.createElement(
                                     "canvas"
                                 );
 
-
-                            canvas.width=
+                            c.width=
                                 width;
 
-                            canvas.height=
+                            c.height=
                                 height;
 
-
                             const context=
-                                canvas.getContext(
+                                c.getContext(
                                     "2d"
                                 );
 
-
                             context.drawImage(
-                                image,
+                                img,
                                 0,
                                 0,
                                 width,
                                 height
                             );
 
-
                             resolve(
-                                canvas.toDataURL(
+                                c.toDataURL(
                                     "image/jpeg",
-                                    quality
+                                    .82
                                 )
                             );
 
                         };
 
-
-                    image.onerror=
+                    img.onerror=
                         reject;
 
-
-                    image.src=
+                    img.src=
                         event.target.result;
 
                 };
 
-
             reader.onerror=
                 reject;
-
 
             reader.readAsDataURL(
                 file
@@ -3021,25 +2575,25 @@ function compressImage(
 }
 
 
-/* =========================
-   SAVE PHOTOS
-========================= */
+/* =====================================================
+   SAVE
+===================================================== */
 
 function savePhotos(){
 
     try{
 
         localStorage.setItem(
-            "abdullah_reham_photos",
+            "salma_birthday_photos",
             JSON.stringify(
-                savedPhotos
+                photos
             )
         );
 
     }catch(error){
 
-        toast(
-            "⚠️ مساحة التخزين امتلأت، احذف بعض الصور"
+        alert(
+            "⚠️ مساحة التخزين امتلأت، احذفي بعض الصور."
         );
 
     }
@@ -3047,36 +2601,29 @@ function savePhotos(){
 }
 
 
-/* =========================
-   RENDER GALLERY
-========================= */
+/* =====================================================
+   RENDER
+===================================================== */
 
 function renderPhotos(){
 
     gallery.innerHTML="";
 
-
-    photoCount.textContent=
-        savedPhotos.length;
-
-
     if(
-        savedPhotos.length===0
+        photos.length===0
     ){
 
-        emptyGallery.style.display=
+        empty.style.display=
             "block";
 
         return;
 
     }
 
-
-    emptyGallery.style.display=
+    empty.style.display=
         "none";
 
-
-    savedPhotos.forEach(
+    photos.forEach(
         (photo,index)=>{
 
             const card=
@@ -3084,53 +2631,87 @@ function renderPhotos(){
                     "div"
                 );
 
+            card.className="photo";
 
-            card.className=
-                "photo-card";
+            const image=
+                document.createElement(
+                    "img"
+                );
 
+            image.src=
+                photo.image;
 
-            card.innerHTML=`
+            image.alt=
+                "ذكرى "+(index+1);
 
-                <img
-                    src="${photo.image}"
-                    alt="ذكرى ${index+1}"
-                    loading="lazy"
-                >
+            const tools=
+                document.createElement(
+                    "div"
+                );
 
-                <div class="photo-overlay">
+            tools.className=
+                "photoTools";
 
-                    <button
-                        class="photo-delete"
-                        onclick="
-                            deletePhoto(
-                                '${photo.id}',
-                                event
-                            )
-                        "
-                    >
-                        🗑️
-                    </button>
+            const deleteButton=
+                document.createElement(
+                    "button"
+                );
 
-                    <span class="photo-number">
-                        ذكرى ${index+1}
-                    </span>
+            deleteButton.textContent=
+                "🗑️";
 
-                    <button
-                        class="photo-full"
-                        onclick="
-                            openViewer(
-                                '${photo.image}',
-                                event
-                            )
-                        "
-                    >
-                        🔍
-                    </button>
+            deleteButton.onclick=
+                event=>{
 
-                </div>
+                    event.stopPropagation();
 
-            `;
+                    deletePhoto(
+                        photo.id
+                    );
 
+                };
+
+            const fullButton=
+                document.createElement(
+                    "button"
+                );
+
+            fullButton.textContent=
+                "🔍";
+
+            fullButton.onclick=
+                event=>{
+
+                    event.stopPropagation();
+
+                    openViewer(
+                        photo.image
+                    );
+
+                };
+
+            tools.appendChild(
+                deleteButton
+            );
+
+            tools.appendChild(
+                fullButton
+            );
+
+            card.appendChild(
+                image
+            );
+
+            card.appendChild(
+                tools
+            );
+
+            card.onclick=
+                ()=>{
+                    openViewer(
+                        photo.image
+                    );
+                };
 
             gallery.appendChild(
                 card
@@ -3142,151 +2723,100 @@ function renderPhotos(){
 }
 
 
-/* =========================
-   DELETE PHOTO
-========================= */
+/* =====================================================
+   DELETE
+===================================================== */
 
-function deletePhoto(
-    id,
-    event
-){
+function deletePhoto(id){
 
-    if(event){
-        event.stopPropagation();
-    }
-
-
-    const confirmed=
-        confirm(
-            "متأكد إنك عايز تحذف الصورة دي؟ ❤️"
-        );
-
-
-    if(!confirmed){
+    if(
+        !confirm(
+            "متأكد إنك عايز تحذف الصورة؟"
+        )
+    ){
         return;
     }
 
-
-    savedPhotos=
-        savedPhotos.filter(
+    photos=
+        photos.filter(
             photo=>
                 photo.id!==id
         );
 
-
     savePhotos();
 
     renderPhotos();
 
-
-    toast(
-        "🗑️ تم حذف الصورة"
-    );
-
 }
 
 
-/* =========================
-   DELETE ALL
-========================= */
-
-function clearAllPhotos(){
+function deleteAllPhotos(){
 
     if(
-        savedPhotos.length===0
+        photos.length===0
     ){
 
-        toast(
+        alert(
             "مفيش صور للحذف ❤️"
         );
 
         return;
+
     }
 
-
-    const confirmed=
-        confirm(
-            "هتحذف كل الصور المحفوظة. متأكد؟"
-        );
-
-
-    if(!confirmed){
+    if(
+        !confirm(
+            "هتحذف كل صور الذكريات. متأكد؟"
+        )
+    ){
         return;
     }
 
-
-    savedPhotos=[];
-
+    photos=[];
 
     savePhotos();
 
     renderPhotos();
 
-
-    toast(
-        "🗑️ تم حذف كل الصور"
-    );
-
 }
 
 
-/* =========================
-   IMAGE VIEWER
-========================= */
+/* =====================================================
+   VIEWER
+===================================================== */
 
-function openViewer(
-    image,
-    event
-){
+function openViewer(src){
 
-    if(event){
-        event.stopPropagation();
-    }
+    document
+        .getElementById(
+            "viewerImg"
+        )
+        .src=src;
 
-
-    const viewer=
-        document.getElementById(
-            "imageViewer"
+    document
+        .getElementById(
+            "viewer"
+        )
+        .classList.add(
+            "show"
         );
-
-
-    const viewerImage=
-        document.getElementById(
-            "viewerImage"
-        );
-
-
-    viewerImage.src=
-        image;
-
-
-    viewer.classList.add(
-        "show"
-    );
 
 }
 
-
-/* =========================
-   CLOSE VIEWER
-========================= */
 
 function closeViewer(event){
 
     if(
         event &&
         event.target.id!==
-        "imageViewer"
+        "viewer"
     ){
-
         return;
-
     }
-
 
     document
         .getElementById(
-            "imageViewer"
+            "viewer"
         )
         .classList.remove(
             "show"
@@ -3294,10 +2824,6 @@ function closeViewer(event){
 
 }
 
-
-/* =========================
-   ESC
-========================= */
 
 document.addEventListener(
     "keydown",
@@ -3309,7 +2835,7 @@ document.addEventListener(
 
             document
                 .getElementById(
-                    "imageViewer"
+                    "viewer"
                 )
                 .classList.remove(
                     "show"
@@ -3323,4 +2849,4 @@ document.addEventListener(
 </script>
 
 </body>
-  </html>
+    </html>
