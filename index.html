@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07050d">
+<meta name="theme-color" content="#050509">
 
-<title>🎂 عيد ميلاد سلمى 🎉</title>
+<title>ملك — أول حكاية</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,13 +19,16 @@
 }
 
 :root{
-    --pink:#ff3d8d;
-    --pink2:#ff8fc4;
-    --purple:#9b5cff;
-    --gold:#ffd86b;
-    --cyan:#6ee7ff;
-    --bg:#05030a;
-    --glass:rgba(255,255,255,.075);
+    --bg:#050509;
+    --bg2:#0b0912;
+    --white:#f8f5fb;
+    --muted:#aaa3b3;
+    --soft:#d9d1df;
+    --pink:#ff5c9a;
+    --violet:#9b7bff;
+    --blue:#72cfff;
+    --glass:rgba(255,255,255,.065);
+    --line:rgba(255,255,255,.12);
 }
 
 html{
@@ -35,67 +38,56 @@ html{
 body{
     min-height:100vh;
     overflow-x:hidden;
-    color:#fff;
+    color:var(--white);
     font-family:"Cairo",sans-serif;
     background:
-        radial-gradient(circle at 10% 10%,rgba(255,61,141,.20),transparent 28%),
-        radial-gradient(circle at 90% 15%,rgba(155,92,255,.20),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(255,216,107,.08),transparent 30%),
-        linear-gradient(145deg,#030207,#100713,#05040a);
+        radial-gradient(circle at 15% 15%,rgba(255,92,154,.13),transparent 27%),
+        radial-gradient(circle at 85% 30%,rgba(115,100,255,.13),transparent 30%),
+        linear-gradient(145deg,#030307,#090711 45%,#030307);
 }
 
-/* BACKGROUND */
+/* ===== SPACE ===== */
 
-#stars{
+#space{
     position:fixed;
     inset:0;
     width:100%;
     height:100%;
-    z-index:-20;
-}
-
-.glow{
-    position:fixed;
-    width:380px;
-    height:380px;
-    border-radius:50%;
-    filter:blur(110px);
-    pointer-events:none;
     z-index:-10;
-    opacity:.16;
-    animation:glowMove 15s ease-in-out infinite alternate;
 }
 
-.g1{
-    top:-220px;
-    right:-160px;
-    background:#ff2380;
+.noise{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
-.g2{
-    bottom:-220px;
-    left:-160px;
-    background:#743cff;
-    animation-delay:3s;
+.orb{
+    position:fixed;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.13;
+    pointer-events:none;
 }
 
-.g3{
-    top:40%;
-    left:40%;
-    width:260px;
-    height:260px;
-    background:#ffd34d;
-    opacity:.06;
-    animation-duration:20s;
+.orb.one{
+    top:-170px;
+    right:-130px;
+    background:#ff4e91;
 }
 
-@keyframes glowMove{
-    to{
-        transform:translate(80px,70px) scale(1.25);
-    }
+.orb.two{
+    bottom:-170px;
+    left:-120px;
+    background:#735cff;
 }
 
-/* LOADER */
+/* ===== LOADER ===== */
 
 .loader{
     position:fixed;
@@ -104,8 +96,8 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#030207;
-    transition:1s;
+    background:#030307;
+    transition:1s ease;
 }
 
 .loader.hide{
@@ -113,102 +105,86 @@ body{
     pointer-events:none;
 }
 
-.loaderContent{
+.loaderInner{
+    width:min(90%,360px);
     text-align:center;
 }
 
-.loaderCake{
-    font-size:85px;
-    animation:cakePulse 1.2s infinite;
-    filter:drop-shadow(0 0 35px rgba(255,61,141,.7));
+.loaderSymbol{
+    font-size:55px;
+    animation:pulse 1.7s infinite;
 }
 
-.loaderName{
-    margin-top:15px;
+.loaderTitle{
+    margin-top:20px;
     font-family:"El Messiri";
-    font-size:34px;
-    color:#ffd2e5;
+    font-size:27px;
 }
 
-.loaderText{
+.loaderSub{
     margin-top:8px;
-    color:#8e8796;
+    color:#77717f;
     font-size:11px;
 }
 
-.loaderBar{
-    width:210px;
-    height:5px;
-    margin:25px auto;
+.loaderLine{
+    width:190px;
+    height:2px;
+    margin:25px auto 0;
     overflow:hidden;
-    border-radius:50px;
-    background:#ffffff0d;
+    background:#ffffff12;
 }
 
-.loaderBar span{
+.loaderLine span{
     display:block;
-    width:45%;
+    width:35%;
     height:100%;
-    background:linear-gradient(90deg,#ff3d8d,#ffd86b,#9b5cff);
-    animation:loader 1.3s infinite;
+    background:linear-gradient(90deg,var(--pink),var(--violet));
+    animation:load 1.3s infinite;
 }
 
-@keyframes loader{
-    from{transform:translateX(-250%)}
-    to{transform:translateX(350%)}
+@keyframes load{
+    from{transform:translateX(-300%)}
+    to{transform:translateX(600%)}
 }
 
-@keyframes cakePulse{
+@keyframes pulse{
     50%{
-        transform:scale(1.15) rotate(3deg);
+        transform:scale(1.12);
+        filter:drop-shadow(0 0 25px rgba(255,92,154,.5));
     }
 }
 
-/* APP */
+/* ===== APP ===== */
 
 .app{
     width:min(100%,780px);
     margin:auto;
-    padding:15px 14px 80px;
+    padding:25px 15px 80px;
 }
-
-/* PROGRESS */
 
 .progress{
     position:fixed;
-    top:14px;
+    top:15px;
     left:50%;
     transform:translateX(-50%);
+    width:min(82%,420px);
+    height:3px;
     z-index:5000;
-
-    width:min(90%,390px);
-    height:5px;
-
-    border-radius:50px;
+    background:#ffffff10;
+    border-radius:20px;
     overflow:hidden;
-
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
 }
 
 .progress span{
     display:block;
     height:100%;
-    width:14%;
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff3d8d,
-            #ffd86b,
-            #9b5cff
-        );
-
-    transition:.5s;
+    width:16%;
+    background:linear-gradient(90deg,var(--pink),var(--violet),var(--blue));
+    transition:.7s;
 }
 
-/* PAGE */
+/* ===== PAGES ===== */
 
 .page{
     min-height:100vh;
@@ -219,16 +195,13 @@ body{
 
 .page.active{
     display:flex;
-    animation:
-        pageIn
-        .75s
-        cubic-bezier(.2,.8,.2,1);
+    animation:enter .8s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes pageIn{
+@keyframes enter{
     from{
         opacity:0;
-        transform:translateY(35px) scale(.97);
+        transform:translateY(35px);
     }
     to{
         opacity:1;
@@ -236,1019 +209,446 @@ body{
     }
 }
 
-/* CARD */
+/* ===== CARD ===== */
 
 .card{
     position:relative;
     width:100%;
-    padding:45px 25px;
     overflow:hidden;
-
-    border-radius:42px;
-    border:1px solid rgba(255,255,255,.14);
-
+    padding:46px 25px;
+    border:1px solid var(--line);
+    border-radius:38px;
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.105),
-            rgba(255,255,255,.035)
+            rgba(255,255,255,.085),
+            rgba(255,255,255,.025)
         );
-
-    backdrop-filter:blur(28px);
-    -webkit-backdrop-filter:blur(28px);
-
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
     box-shadow:
-        0 40px 120px rgba(0,0,0,.7),
-        inset 0 1px rgba(255,255,255,.18);
+        0 40px 120px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.13);
 }
 
-.card::before{
+.card:before{
     content:"";
     position:absolute;
     width:300px;
     height:300px;
-    top:-190px;
-    right:-130px;
+    top:-200px;
+    right:-150px;
     border-radius:50%;
-    background:rgba(255,61,141,.12);
-    filter:blur(60px);
-    pointer-events:none;
+    background:rgba(255,92,154,.08);
+    filter:blur(50px);
 }
 
-.card::after{
+.card:after{
     content:"";
     position:absolute;
     width:250px;
     height:250px;
-    bottom:-180px;
-    left:-120px;
+    bottom:-170px;
+    left:-130px;
     border-radius:50%;
-    background:rgba(155,92,255,.10);
-    filter:blur(70px);
-    pointer-events:none;
+    background:rgba(115,92,255,.08);
+    filter:blur(55px);
 }
 
-/* BADGE */
+/* ===== TOP LABEL ===== */
 
-.badge{
+.label{
     position:relative;
     z-index:2;
-
-    display:inline-block;
-    padding:8px 20px;
-
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 15px;
+    border:1px solid rgba(255,255,255,.11);
     border-radius:50px;
+    color:#c8c0ce;
+    font-size:10px;
+    background:#ffffff06;
+}
 
-    color:#ffd7e8;
+/* ===== HERO ===== */
+
+.hero{
+    text-align:center;
+}
+
+.timeMark{
+    position:relative;
+    z-index:2;
+    margin-top:35px;
     font-size:11px;
-
-    background:rgba(255,61,141,.07);
-    border:1px solid rgba(255,143,196,.25);
-
-    box-shadow:
-        0 0 30px
-        rgba(255,61,141,.08);
+    letter-spacing:2px;
+    color:#77717f;
 }
 
-/* NAME */
-
-.name{
+.bigTime{
     position:relative;
     z-index:2;
-
-    margin-top:25px;
-
-    font-family:"El Messiri",serif;
-    font-size:62px;
-    line-height:1.35;
-
-    background:
-        linear-gradient(
-            100deg,
-            #fff,
-            #ff86bb,
-            #ffd86b,
-            #b993ff,
-            #fff,
-            #ff86bb
-        );
-
-    background-size:500%;
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    animation:nameShine 7s linear infinite;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,61,141,.22)
-        );
-}
-
-@keyframes nameShine{
-    to{
-        background-position:500%;
-    }
-}
-
-.nameSmall{
     margin-top:7px;
-    color:#a9a1b1;
-    font-size:12px;
-}
-
-/* DECOR */
-
-.decor{
-    width:170px;
-    height:3px;
-    margin:18px auto;
-
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff3d8d,
-            #ffd86b,
-            #9b5cff,
-            transparent
-        );
-
-    box-shadow:
-        0 0 20px
-        rgba(255,61,141,.45);
-}
-
-/* ORBIT */
-
-.orbit{
-    position:relative;
-    width:210px;
-    height:210px;
-    margin:28px auto;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,61,141,.20),
-            rgba(155,92,255,.06),
-            transparent 70%
-        );
-
-    border:1px solid rgba(255,255,255,.12);
-
-    box-shadow:
-        0 0 90px rgba(255,61,141,.18);
-}
-
-.orbit::before,
-.orbit::after{
-    content:"";
-    position:absolute;
-    inset:12px;
-    border-radius:50%;
-    border:1px dashed rgba(255,143,196,.20);
-    animation:spin 14s linear infinite;
-}
-
-.orbit::after{
-    inset:30px;
-    border-color:rgba(155,92,255,.25);
-    animation-direction:reverse;
-    animation-duration:9s;
-}
-
-.orbitEmoji{
-    position:relative;
-    z-index:2;
-    font-size:95px;
-    filter:drop-shadow(0 0 28px rgba(255,61,141,.6));
-    animation:float 3s ease-in-out infinite;
-}
-
-@keyframes spin{
-    to{transform:rotate(360deg)}
-}
-
-@keyframes float{
-    50%{
-        transform:translateY(-9px) scale(1.04);
-    }
-}
-
-/* TEXT */
-
-h2{
-    position:relative;
-    z-index:2;
-
-    font-family:"El Messiri",serif;
-    font-size:36px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #ffb0cf,
-            #fff
-        );
-
-    background-size:250%;
-
+    font-family:"El Messiri";
+    font-size:76px;
+    line-height:1;
+    background:linear-gradient(100deg,#fff,#ff79ae,#a78cff,#fff);
+    background-size:300%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-
-    animation:nameShine 5s linear infinite;
+    animation:shine 6s linear infinite;
 }
 
-.text{
+@keyframes shine{
+    to{background-position:300%}
+}
+
+.startLine{
+    width:90px;
+    height:1px;
+    margin:25px auto;
+    background:linear-gradient(90deg,transparent,var(--pink),transparent);
+}
+
+.heroTitle{
     position:relative;
     z-index:2;
+    font-family:"El Messiri";
+    font-size:39px;
+}
 
-    margin-top:15px;
+.heroText{
+    position:relative;
+    z-index:2;
+    max-width:570px;
+    margin:18px auto 0;
+    color:var(--soft);
+    font-family:"Amiri";
+    font-size:20px;
+    line-height:2.1;
+}
 
-    color:#d8cfdb;
-    font-family:"Amiri",serif;
+/* ===== BUTTON ===== */
+
+.btn{
+    position:relative;
+    z-index:5;
+    width:100%;
+    margin-top:22px;
+    padding:16px 20px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:18px;
+    color:white;
+    font-family:"Cairo";
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    background:linear-gradient(100deg,#ff4f91,#795cff);
+    box-shadow:0 18px 50px rgba(255,80,145,.18);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 25px 65px rgba(255,80,145,.27);
+}
+
+.btn.dark{
+    background:#ffffff06;
+    box-shadow:none;
+}
+
+/* ===== CHAPTER ===== */
+
+.chapter{
+    text-align:center;
+}
+
+.chapterNo{
+    color:#77717f;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+.chapterTitle{
+    margin-top:14px;
+    font-family:"El Messiri";
+    font-size:36px;
+}
+
+.chapterText{
+    margin-top:20px;
+    color:#d2c9d7;
+    font-family:"Amiri";
     font-size:20px;
     line-height:2.2;
 }
 
-.highlight{
-    color:#ff9bc5;
-    font-weight:bold;
-}
+/* ===== TIMELINE ===== */
 
-/* BUTTON */
-
-.btn{
-    position:relative;
-    z-index:3;
-
-    width:100%;
-    margin-top:16px;
-    padding:17px 20px;
-
-    border:0;
-    border-radius:50px;
-
-    color:#fff;
-
-    font-family:"Cairo";
-    font-size:15px;
-    font-weight:800;
-
-    cursor:pointer;
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            100deg,
-            #ff287f,
-            #ff4fa0,
-            #8d52ff
-        );
-
-    box-shadow:
-        0 17px 55px
-        rgba(255,40,127,.28);
-
-    transition:.3s;
-}
-
-.btn::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:70%;
-    height:100%;
-
-    transform:skewX(-20deg);
-    background:rgba(255,255,255,.2);
-    transition:.6s;
-}
-
-.btn:hover::after{
-    left:140%;
-}
-
-.btn:hover{
-    transform:translateY(-4px) scale(1.01);
-    box-shadow:
-        0 25px 70px
-        rgba(255,40,127,.42);
-}
-
-.btn:active{
-    transform:scale(.97);
-}
-
-.btn.dark{
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:none;
-}
-
-/* INFO */
-
-.birthdayInfo{
+.timeline{
     position:relative;
     z-index:2;
-
-    margin:25px 0;
-    padding:22px 18px;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,61,141,.13),
-            rgba(155,92,255,.08)
-        );
-
-    border:1px solid rgba(255,255,255,.11);
+    margin-top:30px;
+    text-align:right;
 }
 
-.birthdayInfo small{
-    color:#948b9d;
-    font-size:11px;
+.timeline:before{
+    content:"";
+    position:absolute;
+    top:10px;
+    bottom:10px;
+    right:8px;
+    width:1px;
+    background:linear-gradient(var(--pink),#ffffff12,var(--violet));
 }
 
-.birthdayInfo strong{
-    display:block;
-    margin-top:6px;
-
-    color:#ffd2e5;
-
-    font-family:"El Messiri";
-    font-size:23px;
+.event{
+    position:relative;
+    margin-bottom:22px;
+    padding:18px 25px 18px 15px;
+    border:1px solid #ffffff0d;
+    border-radius:22px;
+    background:#ffffff04;
 }
 
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin:25px 0;
+.event:before{
+    content:"";
+    position:absolute;
+    top:23px;
+    right:-1px;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    background:var(--pink);
+    box-shadow:0 0 25px rgba(255,92,154,.55);
 }
 
-.stat{
-    padding:18px 7px;
-    text-align:center;
-
-    border-radius:24px;
-
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.statIcon{
-    font-size:28px;
-}
-
-.stat b{
-    display:block;
-    margin-top:6px;
-    font-size:12px;
-}
-
-.stat span{
-    display:block;
-    margin-top:3px;
-    color:#8f8795;
-    font-size:9px;
-}
-
-/* WISH GRID */
-
-.wishGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin:25px 0;
-}
-
-.wish{
-    min-height:145px;
-    padding:20px 10px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,61,141,.06)
-        );
-
-    border:1px solid rgba(255,255,255,.10);
-
-    transition:.35s;
-}
-
-.wish:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,143,196,.4);
-    box-shadow:0 20px 45px rgba(0,0,0,.25);
-}
-
-.wishIcon{
-    font-size:40px;
-}
-
-.wish b{
-    margin-top:8px;
-    font-size:14px;
-}
-
-.wish span{
-    margin-top:4px;
-    color:#958d9d;
+.event small{
+    color:#ff83b0;
     font-size:10px;
 }
 
-/* MESSAGE */
+.event b{
+    display:block;
+    margin-top:5px;
+    font-size:15px;
+}
+
+.event p{
+    margin-top:5px;
+    color:#99919f;
+    font-family:"Amiri";
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* ===== MESSAGE ===== */
 
 .message{
     position:relative;
     z-index:2;
-
-    margin-top:24px;
+    margin-top:25px;
     padding:28px 20px;
-
-    text-align:right;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(155,92,255,.08)
-        );
-
-    border:1px solid rgba(255,255,255,.10);
+    border-radius:28px;
+    border:1px solid #ffffff0e;
+    background:linear-gradient(145deg,#ffffff06,#ff5c9a06);
 }
 
 .message p{
     margin-bottom:18px;
-    color:#e4dae5;
-
+    color:#ded5e1;
     font-family:"Amiri";
+    font-size:20px;
+    line-height:2.25;
+}
+
+.message p:last-child{
+    margin-bottom:0;
+}
+
+.quote{
+    margin-top:25px;
+    padding:20px;
+    text-align:center;
+    border-right:2px solid var(--pink);
+    border-left:2px solid var(--violet);
+    color:#ffb0ca;
+    font-family:"El Messiri";
     font-size:19px;
-    line-height:2.3;
+}
+
+/* ===== HEART ===== */
+
+.heartCore{
+    position:relative;
+    width:150px;
+    height:150px;
+    margin:30px auto;
+    display:grid;
+    place-items:center;
+}
+
+.heartCore:before,
+.heartCore:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1px solid #ff78a944;
+    border-radius:50%;
+    animation:ring 3s infinite;
+}
+
+.heartCore:after{
+    animation-delay:1.5s;
+}
+
+.heartIcon{
+    font-size:65px;
+    animation:heartBeat 1.7s infinite;
+    filter:drop-shadow(0 0 25px rgba(255,80,145,.55));
+}
+
+@keyframes ring{
+    from{
+        transform:scale(.55);
+        opacity:.8;
+    }
+    to{
+        transform:scale(1.25);
+        opacity:0;
+    }
+}
+
+@keyframes heartBeat{
+    50%{transform:scale(1.12)}
+}
+
+/* ===== AUDIO ===== */
+
+.audioBox{
+    position:relative;
+    z-index:3;
+    margin-top:25px;
+    padding:18px;
+    border-radius:23px;
+    border:1px solid #ffffff0d;
+    background:#ffffff04;
+}
+
+.audioTitle{
+    font-size:12px;
+    color:#bcb3c1;
+}
+
+.audioBox audio{
+    width:100%;
+    margin-top:12px;
+    height:38px;
+}
+
+/* ===== FINAL ===== */
+
+.final{
+    text-align:center;
+}
+
+.finalName{
+    margin-top:25px;
+    font-family:"El Messiri";
+    font-size:61px;
+    background:linear-gradient(100deg,#fff,#ff78ae,#a68bff,#fff);
+    background-size:350%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 7s linear infinite;
+}
+
+.finalMessage{
+    margin-top:20px;
+    color:#d8d0dc;
+    font-family:"Amiri";
+    font-size:21px;
+    line-height:2.25;
 }
 
 .signature{
-    text-align:center;
-    margin-top:25px;
-
-    color:#ff9bc5;
+    margin-top:30px;
+    color:#ff92b9;
     font-family:"El Messiri";
-    font-size:22px;
-}
-
-/* GIFT */
-
-.giftBox{
-    margin:28px 0;
-    padding:30px 18px;
-
-    text-align:center;
-
-    border-radius:32px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,61,141,.16),
-            transparent 70%
-        );
-
-    border:1px solid rgba(255,255,255,.10);
-}
-
-.gift{
-    font-size:100px;
-    cursor:pointer;
-    display:inline-block;
-
-    filter:
-        drop-shadow(
-            0 0 30px
-            rgba(255,61,141,.5)
-        );
-
-    animation:giftShake 1.6s infinite;
-}
-
-@keyframes giftShake{
-    0%,70%,100%{
-        transform:rotate(0);
-    }
-
-    75%{
-        transform:rotate(-8deg) scale(1.08);
-    }
-
-    80%{
-        transform:rotate(8deg) scale(1.08);
-    }
-
-    85%{
-        transform:rotate(-5deg);
-    }
-
-    90%{
-        transform:rotate(5deg);
-    }
-}
-
-.gift.opened{
-    animation:giftOpen .7s ease forwards;
-}
-
-@keyframes giftOpen{
-    50%{
-        transform:scale(1.35) rotate(8deg);
-    }
-    100%{
-        transform:scale(1);
-    }
-}
-
-.surpriseText{
-    display:none;
-    margin-top:20px;
-
-    font-family:"Amiri";
-    font-size:21px;
-    line-height:2;
-    color:#ffe2ed;
-}
-
-.surpriseText.show{
-    display:block;
-    animation:reveal .7s ease;
-}
-
-@keyframes reveal{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-/* PHOTO UPLOAD */
-
-.upload{
-    position:relative;
-    z-index:3;
-
-    margin-top:23px;
-    min-height:105px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-
-    cursor:pointer;
-
-    border-radius:27px;
-
-    border:1px dashed rgba(255,143,196,.5);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,61,141,.10),
-            rgba(155,92,255,.08)
-        );
-
-    transition:.3s;
-}
-
-.upload:hover{
-    transform:translateY(-4px);
-    box-shadow:
-        0 20px 50px
-        rgba(255,61,141,.14);
-}
-
-.upload.drag{
-    transform:scale(1.02);
-    border-color:#ff86bb;
-    background:rgba(255,61,141,.15);
-}
-
-.uploadIcon{
-    width:50px;
-    height:50px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-    font-size:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff287f,
-            #8d52ff
-        );
-}
-
-.upload b{
-    display:block;
-}
-
-.upload small{
-    display:block;
-    margin-top:3px;
-    color:#958b9c;
-    font-size:10px;
-}
-
-/* GALLERY */
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-top:20px;
-}
-
-.photo{
-    position:relative;
-    height:190px;
-
-    overflow:hidden;
-
-    border-radius:26px;
-    border:1px solid rgba(255,255,255,.12);
-
-    background:#ffffff08;
-
-    animation:photoIn .5s ease;
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s;
-}
-
-.photo:hover img{
-    transform:scale(1.08);
-}
-
-.photoTools{
-    position:absolute;
-    left:8px;
-    right:8px;
-    bottom:8px;
-
-    display:flex;
-    justify-content:space-between;
-
-    opacity:0;
-    transition:.3s;
-}
-
-.photo:hover .photoTools{
-    opacity:1;
-}
-
-.photoTools button{
-    width:38px;
-    height:38px;
-
-    border:0;
-    border-radius:50%;
-
-    color:white;
-    cursor:pointer;
-
-    background:rgba(0,0,0,.7);
-}
-
-.empty{
-    margin-top:20px;
-    padding:30px 15px;
-
-    text-align:center;
-    border-radius:27px;
-
-    background:rgba(255,255,255,.025);
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.empty div{
-    font-size:50px;
-}
-
-.empty p{
-    margin-top:8px;
-
-    color:#cfc5d2;
-    font-family:"Amiri";
-    font-size:18px;
-}
-
-@keyframes photoIn{
-    from{
-        opacity:0;
-        transform:scale(.85);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-/* FINAL */
-
-.finalTitle{
-    font-family:"El Messiri";
-    font-size:46px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #fff,
-            #ff79b2,
-            #ffd86b,
-            #a879ff,
-            #fff
-        );
-
-    background-size:400%;
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    animation:nameShine 6s linear infinite;
-}
-
-.finalBox{
-    margin:25px 0;
-    padding:25px 18px;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,61,141,.13),
-            rgba(155,92,255,.12)
-        );
-
-    border:1px solid rgba(255,255,255,.11);
-}
-
-.finalBox p{
-    font-family:"Amiri";
-    color:#e5dce7;
     font-size:20px;
-    line-height:2.2;
 }
 
-.shareStatus{
-    margin-top:12px;
-    min-height:20px;
-    color:#ff9bc5;
-    font-size:11px;
-}
+/* ===== FLOATING HEARTS ===== */
 
-/* VIEWER */
-
-.viewer{
+.floatHeart{
     position:fixed;
-    inset:0;
-    z-index:999999;
-
-    display:none;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:rgba(0,0,0,.94);
-
-    backdrop-filter:blur(20px);
-}
-
-.viewer.show{
-    display:flex;
-    animation:viewerIn .3s ease;
-}
-
-.viewer img{
-    max-width:95vw;
-    max-height:85vh;
-    object-fit:contain;
-
-    border-radius:24px;
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.8);
-}
-
-.closeViewer{
-    position:absolute;
-    top:18px;
-    right:18px;
-
-    width:48px;
-    height:48px;
-
-    border:0;
-    border-radius:50%;
-
-    color:#fff;
-    background:rgba(255,255,255,.12);
-
-    font-size:26px;
-    cursor:pointer;
-}
-
-@keyframes viewerIn{
-    from{
-        opacity:0;
-        transform:scale(.94);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-/* CONFETTI */
-
-.confetti{
-    position:fixed;
-    top:-25px;
-
-    width:9px;
-    height:15px;
-
-    z-index:99998;
-    pointer-events:none;
-
-    animation:
-        confettiFall
-        linear
-        forwards;
-}
-
-@keyframes confettiFall{
-    to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
-        opacity:0;
-    }
-}
-
-/* HEARTS */
-
-.heart{
-    position:fixed;
-    bottom:-40px;
+    bottom:-50px;
     z-index:4;
-
     pointer-events:none;
-
-    font-size:25px;
-    opacity:.6;
-
-    animation:
-        heartUp
-        linear
-        forwards;
+    animation:floatUp linear forwards;
+    opacity:.55;
 }
 
-@keyframes heartUp{
+@keyframes floatUp{
     to{
         transform:
-            translateY(-120vh)
-            translateX(80px)
+            translateY(-115vh)
+            translateX(70px)
             rotate(20deg);
-
         opacity:0;
     }
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 .footer{
     position:relative;
     z-index:2;
-
-    margin-top:28px;
-
+    margin-top:30px;
     text-align:center;
-
-    color:#746c7c;
-
-    font-size:10px;
+    color:#68616e;
+    font-size:9px;
     line-height:2;
 }
 
-.footer b{
-    color:#ff91bd;
-    font-family:"El Messiri";
-    font-size:13px;
-}
-
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media(max-width:480px){
 
     .app{
-        padding:10px 11px 60px;
+        padding:20px 11px 60px;
     }
 
     .card{
-        padding:35px 18px;
-        border-radius:34px;
+        padding:38px 18px;
+        border-radius:31px;
     }
 
-    .name{
-        font-size:48px;
+    .bigTime{
+        font-size:61px;
     }
 
-    h2{
+    .heroTitle{
+        font-size:31px;
+    }
+
+    .chapterTitle{
         font-size:29px;
     }
 
-    .finalTitle{
-        font-size:38px;
+    .heroText,
+    .chapterText{
+        font-size:18px;
     }
 
-    .orbit{
-        width:150px;
-        height:150px;
+    .finalName{
+        font-size:49px;
     }
 
-    .orbitEmoji{
-        font-size:70px;
-    }
-
-    .text{
-        font-size:17px;
-    }
-
-    .wishGrid{
-        gap:9px;
-    }
-
-    .wish{
-        min-height:125px;
-    }
-
-    .stats{
-        gap:7px;
-    }
-
-    .stat{
-        padding:15px 4px;
-    }
-
-    .gallery .photo{
-        height:155px;
-    }
-
-    .photoTools{
-        opacity:1;
+    .message p{
+        font-size:18px;
     }
 }
 </style>
@@ -1256,11 +656,11 @@ h2{
 
 <body>
 
-<canvas id="stars"></canvas>
+<canvas id="space"></canvas>
 
-<div class="glow g1"></div>
-<div class="glow g2"></div>
-<div class="glow g3"></div>
+<div class="noise"></div>
+<div class="orb one"></div>
+<div class="orb two"></div>
 
 <div class="progress">
     <span id="progressBar"></span>
@@ -1269,26 +669,23 @@ h2{
 <!-- LOADER -->
 
 <div class="loader" id="loader">
+    <div class="loaderInner">
+        <div class="loaderSymbol">✦</div>
 
-    <div class="loaderContent">
-
-        <div class="loaderCake">🎂</div>
-
-        <div class="loaderName">
-            𓆩 سَـلـمـى 𓆪
+        <div class="loaderTitle">
+            في حكاية لسه بتبدأ...
         </div>
 
-        <div class="loaderBar">
+        <div class="loaderSub">
+            بنجهز لكِ حاجة مختلفة يا ملك
+        </div>
+
+        <div class="loaderLine">
             <span></span>
         </div>
-
-        <div class="loaderText">
-            بنجهز أحلى مفاجأة... 🎁
-        </div>
-
     </div>
-
 </div>
+
 
 <main class="app">
 
@@ -1296,50 +693,42 @@ h2{
 
 <section class="page active" id="p1">
 
-<div class="card" style="text-align:center">
+<div class="card hero">
 
-    <span class="badge">
-        ✨ رسالة خاصة جدًا ✨
+    <span class="label">
+        ✦ بداية حكاية
     </span>
 
-    <div class="orbit">
-        <div class="orbitEmoji">🎂</div>
+    <div class="timeMark">
+        البداية كانت
     </div>
 
-    <div class="name">
-        𓆩 سَـلـمـى 𓆪
+    <div class="bigTime">
+        11:00
     </div>
 
-    <div class="nameSmall">
-        ✦ النهارده يوم مختلف ✦
+    <div class="startLine"></div>
+
+    <div class="heroTitle">
+        ملك...
     </div>
 
-    <div class="decor"></div>
-
-    <p class="text">
-
-        في يوم زي ده...
+    <p class="heroText">
+        مش عارف إذا كان ينفع نسميها بداية حكاية
         <br>
-        لازم العالم كله يقف شوية
-        <br>
-        عشان يحتفل بواحدة مميزة ❤️
-
+        ولا مجرد لحظة عابرة...
         <br><br>
-
-        <span class="highlight">
-            وكل سنة وإنتِ طيبة يا سلمى 🎉
-        </span>
-
+        بس في لحظات صغيرة
+        <br>
+        بتخلّي الواحد يفتكرها.
     </p>
 
-    <button class="btn" onclick="startParty()">
-        🎊 ابدئي المفاجأة
+    <button class="btn" onclick="nextPage(2)">
+        أكمّل؟ ✦
     </button>
 
     <div class="footer">
-        تم تجهيزها مخصوص لـ
-        <br>
-        <b>𓆩 سَـلـمـى 𓆪 ❤️</b>
+        أمس • الساعة 11:00 مساءً
     </div>
 
 </div>
@@ -1351,68 +740,58 @@ h2{
 
 <section class="page" id="p2">
 
-<div class="card" style="text-align:center">
+<div class="card chapter">
 
-    <span class="badge">
-        🎂 اليوم الكبير 🎂
-    </span>
-
-    <div class="orbit">
-        <div class="orbitEmoji">🎉</div>
+    <div class="chapterNo">
+        CHAPTER 01
     </div>
 
-    <h2>
-        كل سنة وإنتِ طيبة يا سلمى
-    </h2>
+    <div class="chapterTitle">
+        أول مرة نتكلم
+    </div>
 
-    <div class="decor"></div>
-
-    <p class="text">
-
-        سنة جديدة بدأت من عمرك،
+    <p class="chapterText">
+        ساعات البداية مش بتحتاج حاجة كبيرة.
         <br>
-        ونتمنى تكون مليانة
+        لا موسيقى ولا مشهد سينمائي...
+        <br><br>
+        مجرد شخص يظهر في وقت عادي،
         <br>
-        فرحة ونجاح وضحك ❤️
-
+        وكلمتين يفتحوا باب لحاجة
+        <br>
+        لسه محدش عارف هتوصل لفين.
     </p>
 
-    <div class="stats">
+    <div class="timeline">
 
-        <div class="stat">
-            <div class="statIcon">❤️</div>
-            <b>فرحة</b>
-            <span>كل يوم</span>
+        <div class="event">
+            <small>11:00 PM</small>
+            <b>البداية</b>
+            <p>
+                أول كلام بينا... وأول نقطة في الحكاية.
+            </p>
         </div>
 
-        <div class="stat">
-            <div class="statIcon">🏆</div>
-            <b>نجاح</b>
-            <span>في كل خطوة</span>
+        <div class="event">
+            <small>بعدها</small>
+            <b>الكلام كمل</b>
+            <p>
+                والغريب إن الوقت عدى أسرع مما كنت متوقع.
+            </p>
         </div>
 
-        <div class="stat">
-            <div class="statIcon">✨</div>
-            <b>ذكريات</b>
-            <span>تفضل حلوة</span>
+        <div class="event">
+            <small>والنهارده</small>
+            <b>عملت الصفحة دي</b>
+            <p>
+                عشان البداية دي تستاهل تتسجل.
+            </p>
         </div>
-
-    </div>
-
-    <div class="birthdayInfo">
-
-        <small>
-            ✦ المناسبة ✦
-        </small>
-
-        <strong>
-            🎂 عيد ميلاد سلمى 🎂
-        </strong>
 
     </div>
 
     <button class="btn" onclick="nextPage(3)">
-        نكمل؟ 👀
+        في حاجة عايز أقولها ✦
     </button>
 
 </div>
@@ -1424,52 +803,57 @@ h2{
 
 <section class="page" id="p3">
 
-<div class="card" style="text-align:center">
+<div class="card">
 
-    <span class="badge">
-        ✦ أمنيات السنة الجديدة ✦
-    </span>
+    <div style="text-align:center">
 
-    <div class="orbit">
-        <div class="orbitEmoji">🌟</div>
+        <span class="label">
+            💌 رسالة صغيرة
+        </span>
+
+        <div class="heartCore">
+            <div class="heartIcon">♡</div>
+        </div>
+
+        <div class="chapterTitle">
+            إلى ملك
+        </div>
+
     </div>
 
-    <h2>
-        يا رب السنة دي تكون أجمل
-    </h2>
+    <div class="message">
 
-    <div class="decor"></div>
+        <p>
+            يمكن لسه بدري جدًا على الكلام الكبير،
+            ولسه إحنا في أول الطريق...
+        </p>
 
-    <div class="wishGrid">
+        <p>
+            بس أنا حبيت أوثق اللحظة دي،
+            اللحظة اللي بدأ فيها كلام بسيط
+            بين شخصين لسه بيتعرفوا على بعض.
+        </p>
 
-        <div class="wish">
-            <div class="wishIcon">❤️</div>
-            <b>راحة البال</b>
-            <span>قلب هادي وأيام جميلة</span>
-        </div>
+        <p>
+            ومش عايز أقول كلام محفوظ أو مبالغ فيه،
+            كل اللي أعرفه إن وجودك في يومي
+            من امبارح خلّى فيه حاجة مختلفة.
+        </p>
 
-        <div class="wish">
-            <div class="wishIcon">🏆</div>
-            <b>النجاح</b>
-            <span>تحققي كل اللي نفسك فيه</span>
-        </div>
+        <p>
+            خلينا ناخدها واحدة واحدة،
+            من غير استعجال،
+            ونسيب الأيام هي اللي تحكي الباقي.
+        </p>
 
-        <div class="wish">
-            <div class="wishIcon">😂</div>
-            <b>الضحك</b>
-            <span>ضحكة من القلب كل يوم</span>
-        </div>
-
-        <div class="wish">
-            <div class="wishIcon">✨</div>
-            <b>ذكريات</b>
-            <span>لحظات تستاهل تتخزن</span>
+        <div class="quote">
+            «أجمل البدايات هي اللي بتبدأ ببساطة.»
         </div>
 
     </div>
 
     <button class="btn" onclick="nextPage(4)">
-        فيه رسالة ليكي 💌
+        طيب... نكمّل الحكاية؟ ✦
     </button>
 
 </div>
@@ -1481,74 +865,54 @@ h2{
 
 <section class="page" id="p4">
 
-<div class="card">
+<div class="card chapter">
 
-    <div style="text-align:center">
+    <div class="chapterNo">
+        CHAPTER 02
+    </div>
 
-        <span class="badge">
-            💌 رسالة من القلب
-        </span>
+    <div class="chapterTitle">
+        حاجة صغيرة ليكي
+    </div>
 
-        <div class="orbit">
-            <div class="orbitEmoji">💌</div>
+    <p class="chapterText">
+        مش هقولك إنها أعظم هدية في العالم...
+        <br>
+        هي مجرد صفحة صغيرة،
+        بس اتعملت مخصوص عشانك.
+    </p>
+
+    <div class="audioBox">
+
+        <div class="audioTitle">
+            🎧 ولو حابة تسمعي حاجة وإنتِ بتكملي
         </div>
 
-        <h2>
-            إلى سلمى...
-        </h2>
-
-        <div class="decor"></div>
+        <audio controls>
+            <source src="malak.mp3" type="audio/mpeg">
+            المتصفح لا يدعم تشغيل الصوت.
+        </audio>
 
     </div>
 
     <div class="message">
 
         <p>
-            كل سنة وإنتِ طيبة يا سلمى ❤️
+            اختاري الأغنية اللي تحبيها،
+            واقري الكلام براحتك...
         </p>
 
         <p>
-            النهارده مش مجرد تاريخ على التقويم،
-            ده يوم بنفتكر فيه قد إيه وجودك
-            بيضيف فرحة وحاجة حلوة للمكان اللي
-            بتكوني فيه.
+            لأن الفكرة كلها مش في الصفحة نفسها،
+            الفكرة في إن فيه حد
+            افتكر لحظة صغيرة
+            وحب يحتفظ بيها.
         </p>
-
-        <p>
-            أتمنى السنة الجديدة تكون بداية
-            لحاجات كتير جميلة في حياتك،
-            وتوصلي لكل حاجة نفسك فيها،
-            وتشوفي نتيجة تعبك وفرحتك.
-        </p>
-
-        <p>
-            خليكي دايمًا بنفس روحك الجميلة،
-            اضحكي كتير،
-            وافرحي بالحاجات الصغيرة قبل الكبيرة،
-            ومتخليش أي حاجة تاخد منك ابتسامتك.
-        </p>
-
-        <p>
-            وربنا يديم بينا المحبة وصلة الرحم،
-            ويجمعنا دايمًا على الخير،
-            ويكون كل عيد ميلاد جاي
-            أحلى من اللي قبله. 🎂✨
-        </p>
-
-        <div class="signature">
-
-            كل سنة وإنتِ بخير وفرحة ❤️
-
-            <br>
-
-            𓆩 سَـلـمـى 𓆪
-
-        </div>
 
     </div>
 
     <button class="btn" onclick="nextPage(5)">
-        عندي لكِ هدية 🎁
+        آخر حاجة ✦
     </button>
 
 </div>
@@ -1560,249 +924,54 @@ h2{
 
 <section class="page" id="p5">
 
-<div class="card" style="text-align:center">
+<div class="card final">
 
-    <span class="badge">
-        🎁 المفاجأة الحقيقية 🎁
+    <span class="label">
+        ✦ TO BE CONTINUED
     </span>
 
-    <div class="giftBox">
-
-        <div
-            class="gift"
-            id="gift"
-            onclick="openGift()"
-        >
-            🎁
-        </div>
-
-        <h2>
-            اضغطي على الهدية
-        </h2>
-
-        <div class="decor"></div>
-
-        <div
-            class="surpriseText"
-            id="surpriseText"
-        >
-
-            🎉✨🎉
-
-            <br><br>
-
-            مفاجأة يا سلمى! ❤️
-
-            <br><br>
-
-            أتمنى السنة دي
-            تكون مليانة أيام تفرحك،
-            وأخبار حلوة،
-            ونجاحات تخليكي فخورة بنفسك.
-
-            <br><br>
-
-            🎂 كل سنة وإنتِ طيبة 🎂
-
-        </div>
-
+    <div class="finalName">
+        ملك
     </div>
 
-    <button class="btn" onclick="nextPage(6)">
-        نروح للذكريات 📸
-    </button>
+    <div class="startLine"></div>
 
-</div>
+    <p class="finalMessage">
 
-</section>
+        مش هقول إن دي نهاية...
+        <br><br>
 
+        بالعكس،
+        دي تقريبًا أول صفحة بس.
+        <br><br>
 
-<!-- PAGE 6 -->
-
-<section class="page" id="p6">
-
-<div class="card" style="text-align:center">
-
-    <span class="badge">
-        📸 ألبوم الذكريات
-    </span>
-
-    <div class="orbit">
-        <div class="orbitEmoji">📸</div>
-    </div>
-
-    <h2>
-        ذكريات سلمى
-    </h2>
-
-    <div class="decor"></div>
-
-    <p class="text">
-        كل صورة حكاية...
+        والصفحات الجاية
         <br>
-        وكل حكاية تستاهل مكان هنا ❤️
+        مش هكتبها لوحدي...
+        <br>
+        الأيام هي اللي هتكتبها.
+        <br><br>
+
+        المهم إن البداية كانت جميلة. 🤍
+
     </p>
 
-    <label
-        class="upload"
-        id="dropZone"
-        for="photoInput"
-    >
-
-        <span class="uploadIcon">
-            ＋
-        </span>
-
-        <span>
-
-            <b>
-                إضافة صور
-            </b>
-
-            <small>
-                اختاري صورة أو أكثر
-            </small>
-
-        </span>
-
-    </label>
-
-    <input
-        id="photoInput"
-        type="file"
-        accept="image/*"
-        multiple
-        hidden
-    >
-
-    <div
-        class="gallery"
-        id="gallery"
-    ></div>
-
-    <div
-        class="empty"
-        id="empty"
-    >
-
-        <div>🖼️</div>
-
-        <p>
-            أول ذكرى لسه مستنياكي
-        </p>
-
+    <div class="signature">
+        من شخص مبسوط إنه عرفك ✦
     </div>
 
-    <button
-        class="btn dark"
-        onclick="deleteAllPhotos()"
-    >
-        🗑️ حذف كل الصور
+    <button class="btn" onclick="finalMoment()">
+        ✨ اضغطي هنا
     </button>
 
-    <button
-        class="btn"
-        onclick="nextPage(7)"
-    >
-        آخر مفاجأة ✨
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- PAGE 7 -->
-
-<section class="page" id="p7">
-
-<div class="card" style="text-align:center">
-
-    <span class="badge">
-        👑 النهاية الجميلة
-    </span>
-
-    <div class="orbit">
-        <div class="orbitEmoji">👑</div>
-    </div>
-
-    <div class="finalTitle">
-        𓆩 سَـلـمـى 𓆪
-    </div>
-
-    <div class="decor"></div>
-
-    <div class="finalBox">
-
-        <p>
-
-            سنة جديدة من عمرك بدأت...
-            <br><br>
-
-            أتمنى تكون أحلى من كل اللي فات،
-            ومليانة فرحة ونجاح وراحة بال. ❤️
-
-            <br><br>
-
-            مهما كبرت الأيام،
-            خلي جواكي دايمًا الجزء اللي
-            بيحب يضحك ويفرح ويحتفل
-            بالحاجات الحلوة.
-
-            <br><br>
-
-            🎂✨
-
-            <br>
-
-            <span class="highlight">
-                كل سنة وإنتِ طيبة يا سلمى
-            </span>
-
-            <br>
-
-            وعقبال مليون سنة في خير وفرحة 🎉
-
-        </p>
-
-    </div>
-
-    <button
-        class="btn"
-        onclick="finishParty()"
-    >
-        🎊 حفلة الختام
-    </button>
-
-    <button
-        class="btn dark"
-        onclick="sharePage()"
-    >
-        📤 مشاركة المفاجأة
-    </button>
-
-    <div
-        class="shareStatus"
-        id="shareStatus"
-    ></div>
-
-    <button
-        class="btn dark"
-        onclick="partyAgain()"
-    >
-        🔄 نبدأ من جديد
+    <button class="btn dark" onclick="restart()">
+        ↻ نرجع لأول لحظة
     </button>
 
     <div class="footer">
-
-        Made specially for
-
+        البداية: أمس • 11:00 مساءً
         <br>
-
-        <b>
-            𓆩 سَـلـمـى 𓆪 🎂✨
-        </b>
-
+        <span>وباقي الحكاية لسه...</span>
     </div>
 
 </div>
@@ -1812,33 +981,9 @@ h2{
 </main>
 
 
-<!-- VIEWER -->
-
-<div
-    class="viewer"
-    id="viewer"
-    onclick="closeViewer(event)"
->
-
-    <button
-        class="closeViewer"
-        onclick="closeViewer()"
-    >
-        ×
-    </button>
-
-    <img
-        id="viewerImg"
-        src=""
-        alt="ذكرى"
-    >
-
-</div>
-
-
 <script>
 
-/* LOADER */
+/* ===== LOADER ===== */
 
 window.addEventListener("load",()=>{
 
@@ -1848,60 +993,41 @@ window.addEventListener("load",()=>{
             .getElementById("loader")
             .classList.add("hide");
 
-    },1400);
+    },1300);
 
 });
 
 
-/* STARS */
+/* ===== STAR FIELD ===== */
 
-const canvas=document.getElementById("stars");
+const canvas=document.getElementById("space");
 const ctx=canvas.getContext("2d");
 
 let stars=[];
 
-function resizeStars(){
+function resize(){
 
-    const ratio=Math.min(
-        window.devicePixelRatio || 1,
-        2
-    );
-
-    canvas.width=innerWidth*ratio;
-    canvas.height=innerHeight*ratio;
-
-    ctx.setTransform(
-        ratio,
-        0,
-        0,
-        ratio,
-        0,
-        0
-    );
+    canvas.width=innerWidth;
+    canvas.height=innerHeight;
 
     stars=Array.from(
-        {length:120},
+        {length:150},
         ()=>({
-
             x:Math.random()*innerWidth,
             y:Math.random()*innerHeight,
-            r:.3+Math.random()*1.5,
-            a:.2+Math.random()*.8,
-            s:.1+Math.random()*.45
-
+            r:.3+Math.random()*1.3,
+            speed:.08+Math.random()*.3,
+            alpha:.2+Math.random()*.7
         })
     );
 
 }
 
-resizeStars();
+resize();
 
-window.addEventListener(
-    "resize",
-    resizeStars
-);
+window.addEventListener("resize",resize);
 
-function drawStars(){
+function draw(){
 
     ctx.clearRect(
         0,
@@ -1910,126 +1036,114 @@ function drawStars(){
         innerHeight
     );
 
-    stars.forEach(star=>{
+    stars.forEach(s=>{
 
-        star.y-=star.s;
+        s.y-=s.speed;
 
-        if(star.y<0){
-
-            star.y=innerHeight;
-            star.x=Math.random()*innerWidth;
-
+        if(s.y<0){
+            s.y=innerHeight;
+            s.x=Math.random()*innerWidth;
         }
 
         ctx.beginPath();
 
         ctx.arc(
-            star.x,
-            star.y,
-            star.r,
+            s.x,
+            s.y,
+            s.r,
             0,
             Math.PI*2
         );
 
         ctx.fillStyle=
-            `rgba(255,255,255,${star.a})`;
+            `rgba(255,255,255,${s.alpha})`;
 
         ctx.fill();
 
     });
 
-    requestAnimationFrame(drawStars);
+    requestAnimationFrame(draw);
 
 }
 
-drawStars();
+draw();
 
 
-/* PROGRESS */
+/* ===== PROGRESS ===== */
+
+let currentPage=1;
 
 function updateProgress(page){
 
-    const percentage=
-        Math.max(
-            14,
-            Math.min(100,page*14.2857)
-        );
+    const width=
+        ((page-1)/4)*84+16;
 
     document
         .getElementById("progressBar")
-        .style.width=percentage+"%";
+        .style.width=width+"%";
 
 }
 
 
-/* CONFETTI */
+/* ===== NAVIGATION ===== */
 
-function confettiBurst(amount=120){
+function nextPage(page){
 
-    const symbols=[
-        "●","■","◆","✦","★","✧"
-    ];
+    currentPage=page;
+
+    document
+        .querySelectorAll(".page")
+        .forEach(p=>{
+            p.classList.remove("active");
+        });
+
+    setTimeout(()=>{
+
+        const target=
+            document.getElementById("p"+page);
+
+        if(target){
+            target.classList.add("active");
+        }
+
+        updateProgress(page);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },80);
+
+}
+
+
+/* ===== FLOATING HEARTS ===== */
+
+function hearts(amount=12){
 
     for(let i=0;i<amount;i++){
-
-        const piece=
-            document.createElement("div");
-
-        piece.className="confetti";
-
-        piece.textContent=
-            symbols[
-                Math.floor(
-                    Math.random()*
-                    symbols.length
-                )
-            ];
-
-        piece.style.left=
-            Math.random()*100+"vw";
-
-        piece.style.fontSize=
-            8+Math.random()*13+"px";
-
-        piece.style.animationDuration=
-            2+Math.random()*3+"s";
-
-        piece.style.transform=
-            `rotate(${Math.random()*360}deg)`;
-
-        document.body.appendChild(piece);
-
-        setTimeout(
-            ()=>piece.remove(),
-            6000
-        );
-
-    }
-
-}
-
-
-/* HEARTS */
-
-function heartBurst(){
-
-    for(let i=0;i<14;i++){
 
         const heart=
             document.createElement("div");
 
-        heart.className="heart";
+        heart.className="floatHeart";
 
         heart.textContent=
             Math.random()>.5
-            ? "❤️"
-            : "💖";
+            ? "♡"
+            : "✦";
 
         heart.style.left=
             Math.random()*100+"vw";
 
         heart.style.fontSize=
-            18+Math.random()*25+"px";
+            15+Math.random()*24+"px";
+
+        heart.style.color=
+            Math.random()>.5
+            ? "#ff79aa"
+            : "#a98dff";
 
         heart.style.animationDuration=
             5+Math.random()*5+"s";
@@ -2045,598 +1159,39 @@ function heartBurst(){
 
 }
 
-setInterval(heartBurst,5000);
-
-
-/* START */
-
-function startParty(){
-
-    confettiBurst(170);
-    heartBurst();
-
-    setTimeout(
-        ()=>nextPage(2),
-        400
-    );
-
-}
-
-
-/* NAVIGATION */
-
-let currentPage=1;
-
-function nextPage(number){
-
-    currentPage=number;
-
-    document
-        .querySelectorAll(".page")
-        .forEach(page=>{
-            page.classList.remove("active");
-        });
-
-    setTimeout(()=>{
-
-        const target=
-            document.getElementById("p"+number);
-
-        if(target){
-            target.classList.add("active");
-        }
-
-        updateProgress(number);
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    },70);
-
-}
-
-
-/* GIFT */
-
-let giftOpened=false;
-
-function openGift(){
-
-    const gift=
-        document.getElementById("gift");
-
-    const message=
-        document.getElementById("surpriseText");
-
-    if(giftOpened){
-
-        message.classList.toggle("show");
-        return;
-
-    }
-
-    giftOpened=true;
-
-    gift.classList.add("opened");
-
-    message.classList.add("show");
-
-    confettiBurst(150);
-    heartBurst();
-
-}
-
-
-/* PHOTOS */
-
-const photoInput=
-    document.getElementById("photoInput");
-
-const gallery=
-    document.getElementById("gallery");
-
-const empty=
-    document.getElementById("empty");
-
-const dropZone=
-    document.getElementById("dropZone");
-
-let photos=
-    JSON.parse(
-        localStorage.getItem(
-            "salma_birthday_photos"
-        ) || "[]"
-    );
-
-renderPhotos();
-
-
-photoInput.addEventListener(
-    "change",
-    async function(){
-
-        await addFiles(
-            Array.from(this.files)
-        );
-
-        this.value="";
-
-    }
+setInterval(
+    ()=>hearts(4),
+    4500
 );
 
 
-/* DRAG */
+/* ===== FINAL ===== */
 
-["dragenter","dragover"].forEach(eventName=>{
+function finalMoment(){
 
-    dropZone.addEventListener(
-        eventName,
-        event=>{
-            event.preventDefault();
-            dropZone.classList.add("drag");
-        }
-    );
+    hearts(35);
 
-});
+    const duration=4500;
+    const end=Date.now()+duration;
 
-["dragleave","drop"].forEach(eventName=>{
+    function burst(){
 
-    dropZone.addEventListener(
-        eventName,
-        event=>{
-            event.preventDefault();
-            dropZone.classList.remove("drag");
-        }
-    );
+        hearts(5);
 
-});
-
-dropZone.addEventListener(
-    "drop",
-    async event=>{
-
-        await addFiles(
-            Array.from(
-                event.dataTransfer.files
-            )
-        );
-
-    }
-);
-
-
-/* ADD FILES */
-
-async function addFiles(files){
-
-    for(const file of files){
-
-        if(
-            !file.type.startsWith("image/")
-        ){
-            continue;
-        }
-
-        try{
-
-            const image=
-                await compressImage(file);
-
-            photos.push({
-
-                id:
-                    Date.now()+
-                    "_"+
-                    Math.random(),
-
-                image:image
-
-            });
-
-        }catch(error){
-
-            console.log(error);
-
+        if(Date.now()<end){
+            requestAnimationFrame(burst);
         }
 
     }
 
-    savePhotos();
-    renderPhotos();
+    burst();
 
 }
 
 
-/* COMPRESS */
+/* ===== RESTART ===== */
 
-function compressImage(file){
-
-    return new Promise(
-        (resolve,reject)=>{
-
-            const reader=
-                new FileReader();
-
-            reader.onload=event=>{
-
-                const img=new Image();
-
-                img.onload=()=>{
-
-                    let width=img.width;
-                    let height=img.height;
-
-                    const max=1400;
-
-                    if(width>max){
-
-                        height=
-                            Math.round(
-                                height*
-                                (max/width)
-                            );
-
-                        width=max;
-
-                    }
-
-                    if(height>max){
-
-                        width=
-                            Math.round(
-                                width*
-                                (max/height)
-                            );
-
-                        height=max;
-
-                    }
-
-                    const c=
-                        document.createElement(
-                            "canvas"
-                        );
-
-                    c.width=width;
-                    c.height=height;
-
-                    const context=
-                        c.getContext("2d");
-
-                    context.drawImage(
-                        img,
-                        0,
-                        0,
-                        width,
-                        height
-                    );
-
-                    resolve(
-                        c.toDataURL(
-                            "image/jpeg",
-                            .80
-                        )
-                    );
-
-                };
-
-                img.onerror=reject;
-
-                img.src=event.target.result;
-
-            };
-
-            reader.onerror=reject;
-
-            reader.readAsDataURL(file);
-
-        }
-    );
-
-}
-
-
-/* SAVE */
-
-function savePhotos(){
-
-    try{
-
-        localStorage.setItem(
-            "salma_birthday_photos",
-            JSON.stringify(photos)
-        );
-
-    }catch(error){
-
-        alert(
-            "⚠️ مساحة التخزين امتلأت، احذفي بعض الصور."
-        );
-
-    }
-
-}
-
-
-/* RENDER */
-
-function renderPhotos(){
-
-    gallery.innerHTML="";
-
-    if(photos.length===0){
-
-        empty.style.display="block";
-
-        return;
-
-    }
-
-    empty.style.display="none";
-
-    photos.forEach((photo,index)=>{
-
-        const card=
-            document.createElement("div");
-
-        card.className="photo";
-
-        const image=
-            document.createElement("img");
-
-        image.src=photo.image;
-        image.alt="ذكرى "+(index+1);
-
-        const tools=
-            document.createElement("div");
-
-        tools.className="photoTools";
-
-        const deleteButton=
-            document.createElement("button");
-
-        deleteButton.textContent="🗑️";
-
-        deleteButton.onclick=event=>{
-
-            event.stopPropagation();
-
-            deletePhoto(photo.id);
-
-        };
-
-        const fullButton=
-            document.createElement("button");
-
-        fullButton.textContent="🔍";
-
-        fullButton.onclick=event=>{
-
-            event.stopPropagation();
-
-            openViewer(photo.image);
-
-        };
-
-        tools.appendChild(deleteButton);
-        tools.appendChild(fullButton);
-
-        card.appendChild(image);
-        card.appendChild(tools);
-
-        card.onclick=()=>{
-            openViewer(photo.image);
-        };
-
-        gallery.appendChild(card);
-
-    });
-
-}
-
-
-/* DELETE */
-
-function deletePhoto(id){
-
-    if(
-        !confirm(
-            "متأكد إنك عايز تحذف الصورة؟"
-        )
-    ){
-        return;
-    }
-
-    photos=
-        photos.filter(
-            photo=>photo.id!==id
-        );
-
-    savePhotos();
-    renderPhotos();
-
-}
-
-
-function deleteAllPhotos(){
-
-    if(photos.length===0){
-
-        alert("مفيش صور للحذف ❤️");
-
-        return;
-
-    }
-
-    if(
-        !confirm(
-            "هتحذف كل صور الذكريات. متأكد؟"
-        )
-    ){
-        return;
-    }
-
-    photos=[];
-
-    savePhotos();
-    renderPhotos();
-
-}
-
-
-/* VIEWER */
-
-function openViewer(src){
-
-    document
-        .getElementById("viewerImg")
-        .src=src;
-
-    document
-        .getElementById("viewer")
-        .classList.add("show");
-
-}
-
-
-function closeViewer(event){
-
-    if(
-        event &&
-        event.target.id!=="viewer"
-    ){
-        return;
-    }
-
-    document
-        .getElementById("viewer")
-        .classList.remove("show");
-
-}
-
-
-document.addEventListener(
-    "keydown",
-    event=>{
-
-        if(event.key==="Escape"){
-
-            document
-                .getElementById("viewer")
-                .classList.remove("show");
-
-        }
-
-    }
-);
-
-
-/* FINAL PARTY */
-
-function finishParty(){
-
-    confettiBurst(260);
-
-    heartBurst();
-
-    setTimeout(
-        ()=>{
-            confettiBurst(180);
-        },
-        700
-    );
-
-    setTimeout(
-        ()=>{
-            heartBurst();
-        },
-        1300
-    );
-
-}
-
-
-/* SHARE */
-
-async function sharePage(){
-
-    const status=
-        document.getElementById(
-            "shareStatus"
-        );
-
-    const shareData={
-        title:"🎂 عيد ميلاد سلمى",
-        text:
-            "🎉 مفاجأة عيد ميلاد سلمى ❤️",
-        url:location.href
-    };
-
-    if(
-        navigator.share
-    ){
-
-        try{
-
-            await navigator.share(
-                shareData
-            );
-
-            status.textContent=
-                "❤️ تم فتح المشاركة";
-
-        }catch(error){
-
-            if(error.name!=="AbortError"){
-
-                status.textContent=
-                    "حصلت مشكلة بسيطة في المشاركة.";
-
-            }
-
-        }
-
-    }else{
-
-        try{
-
-            await navigator.clipboard.writeText(
-                location.href
-            );
-
-            status.textContent=
-                "✅ تم نسخ رابط الموقع";
-
-        }catch(error){
-
-            status.textContent=
-                "انسخي رابط الصفحة من المتصفح ❤️";
-
-        }
-
-    }
-
-}
-
-
-/* AGAIN */
-
-function partyAgain(){
-
-    giftOpened=false;
-
-    const gift=
-        document.getElementById("gift");
-
-    const message=
-        document.getElementById("surpriseText");
-
-    gift.classList.remove("opened");
-    message.classList.remove("show");
-
-    confettiBurst(160);
+function restart(){
 
     nextPage(1);
 
